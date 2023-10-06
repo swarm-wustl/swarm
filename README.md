@@ -5,3 +5,11 @@ Placed in a maze, a swarm of small robots will work together to find resources a
 ## How to Install
 
 ## How to Run
+
+## How to Use
+
+The body of the robots can be 3D printed with its associated file. A list of the necessary electronics can be found here:
+
+## Credits
+
+WashU Robotics
