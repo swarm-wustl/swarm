@@ -151,6 +151,7 @@
     </xacro:inertial_sphere>
   </link>
 
+  <!-- No friction -->
   <gazebo reference="caster_wheel">
     <material>Gazebo/Red</material>
     <mu1>0.001</mu1>
