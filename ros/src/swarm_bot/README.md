@@ -12,7 +12,7 @@ Contains files to describe and simulate the robot
 After installing ROS 2, also install xacro ans the joint state publisher GUI.
 
 ```
-sudo apt install ros-humble-xacro ros-humble-joint-state-publisher-gui
+sudo apt install ros-humble-xacro ros-humble-joint-state-publisher-gui ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gazebo-ros2-control
 ```
 
 ## To Run
