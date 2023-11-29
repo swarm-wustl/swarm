@@ -11,8 +11,6 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-
-
     # Include the robot_state_publisher launch file, provided by our own package. Force sim time to be enabled
 
     package_name='swarm_bot'
@@ -21,6 +19,12 @@ def generate_launch_description():
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','rsp.launch.py'
                     )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
+    )
+
+    joystick = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','joystick.launch.py'
+                )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
     # Include the Gazebo launch file, provided by the gazebo_ros package
@@ -53,8 +57,10 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rsp,
+        joystick,
         gazebo,
         spawn_entity,
         diff_drive_spawner,
         joint_broad_spawner,
     ])
+

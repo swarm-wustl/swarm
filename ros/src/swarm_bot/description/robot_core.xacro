@@ -102,7 +102,7 @@
     <parent link="base_link"/>
     <child link="right_wheel"/>
     <origin xyz="0 -0.122 0" rpy="${pi/2} 0 0"/>
-    <axis xyz="0 0 1"/>
+    <axis xyz="0 0 -1"/>
   </joint>
 
   <link name="right_wheel">
