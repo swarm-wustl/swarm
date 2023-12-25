@@ -5,25 +5,54 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+
 find_package(image_transport REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(OpenCV REQUIRED)
 
-# include_directories(${sensor_msgs_INCLUDE_DIRS})
+find_package(Eigen3 REQUIRED)
+find_package(Pangolin REQUIRED)
 
-add_executable(talker src/publisher_member_function.cpp)
-add_executable(listener src/subscriber_member_function.cpp)
-ament_target_dependencies(talker rclcpp std_msgs)
-ament_target_dependencies(listener rclcpp std_msgs sensor_msgs image_transport cv_bridge OpenCV)
+include_directories(
+  ~/Dev/ORB_SLAM3/include
+  ~/Dev/ORB_SLAM3/include/CameraModels
+  ~/Dev/ORB_SLAM3/include/ThirdParty/Sophus
+  ~/Dev/ORB_SLAM3/ThirdParty/Sophus
+  ~/Dev/ORB_SLAM3/ThirdParty/DBoW2
+  ${EIGEN3_INCLUDE_DIR}
+  ${Pangolin_INCLUDE_DIRS}
+)
+
+add_executable(mono src/mono_orb_slam3_node.cpp)
+ament_target_dependencies(mono rclcpp std_msgs nav_msgs sensor_msgs image_transport cv_bridge OpenCV)
+
+link_directories(
+  ~/Dev/ORB_SLAM3/Thirdparty/Pangolin/build
+)
+
+target_link_libraries(mono
+  ${OpenCV_LIBS}
+  ${EIGEN3_LIBS}
+  ${Pangolin_LIBRARIES}
+  ~/Dev/ORB_SLAM3/Thirdparty/DBoW2/lib/libDBoW2.so
+  ~/Dev/ORB_SLAM3/Thirdparty/g2o/lib/libg2o.so
+  ~/Dev/ORB_SLAM3/lib/libORB_SLAM3.so
+  -lboost_system
+  -lboost_serialization
+  -lcrypto
+  -lGL  # Link against OpenGL
+  -lGLU  # Link against GLU
+)
+
+set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:~/ORB_SLAM3/Thirdparty/Pangolin/build")
 
 install(TARGETS
-  talker
-  listener
+  mono
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
