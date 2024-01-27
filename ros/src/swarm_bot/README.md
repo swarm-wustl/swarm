@@ -93,7 +93,7 @@ To run ORB_SLAM3, first launch the simulation as described above (use the `vslam
 ros2 run ros2orbslam3 mono
 ```
 
-If the annotated video feed does not appear, try moving the robot around to a place with more detail (e.g. towards a tree).
+If the annotated video feed does not appear, try moving the robot around to a place with more detail (e.g. near a wall).
 
 Support for stereo, RGB-D, and IMU variants is not yet implemented.
 

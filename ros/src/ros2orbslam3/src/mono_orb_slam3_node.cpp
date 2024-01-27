@@ -5,6 +5,7 @@
 #include "sensor_msgs/image_encodings.hpp"
 #include "sensor_msgs/msg/point_cloud2.hpp"
 #include "sensor_msgs/point_cloud2_iterator.hpp"
+#include "geometry_msgs/msg/pose_stamped.hpp"
 #include "nav_msgs/msg/odometry.hpp"
 
 #include "image_transport/image_transport.hpp"
@@ -24,7 +25,7 @@ class MonoOrbSlam3Node : public rclcpp::Node {
     image_transport::Publisher pub_;
     
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr point_cloud_publisher_;
-    rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odometry_publisher_;
+    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr pose_publisher_;
 
     ORB_SLAM3::System* SLAM;
 
@@ -32,7 +33,7 @@ class MonoOrbSlam3Node : public rclcpp::Node {
       // Throttle to 10 FPS
       auto now = std::chrono::high_resolution_clock::now();
       if (now - last_callback < std::chrono::milliseconds(1000 / 10)) {
-        RCLCPP_INFO(this->get_logger(), "Throttling");
+        // RCLCPP_INFO(this->get_logger(), "Throttling");
         return;
       }
       last_callback = now;
@@ -60,8 +61,8 @@ class MonoOrbSlam3Node : public rclcpp::Node {
 
       // Feed image to ORB_SLAM3
       double tframe = msg->header.stamp.sec + msg->header.stamp.nanosec / 1000000000.0;
-      RCLCPP_INFO(this->get_logger(), "tframe: %f", tframe);
-      SLAM->TrackMonocular(cv_ptr->image, tframe);
+      // RCLCPP_INFO(this->get_logger(), "tframe: %f", tframe);
+      // SLAM->TrackMonocular(cv_ptr->image, tframe);
 
       Sophus::SE3f pose = SLAM->TrackMonocular(cv_ptr->image, tframe);
       int state = SLAM->GetTrackingState();
@@ -72,72 +73,80 @@ class MonoOrbSlam3Node : public rclcpp::Node {
       Eigen::Vector3f position = pose.translation();
       Eigen::Quaternionf orientation = pose.unit_quaternion();
 
-      RCLCPP_INFO(this->get_logger(), "position: %f, %f, %f", position.x(), position.y(), position.z());
-      RCLCPP_INFO(this->get_logger(), "orientation: %f, %f, %f, %f", orientation.x(), orientation.y(), orientation.z(), orientation.w());
-
-      // Publish odometry (don't think this is working)
-      nav_msgs::msg::Odometry::SharedPtr odometry_msg = std::make_shared<nav_msgs::msg::Odometry>();
-      odometry_msg->header.frame_id = "map";
-      odometry_msg->header.stamp = this->now();
-      odometry_msg->child_frame_id = "camera_link";
-      odometry_msg->pose.pose.position.x = position.x();
-      odometry_msg->pose.pose.position.y = position.y();
-      odometry_msg->pose.pose.position.z = position.z();
-      odometry_msg->pose.pose.orientation.x = orientation.x();
-      odometry_msg->pose.pose.orientation.y = orientation.y();
-      odometry_msg->pose.pose.orientation.z = orientation.z();
-      odometry_msg->pose.pose.orientation.w = orientation.w();
-
-      odometry_publisher_->publish(*odometry_msg);
-
-
-      // for (int i = 0; i < vMPs.size(); i++) {
-      //   Eigen::Vector3f world_pos = vMPs[i]->GetWorldPos();
-      //   RCLCPP_INFO(this->get_logger(), "vMPs[%d]: %f, %f, %f", i, world_pos.x(), world_pos.y(), world_pos.z());
-      // }
-
-      // Create PointCloud2
-      // sensor_msgs::msg::PointCloud2::SharedPtr point_cloud_msg = std::make_shared<sensor_msgs::msg::PointCloud2>();
-      // point_cloud_msg->header.frame_id = "map";
-      // point_cloud_msg->header.stamp = this->now();
-      // point_cloud_msg->height = 1;
-      // point_cloud_msg->width = vMPs.size();
-      // point_cloud_msg->is_bigendian = false;
-      // point_cloud_msg->is_dense = false;
-      //
-      // sensor_msgs::PointCloud2Modifier modifier(*point_cloud_msg);
-      // modifier.setPointCloud2Fields(3, "x", 1, sensor_msgs::msg::PointField::FLOAT32,
-      //     "y", 1, sensor_msgs::msg::PointField::FLOAT32,
-      //     "z", 1, sensor_msgs::msg::PointField::FLOAT32);
-      //
-      // sensor_msgs::PointCloud2Iterator<float> iter_x(*point_cloud_msg, "x");
-      // sensor_msgs::PointCloud2Iterator<float> iter_y(*point_cloud_msg, "y");
-      // sensor_msgs::PointCloud2Iterator<float> iter_z(*point_cloud_msg, "z");
-      //
-      // // Fill message
-      // for (int i = 0; i < vMPs.size(); i++) {
-      //   *iter_x = vMPs[i]->GetWorldPos().x();
-      //   *iter_y = vMPs[i]->GetWorldPos().y();
-      //   *iter_z = vMPs[i]->GetWorldPos().z();
-      //   ++iter_x; ++iter_y; ++iter_z;
-      // }
+      // Publish pose as geometry_msgs/PoseStamped Message
+      geometry_msgs::msg::PoseStamped::SharedPtr pose_msg = std::make_shared<geometry_msgs::msg::PoseStamped>();
+      pose_msg->header.frame_id = "map";
+      pose_msg->header.stamp = this->now();
+      pose_msg->pose.position.x = position.x();
+      pose_msg->pose.position.y = position.y();
+      pose_msg->pose.position.z = position.z();
+      pose_msg->pose.orientation.x = orientation.x();
+      pose_msg->pose.orientation.y = orientation.y();
+      pose_msg->pose.orientation.z = orientation.z();
+      pose_msg->pose.orientation.w = orientation.w();
 
       // Publish
-      // point_cloud_publisher_->publish(*point_cloud_msg);
+      pose_publisher_->publish(*pose_msg);
 
-      // RCLCPP_INFO(this->get_logger(), "pose: %f, %f, %f, %f, %f, %f, %f, %f, %f", pose[0], pose[1], pose[2], pose[3], pose[4], pose[5], pose[6], pose[7], pose[8]);
+      // Publish sensor_msgs/PointCloud2 Message
+      int num_points = vMPs.size();
+      sensor_msgs::msg::PointCloud2::SharedPtr point_cloud_msg = std::make_shared<sensor_msgs::msg::PointCloud2>();
+      point_cloud_msg->header.frame_id = "map";
+      point_cloud_msg->header.stamp = this->now();
+      point_cloud_msg->height = 1;
+      point_cloud_msg->width = num_points;
+      point_cloud_msg->is_bigendian = false;
+      point_cloud_msg->is_dense = false;
+      RCLCPP_INFO(this->get_logger(), "num_points: %d", num_points);
 
-      // RCLCPP_INFO(this->get_logger(), "pose: %f", pose);
-      // RCLCPP_INFO(this->get_logger(), "state: %d", state);
-      // RCLCPP_INFO(this->get_logger(), "vMPs.size(): %d", vMPs.size());
-      // RCLCPP_INFO(this->get_logger(), "vKeys.size(): %d", vKeys.size());
+      sensor_msgs::PointCloud2Modifier modifier(*point_cloud_msg);
+      modifier.setPointCloud2Fields(3,
+          "x", 1, sensor_msgs::msg::PointField::FLOAT32,
+          "y", 1, sensor_msgs::msg::PointField::FLOAT32,
+          "z", 1, sensor_msgs::msg::PointField::FLOAT32
+      );
+      modifier.resize(num_points);
 
-      // for (int i = 0; i < vKeys.size(); i++) {
-      //   RCLCPP_INFO(this->get_logger(), "vKeys[%d]: %f, %f", i, vKeys[i].pt.x, vKeys[i].pt.y);
-      // }
+      sensor_msgs::PointCloud2Iterator<float> iter_x(*point_cloud_msg, "x");
+      sensor_msgs::PointCloud2Iterator<float> iter_y(*point_cloud_msg, "y");
+      sensor_msgs::PointCloud2Iterator<float> iter_z(*point_cloud_msg, "z");
 
-      // Convert back to ROS message
+      int num_points_published = 0;
+      for (int i = 0; i < num_points; i++) {
+        if (vMPs[i] == NULL) {
+          continue;
+        }
 
+        RCLCPP_INFO(this->get_logger(), "i: %d", i);
+        bool is_bad = vMPs[i]->isBad();
+        RCLCPP_INFO(this->get_logger(), "is_bad: %d", is_bad);
+        if (is_bad) {
+          continue;
+        }
+
+        ORB_SLAM3::MapPoint* mp = vMPs[i];
+        Eigen::Vector3f world_pos = mp->GetWorldPos();
+
+        *iter_x = world_pos.x();
+        *iter_y = world_pos.y();
+        *iter_z = world_pos.z();
+        ++iter_x;
+        ++iter_y;
+        ++iter_z;
+        num_points_published++;
+      }
+
+      point_cloud_publisher_->publish(*point_cloud_msg);
+
+      // double roll, pitch, yaw;
+      // Eigen::Matrix3f rotation_matrix = pose.rotationMatrix();
+      // Eigen::Vector3f euler_angles = rotation_matrix.eulerAngles(1, 2, 3);
+      // yaw = euler_angles[0];
+      // pitch = euler_angles[1];
+      // roll = euler_angles[2];
+      // RCLCPP_INFO(this->get_logger(), "yaw: %f, pitch: %f, roll: %f", yaw, pitch, roll);
+      // RCLCPP_INFO(this->get_logger(), "position: %f, %f, %f", position.x(), position.y(), position.z());
+      // RCLCPP_INFO(this->get_logger(), "orientation: %f, %f, %f, %f", orientation.x(), orientation.y(), orientation.z(), orientation.w());
 
       // Display
       cv::imshow(OPENCV_WINDOW, cv_ptr->image);
@@ -159,7 +168,7 @@ class MonoOrbSlam3Node : public rclcpp::Node {
         std::bind(&MonoOrbSlam3Node::imageCallback, this, std::placeholders::_1), "raw", custom_qos);
 
     point_cloud_publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("test_output_point_cloud", 10);
-    odometry_publisher_ = this->create_publisher<nav_msgs::msg::Odometry>("test_output_odometry", 10);
+    pose_publisher_ = this->create_publisher<geometry_msgs::msg::PoseStamped>("test_output_pose", 10);
 
     RCLCPP_INFO(this->get_logger(), "MonoOrbSlam3Node initialized");
     RCLCPP_INFO(this->get_logger(), "ORB_SMAM3::System::MONOCULAR: %d", ORB_SLAM3::System::MONOCULAR);
