@@ -117,9 +117,7 @@ class MonoOrbSlam3Node : public rclcpp::Node {
           continue;
         }
 
-        RCLCPP_INFO(this->get_logger(), "i: %d", i);
         bool is_bad = vMPs[i]->isBad();
-        RCLCPP_INFO(this->get_logger(), "is_bad: %d", is_bad);
         if (is_bad) {
           continue;
         }
