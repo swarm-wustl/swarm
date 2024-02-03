@@ -35,7 +35,7 @@ add_executable(mono src/mono_orb_slam3_node.cpp)
 ament_target_dependencies(mono rclcpp std_msgs nav_msgs sensor_msgs image_transport cv_bridge OpenCV)
 
 add_executable(video_reader src/video_reader.cpp)
-ament_target_dependencies(video_reader rclcpp std_msgs cv_bridge OpenCV)
+ament_target_dependencies(video_reader rclcpp std_msgs sensor_msgs cv_bridge OpenCV)
 
 
 link_directories(
