@@ -1,6 +1,17 @@
 README RASPBERRY PI
 
 
+Host Name: swarmpi-one
+
+User Name: swarmpi-one 
+
+Instructions to SSH: 
+
+ssh swarmpi-one@swarmpi-one 
+username: swarmpi-one
+password: 1234 
+
+
 % HELPUL LINKS: 
 ______________________________________________________________________________
 % Raspberry Pi related hardware links: 
