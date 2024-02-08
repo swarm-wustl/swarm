@@ -85,6 +85,14 @@ These errors likely indicate an issue with the installation of ORB_SLAM3 or its 
 
 - `fatal error: Eigen/Dense: No such file or directory`. If Eigen is installed, you may need to create a symlink as follows: `sudo ln -sf /usr/local/include/eigen3/Eigen /usr/local/include/Eigen`
 - `/usr/local/include/pangolin/gl/gl.hpp:335:5: error: ‘glCopyImageSubDataNV’ was not declared in this scope` (and similar Pangolin errors): First, ensure that you are building version 0.6 of Pangolin with `git checkout v0.6`. Then add the line `#include <limits>` to the top of `colour.h`. Remember that the Pangolin repo should be installed to `~/Dev/Pangolin`.
+- `libpango_windowing.so: cannot open shared object file: No such file or directory`. Run `sudo ldconfig` to configure dynamic linker runtime bindings.
+- `fatal error: sophus/s3.hpp: No such file or directory.` Run the following commands:
+```
+cd ~/Dev/ORB_SLAM3/Thirdparty/Sophus
+cmake .
+make
+sudo make install
+```
 
 ## Run
 To run ORB_SLAM3, first launch the simulation as described above (use the `vslam_env.world` environment, as it contains more detailed graphics for ORB SLAM3 to recognize). Then, run the following command:
