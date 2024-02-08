@@ -32,7 +32,7 @@ add_executable(mono src/mono_orb_slam3_node.cpp)
 ament_target_dependencies(mono rclcpp std_msgs nav_msgs sensor_msgs image_transport cv_bridge OpenCV)
 
 add_executable(grid_mapper src/grid_mapper.cpp)
-ament_target_dependencies(grid_mapper rclcpp std_msgs sensor_msgs)
+ament_target_dependencies(grid_mapper rclcpp std_msgs sensor_msgs geometry_msgs OpenCV)
 
 link_directories(
   ~/Dev/ORB_SLAM3/Thirdparty/Pangolin/build
