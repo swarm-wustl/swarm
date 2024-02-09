@@ -34,6 +34,9 @@ include_directories(
 add_executable(mono src/mono_orb_slam3_node.cpp)
 ament_target_dependencies(mono rclcpp std_msgs nav_msgs sensor_msgs image_transport cv_bridge OpenCV)
 
+add_executable(grid_mapper src/grid_mapper.cpp)
+ament_target_dependencies(grid_mapper rclcpp std_msgs sensor_msgs geometry_msgs OpenCV)
+
 add_executable(video_reader src/video_reader.cpp)
 ament_target_dependencies(video_reader rclcpp std_msgs sensor_msgs cv_bridge OpenCV)
 
@@ -56,12 +59,17 @@ target_link_libraries(mono
   -lGLU  # Link against GLU
 )
 
+target_link_libraries(grid_mapper)
 target_link_libraries(video_reader)
 
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:~/ORB_SLAM3/Thirdparty/Pangolin/build")
 
 install(TARGETS
   mono
+  DESTINATION lib/${PROJECT_NAME})
+
+install(TARGETS
+  grid_mapper
   DESTINATION lib/${PROJECT_NAME})
 
 install(TARGETS

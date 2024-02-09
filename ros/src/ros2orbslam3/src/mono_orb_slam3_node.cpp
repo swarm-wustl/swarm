@@ -21,9 +21,7 @@ class MonoOrbSlam3Node : public rclcpp::Node {
     const std::string OPENCV_WINDOW = "Image window";
     std::chrono::time_point<std::chrono::high_resolution_clock> last_callback;
 
-    image_transport::Subscriber sub_;
-    image_transport::Publisher pub_;
-    
+    image_transport::Subscriber image_sub_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr point_cloud_publisher_;
     rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr pose_publisher_;
 
@@ -33,7 +31,6 @@ class MonoOrbSlam3Node : public rclcpp::Node {
       // Throttle to 10 FPS
       auto now = std::chrono::high_resolution_clock::now();
       if (now - last_callback < std::chrono::milliseconds(1000 / 10)) {
-        // RCLCPP_INFO(this->get_logger(), "Throttling");
         return;
       }
       last_callback = now;
@@ -61,13 +58,8 @@ class MonoOrbSlam3Node : public rclcpp::Node {
 
       // Feed image to ORB_SLAM3
       double tframe = msg->header.stamp.sec + msg->header.stamp.nanosec / 1000000000.0;
-      // RCLCPP_INFO(this->get_logger(), "tframe: %f", tframe);
-      // SLAM->TrackMonocular(cv_ptr->image, tframe);
-
       Sophus::SE3f pose = SLAM->TrackMonocular(cv_ptr->image, tframe);
-      int state = SLAM->GetTrackingState();
       vector<ORB_SLAM3::MapPoint*> vMPs = SLAM->GetTrackedMapPoints();
-      vector<cv::KeyPoint> vKeys = SLAM->GetTrackedKeyPointsUn();
 
       // Get position
       Eigen::Vector3f position = pose.translation();
@@ -85,10 +77,12 @@ class MonoOrbSlam3Node : public rclcpp::Node {
       pose_msg->pose.orientation.z = orientation.z();
       pose_msg->pose.orientation.w = orientation.w();
 
-      // Publish
+      // Publish pose
       pose_publisher_->publish(*pose_msg);
 
       // Publish sensor_msgs/PointCloud2 Message
+      std::vector<ORB_SLAM3::MapPoint*> vpMPs = SLAM->GetTrackedMapPoints();
+
       int num_points = vMPs.size();
       sensor_msgs::msg::PointCloud2::SharedPtr point_cloud_msg = std::make_shared<sensor_msgs::msg::PointCloud2>();
       point_cloud_msg->header.frame_id = "map";
@@ -97,7 +91,6 @@ class MonoOrbSlam3Node : public rclcpp::Node {
       point_cloud_msg->width = num_points;
       point_cloud_msg->is_bigendian = false;
       point_cloud_msg->is_dense = false;
-      RCLCPP_INFO(this->get_logger(), "num_points: %d", num_points);
 
       sensor_msgs::PointCloud2Modifier modifier(*point_cloud_msg);
       modifier.setPointCloud2Fields(3,
@@ -105,26 +98,43 @@ class MonoOrbSlam3Node : public rclcpp::Node {
           "y", 1, sensor_msgs::msg::PointField::FLOAT32,
           "z", 1, sensor_msgs::msg::PointField::FLOAT32
       );
-      modifier.resize(num_points);
+
+      // Need to get the map points that are not bad and not outliers
+      // Must be done first so that we can resize the point cloud message
+      int num_points_published = 0;
+      std::vector<ORB_SLAM3::MapPoint*> map_points_to_publish;
+      int num_map_points = vpMPs.size();
+      for (int i = 0; i < num_map_points; i++) {
+        ORB_SLAM3::MapPoint* mp = vpMPs[i];
+        if (mp == NULL) {
+          continue;
+        }
+
+        bool is_bad = mp->isBad();
+        if (is_bad) {
+          RCLCPP_INFO(this->get_logger(), "is_bad: %d", is_bad);
+          continue;
+        }
+
+        // if (vbOutliers[i]) {
+        //   RCLCPP_INFO(this->get_logger(), "is_outlier: %d", vbOutliers[i]);
+        //   continue;
+        // }
+
+        map_points_to_publish.push_back(mp);
+      }
+
+      // We are incresing the size of the point cloud by 1 BECAUSE we are adding the camera position to the point cloud
+      // TODO: make into compound message that includes both camera position (pose) and map points
+      modifier.resize(map_points_to_publish.size() + 1);
 
       sensor_msgs::PointCloud2Iterator<float> iter_x(*point_cloud_msg, "x");
       sensor_msgs::PointCloud2Iterator<float> iter_y(*point_cloud_msg, "y");
       sensor_msgs::PointCloud2Iterator<float> iter_z(*point_cloud_msg, "z");
 
-      int num_points_published = 0;
-      for (int i = 0; i < num_points; i++) {
-        if (vMPs[i] == NULL) {
-          continue;
-        }
-
-        RCLCPP_INFO(this->get_logger(), "i: %d", i);
-        bool is_bad = vMPs[i]->isBad();
-        RCLCPP_INFO(this->get_logger(), "is_bad: %d", is_bad);
-        if (is_bad) {
-          continue;
-        }
-
-        ORB_SLAM3::MapPoint* mp = vMPs[i];
+      int num_points_to_publish = map_points_to_publish.size();
+      for (int i = 0; i < num_points_to_publish; i++) {
+        ORB_SLAM3::MapPoint* mp = map_points_to_publish[i];
         Eigen::Vector3f world_pos = mp->GetWorldPos();
 
         *iter_x = world_pos.x();
@@ -135,6 +145,14 @@ class MonoOrbSlam3Node : public rclcpp::Node {
         ++iter_z;
         num_points_published++;
       }
+      RCLCPP_INFO(this->get_logger(), "num_points_published: %d", num_points_published);
+
+      // This is the hack that we are using to publish pose information along with the point cloud
+      // We add 777 to make sure that we don't accidentally use this as a map point elsewhere (it's really bad)
+      // TODO: write this as a composite message
+      *iter_x = position.x() + 777;
+      *iter_y = position.y() + 777;
+      *iter_z = position.z() + 777;
 
       point_cloud_publisher_->publish(*point_cloud_msg);
 
@@ -151,27 +169,22 @@ class MonoOrbSlam3Node : public rclcpp::Node {
       // Display
       cv::imshow(OPENCV_WINDOW, cv_ptr->image);
       cv::waitKey(3);
-
-      // Publish
-      pub_.publish(cv_ptr->toImageMsg());
     }
 
   public:
-    MonoOrbSlam3Node() : Node("image_converter")
+    MonoOrbSlam3Node() : Node("mono_orb_slam3_node")
   {
     // Open demo window that will show output image
     cv::namedWindow(OPENCV_WINDOW);
 
     rmw_qos_profile_t custom_qos = rmw_qos_profile_default;
-    pub_ = image_transport::create_publisher(this, "test_output_image", custom_qos);
-    sub_ = image_transport::create_subscription(this, "camera/image_raw",
+    image_sub_ = image_transport::create_subscription(this, "camera/image_raw",
         std::bind(&MonoOrbSlam3Node::imageCallback, this, std::placeholders::_1), "raw", custom_qos);
 
     point_cloud_publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("test_output_point_cloud", 10);
     pose_publisher_ = this->create_publisher<geometry_msgs::msg::PoseStamped>("test_output_pose", 10);
 
     RCLCPP_INFO(this->get_logger(), "MonoOrbSlam3Node initialized");
-    RCLCPP_INFO(this->get_logger(), "ORB_SMAM3::System::MONOCULAR: %d", ORB_SLAM3::System::MONOCULAR);
 
     // TODO: get vocabulary_path and settings_path from ROS2 parameters
     // For now, manually edit these paths to be your username
