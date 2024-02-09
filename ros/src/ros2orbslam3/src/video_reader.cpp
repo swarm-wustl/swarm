@@ -15,6 +15,7 @@
 using namespace cv;
 using namespace cv_bridge;
 using namespace std::chrono_literals;
+using namespace std::chrono;
 
 using std::string;
 
@@ -71,15 +72,23 @@ class VideoReaderNode : public rclcpp::Node {
     public:
         VideoReaderNode() : Node("video_reader"), count_(0)
         {
-            filename = "./src/ros2orbslam3/src/IMG_3762.mov";
-            capture = VideoCapture(filename);
             frame_number = 0;
+
+            this->declare_parameter<string>("video_file_name", "null");
+            filename = "./src/ros2orbslam3/src/" + this->get_parameter("video_file_name").as_string();
+
+            capture = VideoCapture(filename);
+
+            int frame_rate = capture.get(cv::CAP_PROP_FPS);
+
+            // Convert float (1 / fps) into std::chrono::milliseconds
+            duration<float> dur = round<nanoseconds>(duration<float>{1.0f / frame_rate});
+            milliseconds delay = duration_cast<milliseconds>(dur);
 
             publisher_ = this->create_publisher<sensor_msgs::msg::Image>("camera/image_raw", 10);
             timer_ = this->create_wall_timer(
-                500ms, 
-                std::bind(&VideoReaderNode::something, this
-                )
+                delay, 
+                std::bind(&VideoReaderNode::something, this)
             );
         }
 };
@@ -94,12 +103,14 @@ int main(int argc, char * argv[])
 
 /*
 *MAKE SURE YOU ARE IN ros DIRECTORY, NOT NESTED IN src
-source install/setup.bash
-ros2 run ros2orbslam3 video_reader
+$ source install/setup.bash
+$ ros2 run ros2orbslam3 video_reader --ros-args -p "video_file_name:=IMG_3762.mov"
 
-ros2 topic echo camera/image_raw
+$ ros2 topic echo camera/image_raw
 
-colcon build --symlink-install --packages-select ros2orbslam3
+$ colcon build --symlink-install --packages-select ros2orbslam3
+
+$ rviz2 (after source install)
 
 https://stackoverflow.com/questions/13709274/reading-video-from-file-opencv
 https://stackoverflow.com/questions/27080085/how-to-convert-a-cvmat-into-a-sensor-msgs-in-ros
