@@ -24,7 +24,7 @@ args = parser.parse_args()
 GPIO.setwarnings(False)
 
 # Set up GPIO pins
-motor_pins = [17, 22, 23, 24]  # 17 & 22 pins for 'front' motors, 23 & 24 for back motors.  
+motor_pins = [4, 17, 27, 22]  # 17 & 22 pins for 'front' motors, 23 & 24 for back motors.  
 GPIO.setmode(GPIO.BCM)  # Use Broadcom pin-numbering scheme
 for pin in motor_pins:
     GPIO.setup(pin, GPIO.OUT)
