@@ -12,12 +12,8 @@
 #include <sensor_msgs/image_encodings.hpp>
 #include <cv_bridge/cv_bridge.h>
 
-using namespace cv;
-using namespace cv_bridge;
-using namespace std::chrono_literals;
+using namespace std;
 using namespace std::chrono;
-
-using std::string;
 
 class VideoReaderNode : public rclcpp::Node {
     private:
@@ -26,33 +22,20 @@ class VideoReaderNode : public rclcpp::Node {
         size_t count_;
 
         string filename;
-        VideoCapture capture;
-        unsigned int frame_number;
-        Mat frame;
+        unsigned int frame_number = 0;
+        cv::VideoCapture capture;
+        cv::Mat frame;
 
-        /*void timer_callback()
+        void timer_callback()
         {
-            auto message = std_msgs::msg::String();
-            message.data = "Hello, world! " + std::to_string(count_++);
-            RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
-            publisher_->publish(message);
-        }*/
-
-        void something()
-        {
-            if (!capture.isOpened()){
-                RCLCPP_INFO(this->get_logger(), "Capture failed -- returning from callback...");
-                return;
-            }
-
             capture >> frame;
 
             if (frame.empty()) {
-                RCLCPP_INFO(this->get_logger(), "Empty frame -- returning from callback...");
+                RCLCPP_WARN(this->get_logger(), "Empty frame -- returning from callback...");
                 return;
             }
 
-            CvImage frame_bridge;
+            cv_bridge::CvImage frame_bridge;
             sensor_msgs::msg::Image frame_msg;
 
             std_msgs::msg::Header header;
@@ -61,7 +44,7 @@ class VideoReaderNode : public rclcpp::Node {
 
             frame_number++;
 
-            frame_bridge = cv_bridge::CvImage(header, sensor_msgs::image_encodings::RGB8, frame);
+            frame_bridge = cv_bridge::CvImage(header, sensor_msgs::image_encodings::BGR8, frame);
             frame_bridge.toImageMsg(frame_msg);
 
             RCLCPP_INFO(this->get_logger(), "Publishing frame %d", frame_number);
@@ -72,23 +55,41 @@ class VideoReaderNode : public rclcpp::Node {
     public:
         VideoReaderNode() : Node("video_reader"), count_(0)
         {
-            frame_number = 0;
+            auto filename_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
+            filename_param_desc.description = "Name of the video file to read";
+            this->declare_parameter<string>("video_file_name", "null", filename_param_desc);
 
-            this->declare_parameter<string>("video_file_name", "null");
+            auto frame_rate_multiplier_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
+            frame_rate_multiplier_param_desc.description = "Multiplier for the frame rate. 0.5 -> half frame rate";
+            this->declare_parameter<double>("frame_rate_multiplier", 1.0, frame_rate_multiplier_param_desc);
+
+            auto topic_name_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
+            topic_name_param_desc.description = "Name of the topic to publish the frames to";
+            this->declare_parameter<string>("topic_name", "camera/image_raw", topic_name_param_desc);
+
+            // Get filename and open it
             filename = "./src/ros2orbslam3/src/" + this->get_parameter("video_file_name").as_string();
 
-            capture = VideoCapture(filename);
+            if (access(filename.c_str(), F_OK) == -1) {
+                RCLCPP_FATAL(this->get_logger(), "File does not exist: %s", filename.c_str());
+                return;
+            }
 
-            int frame_rate = capture.get(cv::CAP_PROP_FPS);
-
-            // Convert float (1 / fps) into std::chrono::milliseconds
+            capture = cv::VideoCapture(filename);
+            if (!capture.isOpened()) {
+                RCLCPP_FATAL(this->get_logger(), "Failed to open video file: %s", filename.c_str());
+                return;
+            }
+            
+            // Convert float (1 / frame_rate) into std::chrono::milliseconds
+            int frame_rate = capture.get(cv::CAP_PROP_FPS) * this->get_parameter("frame_rate_multiplier").as_double();
             duration<float> dur = round<nanoseconds>(duration<float>{1.0f / frame_rate});
             milliseconds delay = duration_cast<milliseconds>(dur);
 
-            publisher_ = this->create_publisher<sensor_msgs::msg::Image>("camera/image_raw", 10);
+            publisher_ = this->create_publisher<sensor_msgs::msg::Image>(this->get_parameter("topic_name").as_string(), 10);
             timer_ = this->create_wall_timer(
                 delay, 
-                std::bind(&VideoReaderNode::something, this)
+                std::bind(&VideoReaderNode::timer_callback, this)
             );
         }
 };
