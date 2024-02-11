@@ -40,6 +40,14 @@ Open this in a terminal and input keys into it to control the robot in Gazebo
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 ```
 
+### World with maze (Jaxon)
+
+```
+ros2 launch swarm_bot launch_sim.launch.py world:=./src/swarm_bot/worlds/maze_swarm_map.world
+```
+
+maze model should be located in the models folder in the base root of the repo
+
 #### Control With Xbox Joystick
 
 First, verify that the controller is properly connected to the computer using the [`jstest-gtk` utility](https://github.com/Grumbel/jstest-gtk).
