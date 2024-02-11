@@ -68,7 +68,7 @@ class VideoReaderNode : public rclcpp::Node {
             this->declare_parameter<string>("topic_name", "camera/image_raw", topic_name_param_desc);
 
             // Get filename and open it
-            filename = "./src/ros2orbslam3/src/" + this->get_parameter("video_file_name").as_string();
+            filename = "./src/vslam/samples/" + this->get_parameter("video_file_name").as_string();
 
             if (access(filename.c_str(), F_OK) == -1) {
                 RCLCPP_FATAL(this->get_logger(), "File does not exist: %s", filename.c_str());
@@ -102,17 +102,3 @@ int main(int argc, char * argv[])
   return 0;
 }
 
-/*
-*MAKE SURE YOU ARE IN ros DIRECTORY, NOT NESTED IN src
-$ source install/setup.bash
-$ ros2 run ros2orbslam3 video_reader --ros-args -p "video_file_name:=IMG_3762.mov"
-
-$ ros2 topic echo camera/image_raw
-
-$ colcon build --symlink-install --packages-select ros2orbslam3
-
-$ rviz2 (after source install)
-
-https://stackoverflow.com/questions/13709274/reading-video-from-file-opencv
-https://stackoverflow.com/questions/27080085/how-to-convert-a-cvmat-into-a-sensor-msgs-in-ros
-*/

@@ -150,8 +150,8 @@ class GridMapperNode : public rclcpp::Node {
   public:
     GridMapperNode() : Node("grid_mapper")
   {
-    point_cloud_sub_ = this->create_subscription<sensor_msgs::msg::PointCloud2>("test_output_point_cloud", 10, std::bind(&GridMapperNode::point_cloud_callback, this, std::placeholders::_1));
-    // pose_sub_ = this->create_subscription<geometry_msgs::msg::PoseStamped>("test_output_pose", 10, std::bind(&GridMapperNode::pose_callback, this, std::placeholders::_1));
+    point_cloud_sub_ = this->create_subscription<sensor_msgs::msg::PointCloud2>("vslam/point_cloud", 10, std::bind(&GridMapperNode::point_cloud_callback, this, std::placeholders::_1));
+    // pose_sub_ = this->create_subscription<geometry_msgs::msg::PoseStamped>("vslam/estimated_pose", 10, std::bind(&GridMapperNode::pose_callback, this, std::placeholders::_1));
 
   }
 };

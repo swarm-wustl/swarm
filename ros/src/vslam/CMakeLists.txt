@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(ros2orbslam3)
+project(vslam)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -31,8 +31,8 @@ include_directories(
   ${Pangolin_INCLUDE_DIRS}
 )
 
-add_executable(mono src/mono_orb_slam3_node.cpp)
-ament_target_dependencies(mono rclcpp std_msgs nav_msgs sensor_msgs image_transport cv_bridge OpenCV)
+add_executable(system src/system_node.cpp)
+ament_target_dependencies(system rclcpp std_msgs nav_msgs sensor_msgs image_transport cv_bridge OpenCV)
 
 add_executable(grid_mapper src/grid_mapper.cpp)
 ament_target_dependencies(grid_mapper rclcpp std_msgs sensor_msgs geometry_msgs OpenCV)
@@ -45,7 +45,7 @@ link_directories(
   ~/Dev/ORB_SLAM3/Thirdparty/Pangolin/build
 )
 
-target_link_libraries(mono
+target_link_libraries(system
   ${OpenCV_LIBS}
   ${EIGEN3_LIBS}
   ${Pangolin_LIBRARIES}
@@ -65,7 +65,7 @@ target_link_libraries(video_reader)
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:~/ORB_SLAM3/Thirdparty/Pangolin/build")
 
 install(TARGETS
-  mono
+  system
   DESTINATION lib/${PROJECT_NAME})
 
 install(TARGETS
