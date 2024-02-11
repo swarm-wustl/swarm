@@ -90,13 +90,14 @@ def main():
                 z = 0.0
                 th = 0.0
                 moveStatus = abs(moveStatus-1);
+                print('MOVING FORWARD')
             else:
                 x = 0.0
                 y = 0.0
                 z = 0.0
-                th = 1.0
+                th = 2.0
                 moveStatus = abs(moveStatus-1);
-
+                print("TURNING")
             if stamped:
                 twist_msg.header.stamp = node.get_clock().now().to_msg()
 
@@ -107,7 +108,7 @@ def main():
             twist.angular.y = 0.0
             twist.angular.z = th * turn         
             pub.publish(twist)
-            time.sleep(2);
+            time.sleep(1);
     except Exception as e:
         print(e)
 
