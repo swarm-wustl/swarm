@@ -32,6 +32,7 @@ include_directories(
   ${Pangolin_INCLUDE_DIRS}
 )
 
+# Executables
 add_executable(system src/system_node.cpp)
 ament_target_dependencies(system rclcpp std_msgs sensor_msgs image_transport cv_bridge OpenCV)
 
@@ -41,12 +42,26 @@ ament_target_dependencies(grid_mapper rclcpp std_msgs sensor_msgs geometry_msgs 
 add_executable(video_reader src/video_reader.cpp)
 ament_target_dependencies(video_reader rclcpp std_msgs sensor_msgs cv_bridge OpenCV)
 
+# Custom messages, services, and actions
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/PointCloudAndPose.msg"
+  DEPENDENCIES
+  builtin_interfaces
+  std_msgs
+  sensor_msgs
+  geometry_msgs
+  rosidl_default_generators
+)
+
+rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
+
 
 link_directories(
   ~/Dev/ORB_SLAM3/Thirdparty/Pangolin/build
 )
 
 target_link_libraries(system
+  ${cpp_typesupport_target} # custom message
   ${OpenCV_LIBS}
   ${EIGEN3_LIBS}
   ${Pangolin_LIBRARIES}
@@ -60,11 +75,12 @@ target_link_libraries(system
   -lGLU  # Link against GLU
 )
 
-target_link_libraries(grid_mapper)
+target_link_libraries(grid_mapper ${cpp_typesupport_target})
 target_link_libraries(video_reader)
 
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:~/ORB_SLAM3/Thirdparty/Pangolin/build")
 
+# Install
 install(TARGETS
   system
   DESTINATION lib/${PROJECT_NAME})
@@ -76,18 +92,5 @@ install(TARGETS
 install(TARGETS
   video_reader
   DESTINATION lib/${PROJECT_NAME})
-
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/PointCloudAndPose.msg"
-  DEPENDENCIES
-  builtin_interfaces
-  std_msgs
-  sensor_msgs
-  geometry_msgs
-  rosidl_default_generators
-)
-
-rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
-target_link_libraries(system ${cpp_typesupport_target})
 
 ament_package()
