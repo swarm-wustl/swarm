@@ -8,8 +8,9 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
 find_package(image_transport REQUIRED)
 find_package(cv_bridge REQUIRED)
@@ -32,7 +33,7 @@ include_directories(
 )
 
 add_executable(system src/system_node.cpp)
-ament_target_dependencies(system rclcpp std_msgs nav_msgs sensor_msgs image_transport cv_bridge OpenCV)
+ament_target_dependencies(system rclcpp std_msgs sensor_msgs image_transport cv_bridge OpenCV)
 
 add_executable(grid_mapper src/grid_mapper.cpp)
 ament_target_dependencies(grid_mapper rclcpp std_msgs sensor_msgs geometry_msgs OpenCV)
@@ -75,5 +76,18 @@ install(TARGETS
 install(TARGETS
   video_reader
   DESTINATION lib/${PROJECT_NAME})
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/PointCloudAndPose.msg"
+  DEPENDENCIES
+  builtin_interfaces
+  std_msgs
+  sensor_msgs
+  geometry_msgs
+  rosidl_default_generators
+)
+
+rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
+target_link_libraries(system ${cpp_typesupport_target})
 
 ament_package()

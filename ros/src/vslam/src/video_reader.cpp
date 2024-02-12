@@ -57,7 +57,7 @@ class VideoReaderNode : public rclcpp::Node {
         {
             auto filename_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
             filename_param_desc.description = "Name of the video file to read";
-            this->declare_parameter<string>("video_file_name", "null", filename_param_desc);
+            this->declare_parameter<string>("video_file_name", "", filename_param_desc);
 
             auto frame_rate_multiplier_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
             frame_rate_multiplier_param_desc.description = "Multiplier for the frame rate. 0.5 -> half frame rate";
@@ -70,7 +70,10 @@ class VideoReaderNode : public rclcpp::Node {
             // Get filename and open it
             filename = "./src/vslam/samples/" + this->get_parameter("video_file_name").as_string();
 
-            if (access(filename.c_str(), F_OK) == -1) {
+            if (filename.empty()) {
+                RCLCPP_FATAL(this->get_logger(), "No filename provided");
+                return;
+            } else if (access(filename.c_str(), F_OK) == -1) {
                 RCLCPP_FATAL(this->get_logger(), "File does not exist: %s", filename.c_str());
                 return;
             }
