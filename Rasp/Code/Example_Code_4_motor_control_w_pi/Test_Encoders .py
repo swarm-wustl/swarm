@@ -11,8 +11,8 @@ import time
 import argparse
 
 # Define GPIO pins based on BCM numbering
-MotFwd = 18  # Motor Forward pin (BCM pin 18)
-MotRev = 23  # Motor Reverse pin (BCM pin 23)
+MotFwd = 17  # Motor Forward pin (BCM pin 18)
+MotRev = 22 # Motor Reverse pin (BCM pin 23)
 encoderPin1 = 5  # Encoder Output 'A' (BCM pin 24)
 encoderPin2 = 6  # Encoder Output 'B' (BCM pin 25)
 
