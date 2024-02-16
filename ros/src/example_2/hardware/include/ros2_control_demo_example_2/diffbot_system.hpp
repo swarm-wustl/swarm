@@ -31,11 +31,23 @@
 #include "rclcpp_lifecycle/state.hpp"
 
 #include "ros2_control_demo_example_2/visibility_control.h"
+#include "ros2_control_demo_example/pi_comms.hpp"
+#include "ros2_control_demo_example/wheel.hpp"
 
 namespace ros2_control_demo_example_2
 {
 class DiffBotSystemHardware : public hardware_interface::SystemInterface
 {
+  struct Config {
+    std::string left_wheel_name = "";
+    std::string right_wheel_name = "";
+    float loop_rate = 0.0;
+    std::string device = "";
+    int baud_rate = 0;
+    int timeout_ms = 0;
+    int enc_counts_per_rev = 0;
+  };
+
 public:
   RCLCPP_SHARED_PTR_DEFINITIONS(DiffBotSystemHardware);
 
@@ -66,14 +78,10 @@ public:
     const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
 private:
-  // Parameters for the DiffBot simulation
-  double hw_start_sec_;
-  double hw_stop_sec_;
-
-  // Store the command for the simulated robot
-  std::vector<double> hw_commands_;
-  std::vector<double> hw_positions_;
-  std::vector<double> hw_velocities_;
+  PiComms comms_;
+  Config cfg_;
+  Wheel wheel_l_;
+  Wheel wheel_r_;
 };
 
 }  // namespace ros2_control_demo_example_2

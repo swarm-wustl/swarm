@@ -21,7 +21,7 @@ parser.add_argument('--Starting_PWM', type=int, default =10, help='Starting PWM 
 parser.add_argument('--spin_duration', type=int, default = 10, help='How Long do you wish to run testing on each motor? ')
 args = parser.parse_args()
 
-GPIO.setwarnings(False)
+GPIO.setwarnings(False
 
 # Set up GPIO pins
 motor_pins = [4, 17, 27, 22]  # 17 & 22 pins for 'front' motors, 23 & 24 for back motors.  
