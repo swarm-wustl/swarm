@@ -108,7 +108,7 @@ def moving_average(data, window_size):
     return np.convolve(data, np.ones(window_size) / window_size, mode='valid')
 
 def plot_data(timeStamps, encoderValues, window_size=10):
-    """Plot the raw data, moving average, noise, and deviation."""
+    """Plot the raw data, moving average, noise, and deviation, and save the plots."""
     rawEncoderData = np.array(encoderValues)
     timeArray = np.array(timeStamps)
     
@@ -120,39 +120,44 @@ def plot_data(timeStamps, encoderValues, window_size=10):
     plt.ylabel('Encoder Value')
     plt.title('Time vs Encoder Data')
     plt.legend()
+    plt.savefig('Time_vs_Encoder_Data.png')
+    plt.close()  # Close the plot to prevent it from displaying
 
     # 2. Moving Average
     movingAvg = moving_average(rawEncoderData, window_size)
     timeForMovingAvg = timeArray[:len(movingAvg)]  # Adjust time array for moving average plot
-    plt.subplot(4, 1, 2)
+    plt.figure(figsize=(10, 8))
     plt.plot(timeForMovingAvg, movingAvg, label='Moving Average', color='orange')
     plt.xlabel('Time (s)')
     plt.ylabel('Encoder Value')
     plt.title('Moving Average of Encoder Data')
     plt.legend()
+    plt.savefig('Moving_Average_of_Encoder_Data.png')
+    plt.close()
 
-    # 3. Noise Plot - Difference between raw data and moving average (extended moving average for comparison)
+    # 3. Noise Plot
     extendedMovingAvg = np.interp(timeArray, timeForMovingAvg, movingAvg)
     noise = rawEncoderData - extendedMovingAvg
-    plt.subplot(4, 1, 3)
+    plt.figure(figsize=(10, 8))
     plt.plot(timeArray, noise, label='Noise', color='green')
     plt.xlabel('Time (s)')
     plt.ylabel('Noise')
     plt.title('Noise in Encoder Data')
     plt.legend()
+    plt.savefig('Noise_in_Encoder_Data.png')
+    plt.close()
 
     # 4. Deviation Data Plot
     deviationArrayData = np.abs(np.diff(rawEncoderData))
     timeForDeviation = timeArray[1:]  # Adjust time array for deviation plot
-    plt.subplot(4, 1, 4)
+    plt.figure(figsize=(10, 8))
     plt.plot(timeForDeviation, deviationArrayData, label='Deviation', color='red')
     plt.xlabel('Time (s)')
     plt.ylabel('Deviation')
     plt.title('Deviation of Encoder Data')
     plt.legend()
-
-    plt.tight_layout()
-    plt.show()
+    plt.savefig('Deviation_of_Encoder_Data.png')
+    plt.close()
     
     
 if __name__ == "__main__":
