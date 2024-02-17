@@ -22,6 +22,8 @@ encoderValue = 0
 encoderValues = [] # List to store encouder values 
 timeStamps = []  # List to store time stamps
 
+startTime = 0 
+
 # Command Line Arguments 
 def parseArguments():
     parser = argparse.ArgumentParser(description='Motor control with encoder feedback.')
