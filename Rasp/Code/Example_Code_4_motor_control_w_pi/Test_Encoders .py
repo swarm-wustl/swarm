@@ -88,7 +88,7 @@ def main():
     # Write encoder values and timestamps to a file
     with open("Encoder_Data_Measurement.txt", "w") as file:
         for value, timeStamp in zip(encoderValues, timeStamps):
-            file.write(f'Time: {timeStamp.2f} || Data: {value.2f}\n')
+            file.write(f'Time: {timeStamp:.2f} || Data: {value:.2f}\n')
     
     GPIO.cleanup()
 
