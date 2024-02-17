@@ -83,9 +83,9 @@ def main():
         if elapsedTime % args.spinDuration < args.spinDuration:
             GPIO.output(MotFwd, GPIO.LOW)
             GPIO.output(MotRev, GPIO.HIGH)
-            print(f"Forward  Time: {currentTime} || Data: {encoderValue}")
+            print(f"Forward  Time: {elapsedTime} || Data: {encoderValue}")
 
-        time.sleep(0.01)  # Reduce delay to check condition more frequently
+        time.sleep(0.1)  # Reduce delay to check condition more frequently
 
     print("Test completed.")
     # print("Encoder values collected:", encoderValues)  # Print the collected encoder values
