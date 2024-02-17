@@ -161,7 +161,14 @@ def plot_data(timeStamps, encoderValues, window_size=10):
     
     
 if __name__ == "__main__":
+    print("Running Main Sequence: ")
     main() 
     
+    print("Starting Plotting Sequence: ")
     # After main function completes, call the plotting function
     plot_data(timeStamps, encoderValues, window_size=10)
+    
+    GPIO.remove_event_detect(encoderPin1)
+    GPIO.remove_event_detect(encoderPin2)
+    time.sleep(1)  # Short delay to ensure all GPIO callbacks are completed
+    GPIO.cleanup()
