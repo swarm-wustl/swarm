@@ -46,7 +46,8 @@ def setupGPIO():
 # Read and interpret signals from rotary encoder attached to motors
 # Funciton Tracks the position or rotation count of the motor shaft. 
 def updateEncoder(channel):
-    global lastEncoded, encoderValue
+    global lastEncoded, encoderValue, startTime   
+    
     MSB = GPIO.input(encoderPin1)
     LSB = GPIO.input(encoderPin2)
 
@@ -60,7 +61,8 @@ def updateEncoder(channel):
 
     lastEncoded = encoded
     encoderValues.append(encoderValue)  # Append the current encoder value to the list
-    timeStamps.append(time.time())  # Append the current time to the timeStamps list
+    currentTime = time.time() - startTime  # Calculate elapsed time since start
+    timeStamps.append(currentTime)  # Append the current time to the timeStamps list
 
 def main():
     print("Start Sequence: ")
