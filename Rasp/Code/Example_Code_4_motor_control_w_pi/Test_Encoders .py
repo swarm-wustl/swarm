@@ -181,5 +181,5 @@ if __name__ == "__main__":
     # Optionally adjust the arrays here
 
     plot_data(timeStamps, encoderValues, window_size=10)
-    
+    print("Ploting sequence Completed. ")
     
