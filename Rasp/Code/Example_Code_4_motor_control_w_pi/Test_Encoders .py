@@ -63,6 +63,7 @@ def updateEncoder(channel):
     timeStamps.append(time.time())  # Append the current time to the timeStamps list
 
 def main():
+    print("Start Sequence: ")
     args = parseArguments()
     setupGPIO()
 
@@ -82,7 +83,7 @@ def main():
         time.sleep(0.1)  # Reduce delay to check condition more frequently
 
     print("Test completed.")
-    print("Encoder values collected:", encoderValues)  # Print the collected encoder values
+    # print("Encoder values collected:", encoderValues)  # Print the collected encoder values
     
     # Write encoder values and timestamps to a file
     with open("Encoder_Data_Measurement.txt", "w") as file:
