@@ -99,6 +99,9 @@ def main():
         for value, timeStamp in zip(encoderValues, timeStamps):
             file.write(f'Time (s): {timeStamp:.2f} || Data: {value:.2f}\n')
     
+    GPIO.remove_event_detect(encoderPin1)
+    GPIO.remove_event_detect(encoderPin2)
+    time.sleep(1)  # Short delay to ensure all GPIO callbacks are completed
     GPIO.cleanup()
  
 def moving_average(data, window_size):
@@ -108,6 +111,9 @@ def moving_average(data, window_size):
     return np.convolve(data, np.ones(window_size) / window_size, mode='valid')
 
 def plot_data(timeStamps, encoderValues, window_size=10):
+    global startTime
+    
+    
     """Plot the raw data, moving average, noise, and deviation, and save the plots."""
     rawEncoderData = np.array(encoderValues)
     timeArray = np.array(timeStamps)
@@ -166,9 +172,14 @@ if __name__ == "__main__":
     
     print("Starting Plotting Sequence: ")
     # After main function completes, call the plotting function
+    
+    if len(timeStamps) != len(encoderValues):
+        print(f"Mismatch in lengths: TimeStamps={len(timeStamps)}, EncoderValues={len(encoderValues)}")
+        min_length = min(len(timeStamps), len(encoderValues))
+        timeStamps = timeStamps[:min_length]
+        encoderValues = encoderValues[:min_length]
+    # Optionally adjust the arrays here
+
     plot_data(timeStamps, encoderValues, window_size=10)
     
-    GPIO.remove_event_detect(encoderPin1)
-    GPIO.remove_event_detect(encoderPin2)
-    time.sleep(1)  # Short delay to ensure all GPIO callbacks are completed
-    GPIO.cleanup()
+    
