@@ -38,10 +38,6 @@ hardware_interface::CallbackReturn DiffBotSystemHardware::on_init(
 
   cfg_.left_wheel_name = info_.hardware_parameters["left_wheel_name"];
   cfg_.right_wheel_name = info_.hardware_parameters["right_wheel_name"];
-  cfg_.loop_rate = std::stof(info_.hardware_parameters["loop_rate"];
-  cfg_.device = info_.hardware_parameters["device"];
-  cfg_.baud_rate = std::stoi(info_.hardware_parameters["baud_rate"]);
-  cfg_.timeout_ms = std::stoi(info_.hardware_parameters["timeout_ms"]);
   cfg_.enc_counts_per_rev = std::stoi(info_.hardware_parameters["enc_counts_per_rev"]);
 
   wheel_l_.setup(cfg_.left_wheel_name, cfg_.enc_counts_per_rev);
@@ -103,30 +99,11 @@ std::vector<hardware_interface::StateInterface> DiffBotSystemHardware::export_st
 {
   std::vector<hardware_interface::StateInterface> state_interfaces;
 
-  state_interfaces.emplace_back(hardware_interface::StateInterface(wheel_l.name, hardware_interface::HW_IF_POSITION, &wheel_l.pos));
-  state_interfaces.emplace_back(hardware_interface::StateInterface(wheel_l.name, hardware_interface::HW_IF_VELOCITY, &wheel_l.vel));
-  state_interfaces.emplace_back(hardware_interface::StateInterface(wheel_r.name, hardware_interface::HW_IF_POSITION, &wheel_r.pos));
-  state_interfaces.emplace_back(hardware_interface::StateInterface(wheel_r.name, hardware_interface::HW_IF_VELOCITY, &wheel_r.vel));
+  state_interfaces.emplace_back(hardware_interface::StateInterface(wheel_l_.name, hardware_interface::HW_IF_POSITION, &wheel_l_.pos));
+  state_interfaces.emplace_back(hardware_interface::StateInterface(wheel_l_.name, hardware_interface::HW_IF_VELOCITY, &wheel_l_.vel));
 
-  return state_interfaces;
-}
-
-std::vector<hardware_interface::CommandInterface> DiffBotSystemHardware::export_command_interfaces()
-{
-  std::vector<hardware_interface::CommandInterface> command_interfaces;
-
-  command_interfaces.emplace_back(hardware_interface::CommandInterface(wheel_l.name, hardware_interface::HW_IF_VELOCITY, &wheel_l.cmd));
-  command_interfaces.emplace_back(hardware_interface::CommandInterface(wheel_r.name, hardware_interface::HW_IF_VELOCITY, &wheel_r.cmd));
-
-  return command_interfaces;
-}
-
-hardware_interface::CallbackReturn DiffBotSystemHardware::on_activate(
-  const rclcpp_lifecycle::State & /*previous_state*/)
-{
-  RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Activating ...please wait...");
-  comms_.connect();
-  RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Successfully activated!");
+  state_interfaces.emplace_back(hardware_interface::StateInterface(wheel_r_.name, hardware_interface::HW_IF_POSITION, &wheel_r_.pos));
+  state_interfaces.emplace_back(hardware_interface::StateInterface(wheel_r_.name, hardware_interface::HW_IF_VELOCITY, &wheel_r_.vel));
 
   return hardware_interface::CallbackReturn::SUCCESS;
 }
@@ -144,7 +121,17 @@ hardware_interface::CallbackReturn DiffBotSystemHardware::on_deactivate(
 hardware_interface::return_type DiffBotSystemHardware::read(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & period)
 {
-  // comms_.read_encoder_values();
+  comms_.read_encoder_values(wheel_l_.enc, wheel_r_.enc);
+
+  double delta_seconds = period.seconds();
+
+  double pos_prev = wheel_l_.pos;
+  wheel_l_.pos = wheel_l_.calc_enc_angle();
+  wheel_l_.vel = (wheel_l_.pos - pos_prev) / delta_seconds;
+
+  pos_prev = wheel_r_.pos;
+  wheel_r_.pos = wheel_r_.calc_enc_angle();
+  wheel_r_.vel = (wheel_r_.pos - pos_prev) / delta_seconds;
 
   return hardware_interface::return_type::OK;
 }
@@ -152,8 +139,8 @@ hardware_interface::return_type DiffBotSystemHardware::read(
 hardware_interface::return_type ros2_control_demo_example_2 ::DiffBotSystemHardware::write(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
-  int motor_l_counts_per_loop = wheel_l.cmd / wheel_l.rads_per_count;
-  int motor_r_counts_per_loop = wheel_r.cmd / wheel_r.rads_per_count;
+  int motor_l_counts_per_loop = wheel_l_.cmd / wheel_l_.rads_per_count;
+  int motor_r_counts_per_loop = wheel_r_.cmd / wheel_r_.rads_per_count;
   comms_.set_motor_values(motor_l_counts_per_loop, motor_r_counts_per_loop);
 
   return hardware_interface::return_type::OK;

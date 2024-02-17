@@ -31,8 +31,8 @@
 #include "rclcpp_lifecycle/state.hpp"
 
 #include "ros2_control_demo_example_2/visibility_control.h"
-#include "ros2_control_demo_example/pi_comms.hpp"
-#include "ros2_control_demo_example/wheel.hpp"
+#include "ros2_control_demo_example_2/pi_comms.hpp"
+#include "ros2_control_demo_example_2/wheel.hpp"
 
 namespace ros2_control_demo_example_2
 {
