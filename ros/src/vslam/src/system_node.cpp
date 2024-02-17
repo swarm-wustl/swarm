@@ -39,6 +39,8 @@ cv_bridge::CvImagePtr getImageFromMessage(const sensor_msgs::msg::Image::ConstSh
 }
 
 void processImage(cv::Mat& image) {
+  cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
+  cv::cvtColor(image, image, cv::COLOR_GRAY2RGB); // needs 3 channels for rviz
   cv::resize(image, image, cv::Size(752, 480));
 }
 

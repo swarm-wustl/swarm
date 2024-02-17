@@ -33,6 +33,19 @@ Gazebo is the physics/environment simulator for the robot
 ros2 launch swarm_bot launch_sim.launch.py world:=./src/swarm_bot/worlds/random_env.world
 ```
 
+#### Custom Maze World
+Before running the `maze_swarm_map.world` environment, run the following command to copy the maze model to the Gazebo models directory:
+
+```
+cp -r models/maze_swarm ~/.gazebo/models
+```
+
+Then, run the following command to launch the maze environment:
+
+```
+ros2 launch swarm_bot launch_sim.launch.py world:=./src/swarm_bot/worlds/maze_swarm_map.world
+```
+
 #### Control With Keyboard
 Open this in a terminal and input keys into it to control the robot in Gazebo
 
