@@ -20,6 +20,7 @@ encoderPin2 = 6  # Encoder Output 'B' (BCM pin 25)
 lastEncoded = 0
 encoderValue = 0
 encoderValues = [] # List to store encouder values 
+timeStamps = []  # List to store time stamps
 
 # Command Line Arguments 
 def parseArguments():
@@ -59,6 +60,7 @@ def updateEncoder(channel):
 
     lastEncoded = encoded
     encoderValues.append(encoderValue)  # Append the current encoder value to the list
+    timeStamps.append(time.time())  # Append the current time to the timeStamps list
 
 def main():
     args = parseArguments()
@@ -81,6 +83,12 @@ def main():
 
     print("Test completed.")
     print("Encoder values collected:", encoderValues)  # Print the collected encoder values
+    
+    # Write encoder values and timestamps to a file
+    with open("Encoder_Data_Measurement.txt", "w") as file:
+        for value, timeStamp in zip(encoderValues, timeStamps):
+            file.write(f'Time: {timeStamp.2f} || Data: {value.2f}\n')
+    
     GPIO.cleanup()
 
 if __name__ == "__main__":
