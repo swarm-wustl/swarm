@@ -32,6 +32,8 @@ Camera1.p2: 1.76187114e-05
 
 Camera.width: 752
 Camera.height: 480
+#Camera.width: 320
+#Camera.height: 240
 
 Camera.newWidth: 600
 Camera.newHeight: 350

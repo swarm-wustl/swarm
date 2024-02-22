@@ -44,7 +44,6 @@ ament_target_dependencies(video_reader rclcpp std_msgs sensor_msgs cv_bridge Ope
 
 # Custom messages, services, and actions
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/PointCloudAndPose.msg"
   "msg/MapPoint.msg"
   "msg/KeyFrame.msg"
   "msg/Map.msg"
@@ -57,7 +56,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 )
 
 rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
-
 
 link_directories(
   ~/Dev/ORB_SLAM3/Thirdparty/Pangolin/build
