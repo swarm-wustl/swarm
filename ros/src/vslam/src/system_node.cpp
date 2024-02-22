@@ -2,6 +2,7 @@
 #include <chrono>
 #include <string>
 #include <vector>
+#include <set>
 
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/image_encodings.hpp"
@@ -10,6 +11,9 @@
 #include "geometry_msgs/msg/pose_stamped.hpp"
 
 #include "vslam/msg/point_cloud_and_pose.hpp"
+#include "vslam/msg/map.hpp"
+#include "vslam/msg/key_frame.hpp"
+#include "vslam/msg/map_point.hpp"
 
 #include "image_transport/image_transport.hpp"
 #include <cv_bridge/cv_bridge.h>
@@ -22,10 +26,11 @@
 using namespace std;
 
 void throttleCallback(const chrono::time_point<chrono::high_resolution_clock>& last_callback) {
-  auto now = chrono::high_resolution_clock::now();
-  if (now - last_callback < chrono::milliseconds(1000 / 10)) {
-    return;
-  }
+  // auto now = chrono::high_resolution_clock::now();
+  // if (now - last_callback < chrono::milliseconds(1000 / 10)) {
+  //   return;
+  // }
+  return;
 }
 
 cv_bridge::CvImagePtr getImageFromMessage(const sensor_msgs::msg::Image::ConstSharedPtr &msg) {
@@ -40,6 +45,7 @@ cv_bridge::CvImagePtr getImageFromMessage(const sensor_msgs::msg::Image::ConstSh
 }
 
 void processImage(cv::Mat& image) {
+  // cv::resize(image, image, cv::Size(752, 480));
   cv::resize(image, image, cv::Size(752, 480));
 }
 
@@ -114,6 +120,7 @@ class VSLAMSystemNode : public rclcpp::Node {
 
     image_transport::Subscriber image_sub_;
     rclcpp::Publisher<vslam::msg::PointCloudAndPose>::SharedPtr point_cloud_and_pose_publisher_;
+    rclcpp::Publisher<vslam::msg::Map>::SharedPtr map_publisher_;
 
     ORB_SLAM3::System* SLAM;
 
@@ -138,6 +145,60 @@ class VSLAMSystemNode : public rclcpp::Node {
 
       vslam::msg::PointCloudAndPose::SharedPtr point_cloud_and_pose_msg = createPointCloudAndPoseMessage(map_points, pose, current_time);
       point_cloud_and_pose_publisher_->publish(*point_cloud_and_pose_msg);
+
+      ORB_SLAM3::Atlas* atlas = SLAM->GetAtlas();
+      ORB_SLAM3::Map* map = atlas->GetCurrentMap();
+      vector<ORB_SLAM3::KeyFrame*> keyframes = map->GetAllKeyFrames();
+      vector<ORB_SLAM3::MapPoint*> all_map_points = map->GetAllMapPoints();
+
+      vslam::msg::Map::SharedPtr map_msg = std::make_shared<vslam::msg::Map>();
+      map_msg->header.stamp = current_time;
+      map_msg->header.frame_id = "map";
+      map_msg->id = map->GetId();
+
+      Eigen::Vector3f camera_position = pose.translation();
+      Eigen::Quaternionf camera_orientation = pose.unit_quaternion();
+      map_msg->camera_pose.position.x = camera_position.x();
+      map_msg->camera_pose.position.y = camera_position.y();
+      map_msg->camera_pose.position.z = camera_position.z();
+      map_msg->camera_pose.orientation.x = camera_orientation.x();
+      map_msg->camera_pose.orientation.y = camera_orientation.y();
+      map_msg->camera_pose.orientation.z = camera_orientation.z();
+      map_msg->camera_pose.orientation.w = camera_orientation.w();
+
+      for (ORB_SLAM3::KeyFrame* keyframe : keyframes) {
+        Sophus::SE3f keyframe_pose = keyframe->GetPose();
+        Eigen::Vector3f position = keyframe_pose.translation();
+        Eigen::Quaternionf orientation = keyframe_pose.unit_quaternion();
+        vslam::msg::KeyFrame keyframe_msg;
+        keyframe_msg.id = keyframe->mnId;
+        keyframe_msg.pose.position.x = position.x();
+        keyframe_msg.pose.position.y = position.y();
+        keyframe_msg.pose.position.z = position.z();
+        keyframe_msg.pose.orientation.x = orientation.x();
+        keyframe_msg.pose.orientation.y = orientation.y();
+        keyframe_msg.pose.orientation.z = orientation.z();
+        keyframe_msg.pose.orientation.w = orientation.w();
+
+        set<ORB_SLAM3::MapPoint*> keyframe_map_points = keyframe->GetMapPoints();
+        for (ORB_SLAM3::MapPoint* map_point : keyframe_map_points) {
+          keyframe_msg.map_point_ids.push_back(map_point->mnId);
+        }
+
+        map_msg->key_frames.push_back(keyframe_msg);
+      }
+
+      for (ORB_SLAM3::MapPoint* map_point : all_map_points) {
+        vslam::msg::MapPoint map_point_msg;
+        Eigen::Vector3f position = map_point->GetWorldPos();
+        map_point_msg.id = map_point->mnId;
+        map_point_msg.world_pos.x = position.x();
+        map_point_msg.world_pos.y = position.y();
+        map_point_msg.world_pos.z = position.z();
+        map_msg->map_points.push_back(map_point_msg);
+      }
+
+      map_publisher_->publish(*map_msg);
 
       cv::imshow(OPENCV_WINDOW, cv_ptr->image);
       cv::waitKey(3);
@@ -174,6 +235,7 @@ class VSLAMSystemNode : public rclcpp::Node {
     );
 
     point_cloud_and_pose_publisher_ = this->create_publisher<vslam::msg::PointCloudAndPose>("vslam/point_cloud_and_pose", 10);
+    map_publisher_ = this->create_publisher<vslam::msg::Map>("vslam/map", 10);
 
     string vocab_path = this->get_parameter("vocab_path").as_string();
     if (access(vocab_path.c_str(), F_OK) == -1) {

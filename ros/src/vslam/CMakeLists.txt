@@ -45,6 +45,9 @@ ament_target_dependencies(video_reader rclcpp std_msgs sensor_msgs cv_bridge Ope
 # Custom messages, services, and actions
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/PointCloudAndPose.msg"
+  "msg/MapPoint.msg"
+  "msg/KeyFrame.msg"
+  "msg/Map.msg"
   DEPENDENCIES
   builtin_interfaces
   std_msgs
