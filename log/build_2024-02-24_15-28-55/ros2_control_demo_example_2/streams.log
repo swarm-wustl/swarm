@@ -1,0 +1,13 @@
+[0.020s] Invoking command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2': AMENT_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2 -- -j8 -l8
+[0.040s] [35m[1mConsolidate compiler generated dependencies of target ros2_control_demo_example_2[0m
+[0.048s] [ 50%] [32mBuilding CXX object CMakeFiles/ros2_control_demo_example_2.dir/hardware/diffbot_system.cpp.o[0m
+[0.117s] In file included from [01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/include/ros2_control_demo_example_2/diffbot_system.hpp:34[m[K,
+[0.117s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:15[m[K:
+[0.117s] [01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:4:10:[m[K [01;31m[Kfatal error: [m[Kpigpio.h: No such file or directory
+[0.117s]     4 | #include [01;31m[K<pigpio.h>[m[K
+[0.117s]       |          [01;31m[K^~~~~~~~~~[m[K
+[0.117s] compilation terminated.
+[0.118s] gmake[2]: *** [CMakeFiles/ros2_control_demo_example_2.dir/build.make:76: CMakeFiles/ros2_control_demo_example_2.dir/hardware/diffbot_system.cpp.o] Error 1
+[0.118s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/ros2_control_demo_example_2.dir/all] Error 2
+[0.118s] gmake: *** [Makefile:146: all] Error 2
+[0.119s] Invoked command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2' returned '2': AMENT_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2 -- -j8 -l8

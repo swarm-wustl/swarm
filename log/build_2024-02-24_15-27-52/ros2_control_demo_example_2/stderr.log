@@ -1,0 +1,53 @@
+In file included from [01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:15[m[K:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/include/ros2_control_demo_example_2/diffbot_system.hpp:79:3:[m[K [01;31m[Kerror: [m[K‘[01m[KPiComms[m[K’ does not name a type
+   79 |   [01;31m[KPiComms[m[K comms_;
+      |   [01;31m[K^~~~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/include/ros2_control_demo_example_2/diffbot_system.hpp:81:3:[m[K [01;31m[Kerror: [m[K‘[01m[KWheel[m[K’ does not name a type
+   81 |   [01;31m[KWheel[m[K wheel_l_;
+      |   [01;31m[K^~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/include/ros2_control_demo_example_2/diffbot_system.hpp:82:3:[m[K [01;31m[Kerror: [m[K‘[01m[KWheel[m[K’ does not name a type
+   82 |   [01;31m[KWheel[m[K wheel_r_;
+      |   [01;31m[K^~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::CallbackReturn ros2_control_demo_example_2::DiffBotSystemHardware::on_init(const hardware_interface::HardwareInfo&)[m[K’:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:43:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kwheel_l_[m[K’ was not declared in this scope
+   43 |   [01;31m[Kwheel_l_[m[K.setup(cfg_.left_wheel_name, cfg_.enc_counts_per_rev);
+      |   [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:44:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kwheel_r_[m[K’ was not declared in this scope
+   44 |   [01;31m[Kwheel_r_[m[K.setup(cfg_.right_wheel_name, cfg_.enc_counts_per_rev);
+      |   [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:[m[K In member function ‘[01m[Kvirtual std::vector<hardware_interface::StateInterface> ros2_control_demo_example_2::DiffBotSystemHardware::export_state_interfaces()[m[K’:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:102:68:[m[K [01;31m[Kerror: [m[K‘[01m[Kwheel_l_[m[K’ was not declared in this scope
+  102 |   state_interfaces.emplace_back(hardware_interface::StateInterface([01;31m[Kwheel_l_[m[K.name, hardware_interface::HW_IF_POSITION, &wheel_l_.pos));
+      |                                                                    [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:105:68:[m[K [01;31m[Kerror: [m[K‘[01m[Kwheel_r_[m[K’ was not declared in this scope
+  105 |   state_interfaces.emplace_back(hardware_interface::StateInterface([01;31m[Kwheel_r_[m[K.name, hardware_interface::HW_IF_POSITION, &wheel_r_.pos));
+      |                                                                    [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:108:46:[m[K [01;31m[Kerror: [m[Kcould not convert ‘[01m[Krclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS[m[K’ from ‘[01m[Krclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn[m[K’ to ‘[01m[Kstd::vector<hardware_interface::StateInterface>[m[K’
+  108 |   return hardware_interface::CallbackReturn::[01;31m[KSUCCESS[m[K;
+      |                                              [01;31m[K^~~~~~~[m[K
+      |                                              [01;31m[K|[m[K
+      |                                              [01;31m[Krclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::CallbackReturn ros2_control_demo_example_2::DiffBotSystemHardware::on_deactivate(const rclcpp_lifecycle::State&)[m[K’:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:115:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kcomms_[m[K’ was not declared in this scope
+  115 |   [01;31m[Kcomms_[m[K.disconnect();
+      |   [01;31m[K^~~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type ros2_control_demo_example_2::DiffBotSystemHardware::read(const rclcpp::Time&, const rclcpp::Duration&)[m[K’:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:124:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kcomms_[m[K’ was not declared in this scope
+  124 |   [01;31m[Kcomms_[m[K.read_encoder_values(wheel_l_.enc, wheel_r_.enc);
+      |   [01;31m[K^~~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:124:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kwheel_l_[m[K’ was not declared in this scope
+  124 |   comms_.read_encoder_values([01;31m[Kwheel_l_[m[K.enc, wheel_r_.enc);
+      |                              [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:124:44:[m[K [01;31m[Kerror: [m[K‘[01m[Kwheel_r_[m[K’ was not declared in this scope
+  124 |   comms_.read_encoder_values(wheel_l_.enc, [01;31m[Kwheel_r_[m[K.enc);
+      |                                            [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type ros2_control_demo_example_2::DiffBotSystemHardware::write(const rclcpp::Time&, const rclcpp::Duration&)[m[K’:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:142:8:[m[K [01;31m[Kerror: [m[K‘[01m[Kcomms_[m[K’ was not declared in this scope
+  142 |   if (![01;31m[Kcomms_[m[K.connected())
+      |        [01;31m[K^~~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp:150:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kcomms_[m[K’ was not declared in this scope
+  150 |   [01;31m[Kcomms_[m[K.set_motor_values(motor_l_counts_per_loop, motor_r_counts_per_loop);
+      |   [01;31m[K^~~~~~[m[K
+gmake[2]: *** [CMakeFiles/ros2_control_demo_example_2.dir/build.make:76: CMakeFiles/ros2_control_demo_example_2.dir/hardware/diffbot_system.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/ros2_control_demo_example_2.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

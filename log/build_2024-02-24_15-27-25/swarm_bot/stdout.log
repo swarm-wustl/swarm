@@ -1,0 +1,60 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ubuntu/Documents/swarm/build/swarm_bot
+-- Install configuration: ""
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/config
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/config/view_bot.rviz
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/config/robot_controllers.yaml
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/config/gazebo_params.yaml
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/config/joystick.yaml
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/config/empty.yaml
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/description
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/description/gazebo_control.xacro
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/description/ros2_control.xacro
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/description/robot.urdf.xacro
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/description/camera.xacro
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/description/inertial_macros.xacro
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/description/robot_core.xacro
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/launch
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/launch/launch_sim.launch.py
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/launch/joystick.launch.py
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/launch/rsp.launch.py
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/worlds
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/worlds/random_env.world
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/worlds/vslam_env.world
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/worlds/empty.world
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/ament_index/resource_index/package_run_dependencies/swarm_bot
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/ament_index/resource_index/parent_prefix_path/swarm_bot
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/environment/ament_prefix_path.sh
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/environment/ament_prefix_path.dsv
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/environment/path.sh
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/environment/path.dsv
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/local_setup.bash
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/local_setup.sh
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/local_setup.zsh
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/local_setup.dsv
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.dsv
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/ament_index/resource_index/packages/swarm_bot
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/cmake/swarm_botConfig.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/cmake/swarm_botConfig-version.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.xml

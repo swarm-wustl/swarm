@@ -1,0 +1,6 @@
+setup.py
+vslam/__init__.py
+vslam.egg-info/PKG-INFO
+vslam.egg-info/SOURCES.txt
+vslam.egg-info/dependency_links.txt
+vslam.egg-info/top_level.txt

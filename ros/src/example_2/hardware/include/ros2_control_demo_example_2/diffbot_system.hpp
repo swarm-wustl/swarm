@@ -32,13 +32,12 @@
 
 #include "ros2_control_demo_example_2/visibility_control.h"
 #include "ros2_control_demo_example_2/pi_comms.hpp"
-#include "ros2_control_demo_example_2/wheel.hpp"
 
 namespace ros2_control_demo_example_2
 {
 class DiffBotSystemHardware : public hardware_interface::SystemInterface
 {
-  struct Config {
+struct Config {
     std::string left_wheel_name = "";
     std::string right_wheel_name = "";
     float loop_rate = 0.0;

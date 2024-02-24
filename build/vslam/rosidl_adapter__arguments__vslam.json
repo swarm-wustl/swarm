@@ -1,0 +1,6 @@
+{
+  "package_name": "vslam",
+  "non_idl_tuples": [
+    "/home/ubuntu/Documents/swarm/ros/src/vslam:msg/PointCloudAndPose.msg"
+  ]
+}

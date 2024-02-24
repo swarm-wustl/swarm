@@ -6,11 +6,18 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
 endif()
 
 # find dependencies
+set(THIS_PACKAGE_INCLUDE_DEPENDS
+  hardware_interface
+  pluginlib
+  rclcpp
+  rclcpp_lifecycle
+)
+
+# find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(hardware_interface REQUIRED)
-find_package(controller_manager REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(pluginlib REQUIRED)
+foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
+  find_package(${Dependency} REQUIRED)
+endforeach()
 
 
 ## COMPILE
@@ -26,7 +33,6 @@ $<INSTALL_INTERFACE:include/ros2_control_demo_example_2>
 )
 ament_target_dependencies(
   ros2_control_demo_example_2 PUBLIC
-  hardware_interface
   ${THIS_PACKAGE_INCLUDE_DEPENDS}
 )
 

@@ -1,0 +1,4 @@
+source;share/vslam/environment/ament_prefix_path.sh
+source;share/vslam/environment/library_path.sh
+source;share/vslam/environment/path.sh
+source;share/vslam/environment/pythonpath.sh

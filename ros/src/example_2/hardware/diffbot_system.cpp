@@ -98,7 +98,7 @@ hardware_interface::CallbackReturn DiffBotSystemHardware::on_init(
 std::vector<hardware_interface::StateInterface> DiffBotSystemHardware::export_state_interfaces()
 {
   std::vector<hardware_interface::StateInterface> state_interfaces;
-
+  
   state_interfaces.emplace_back(hardware_interface::StateInterface(wheel_l_.name, hardware_interface::HW_IF_POSITION, &wheel_l_.pos));
   state_interfaces.emplace_back(hardware_interface::StateInterface(wheel_l_.name, hardware_interface::HW_IF_VELOCITY, &wheel_l_.vel));
 
@@ -139,10 +139,16 @@ hardware_interface::return_type DiffBotSystemHardware::read(
 hardware_interface::return_type ros2_control_demo_example_2 ::DiffBotSystemHardware::write(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
-  int motor_l_counts_per_loop = wheel_l_.cmd / wheel_l_.rads_per_count;
-  int motor_r_counts_per_loop = wheel_r_.cmd / wheel_r_.rads_per_count;
-  comms_.set_motor_values(motor_l_counts_per_loop, motor_r_counts_per_loop);
+  if (!comms_.connected())
+  {
+    return hardware_interface::return_type::ERROR;
+  }
 
+  // TODO: change this to actual values (wheel_l_.cmd / wheel_l_.rads_per_count;)
+  int motor_l_counts_per_loop = 100;
+  int motor_r_counts_per_loop = 100;
+  comms_.set_motor_values(motor_l_counts_per_loop, motor_r_counts_per_loop);
+  
   return hardware_interface::return_type::OK;
 }
 
