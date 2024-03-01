@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+        	"nav_test=aslam.map_nav:main"
         ],
     },
 )
