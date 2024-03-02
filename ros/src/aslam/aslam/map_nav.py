@@ -54,7 +54,7 @@ class MapNav(Node):
         goalPose = PoseStamped()
         goalPose.header.frame_id = 'map'
         goalPose.header.stamp = self.navigator.get_clock().now().to_msg()
-        goalPose.pose.position.x = 10.0
+        goalPose.pose.position.x = 100.0
         goalPose.pose.position.y = -2.0
         goalPose.pose.position.z = 0.0
         goalPose.pose.orientation.x = 0.0
@@ -64,7 +64,9 @@ class MapNav(Node):
 
         self.navigator.goToPose(goalPose);
         print("move sent!")
-        
+        while not self.navigator.isNavComplete():
+            print("MEOW");
+        self.navigator.lifecycleShutdown();
 
 
     def map_callback(self, data):
