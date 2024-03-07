@@ -19,7 +19,6 @@ foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
   find_package(${Dependency} REQUIRED)
 endforeach()
 
-
 ## COMPILE
 add_library(
   ros2_control_demo_example_2
@@ -35,6 +34,9 @@ ament_target_dependencies(
   ros2_control_demo_example_2 PUBLIC
   ${THIS_PACKAGE_INCLUDE_DEPENDS}
 )
+
+# Link pigpio
+target_link_libraries(ros2_control_demo_example_2 PUBLIC pigpio)
 
 # Causes the visibility macros to use dllexport rather than dllimport,
 # which is appropriate when building the dll but not consuming it.

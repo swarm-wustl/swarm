@@ -1,7 +1,10 @@
+#ifndef ROS2_CONTROL_DEMO_EXAMPLE_2__PI_COMMS_HPP_
+#define ROS2_CONTROL_DEMO_EXAMPLE_2__PI_COMMS_HPP_
+
 #include <string>
 #include <sstream>
 #include <iostream>
-// #include <pigpio.h>
+#include <pigpio.h>
 #include <ros2_control_demo_example_2/encoder.hpp>
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
@@ -23,19 +26,18 @@ class PiComms {
     Encoder enc2;
     
   public:
-    PiComms();
-    ~PiComms();
+    PiComms() = default;
     
     void connect() {
       std::cout << "Connecting to Pi... " << std::flush;
 
-      int status = 1; // gpioInitialise();
+      int status = gpioInitialise();
       if (status < 0) {
         std::cout << "ERROR: Failed to connect to Pi" << std::endl;
       }
 
-      // gpioSetMode(MOTOR_FWD, PI_OUTPUT);
-      // gpioSetMode(MOTOR_REV, PI_OUTPUT);
+      gpioSetMode(MOTOR_FWD, PI_OUTPUT);
+      gpioSetMode(MOTOR_REV, PI_OUTPUT);
 
       enc1 = Encoder(ENC_1_A, ENC_1_B);
       enc2 = Encoder(ENC_2_A, ENC_2_B);
@@ -49,7 +51,7 @@ class PiComms {
     void disconnect() {
       std::cout << "Disconnecting from Pi... " << std::flush;
 
-      // gpioTerminate();
+      gpioTerminate();
       is_connected = false;
 
       std::cout << "done!" << std::endl;
@@ -69,8 +71,8 @@ class PiComms {
     void set_motor_values(int val_1, int val_2)
     {
       // TODO: change this to integrate with PID
-      // gpioPWM(PIN_LEFT, val_1);
-      // gpioPWM(PIN_RIGHT, val_2);
+      gpioPWM(MOTOR_FWD, val_1);
+      gpioPWM(MOTOR_REV, val_2);
       RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Set motor values");
     }
 
@@ -80,3 +82,4 @@ class PiComms {
     }
 };
 
+#endif
