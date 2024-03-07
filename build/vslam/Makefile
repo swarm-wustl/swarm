@@ -354,17 +354,17 @@ vslam__rosidl_typesupport_cpp/fast:
 .PHONY : vslam__rosidl_typesupport_cpp/fast
 
 #=============================================================================
-# Target rules for targets named ament_cmake_python_copy_vslam
+# Target rules for targets named ament_cmake_python_symlink_vslam
 
 # Build rule for target.
-ament_cmake_python_copy_vslam: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_copy_vslam
-.PHONY : ament_cmake_python_copy_vslam
+ament_cmake_python_symlink_vslam: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_symlink_vslam
+.PHONY : ament_cmake_python_symlink_vslam
 
 # fast build rule for target.
-ament_cmake_python_copy_vslam/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_copy_vslam.dir/build.make CMakeFiles/ament_cmake_python_copy_vslam.dir/build
-.PHONY : ament_cmake_python_copy_vslam/fast
+ament_cmake_python_symlink_vslam/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_symlink_vslam.dir/build.make CMakeFiles/ament_cmake_python_symlink_vslam.dir/build
+.PHONY : ament_cmake_python_symlink_vslam/fast
 
 #=============================================================================
 # Target rules for targets named ament_cmake_python_build_vslam_egg
@@ -794,7 +794,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... ament_cmake_python_build_vslam_egg"
-	@echo "... ament_cmake_python_copy_vslam"
+	@echo "... ament_cmake_python_symlink_vslam"
 	@echo "... uninstall"
 	@echo "... vslam"
 	@echo "... vslam__cpp"

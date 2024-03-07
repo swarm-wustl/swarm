@@ -1,0 +1,447 @@
+[0.324s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.324s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff8b95a410>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff8c8bae60>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff8c8bae60>>)
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.340s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/ubuntu/Documents/swarm'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extensions ['ignore', 'ignore_ament_install']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extension 'ignore'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extension 'ignore_ament_install'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extensions ['colcon_pkg']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extension 'colcon_pkg'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extensions ['colcon_meta']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extension 'colcon_meta'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extensions ['ros']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extension 'ros'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extensions ['cmake', 'python']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extension 'cmake'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extension 'python'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extensions ['python_setup_py']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp) by extension 'python_setup_py'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extensions ['ignore', 'ignore_ament_install']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extension 'ignore'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extension 'ignore_ament_install'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extensions ['colcon_pkg']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extension 'colcon_pkg'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extensions ['colcon_meta']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extension 'colcon_meta'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extensions ['ros']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extension 'ros'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extensions ['cmake', 'python']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extension 'cmake'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extension 'python'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extensions ['python_setup_py']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code) by extension 'python_setup_py'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extensions ['ignore', 'ignore_ament_install']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extension 'ignore'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extension 'ignore_ament_install'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extensions ['colcon_pkg']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extension 'colcon_pkg'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extensions ['colcon_meta']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extension 'colcon_meta'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extensions ['ros']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extension 'ros'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extensions ['cmake', 'python']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extension 'cmake'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extension 'python'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extensions ['python_setup_py']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Code/Example_Code_4_motor_control_w_pi) by extension 'python_setup_py'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extensions ['ignore', 'ignore_ament_install']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extension 'ignore'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extension 'ignore_ament_install'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extensions ['colcon_pkg']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extension 'colcon_pkg'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extensions ['colcon_meta']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extension 'colcon_meta'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extensions ['ros']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extension 'ros'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extensions ['cmake', 'python']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extension 'cmake'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extension 'python'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extensions ['python_setup_py']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images) by extension 'python_setup_py'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extensions ['ignore', 'ignore_ament_install']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extension 'ignore'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extension 'ignore_ament_install'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extensions ['colcon_pkg']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extension 'colcon_pkg'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extensions ['colcon_meta']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extension 'colcon_meta'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extensions ['ros']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extension 'ros'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extensions ['cmake', 'python']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extension 'cmake'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extension 'python'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extensions ['python_setup_py']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Rasp/Images/IMG_Rasp_cir) by extension 'python_setup_py'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extensions ['ignore', 'ignore_ament_install']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extension 'ignore'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extension 'ignore_ament_install'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extensions ['colcon_pkg']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extension 'colcon_pkg'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extensions ['colcon_meta']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extension 'colcon_meta'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extensions ['ros']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extension 'ros'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extensions ['cmake', 'python']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extension 'cmake'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extension 'python'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extensions ['python_setup_py']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros) by extension 'python_setup_py'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extensions ['ignore', 'ignore_ament_install']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extension 'ignore'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extension 'ignore_ament_install'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extensions ['colcon_pkg']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extension 'colcon_pkg'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extensions ['colcon_meta']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extension 'colcon_meta'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extensions ['ros']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extension 'ros'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extensions ['cmake', 'python']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extension 'cmake'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extension 'python'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extensions ['python_setup_py']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src) by extension 'python_setup_py'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_description) by extensions ['ignore', 'ignore_ament_install']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_description) by extension 'ignore'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_description) by extension 'ignore_ament_install'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_description) by extensions ['colcon_pkg']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_description) by extension 'colcon_pkg'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_description) by extensions ['colcon_meta']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_description) by extension 'colcon_meta'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_description) by extensions ['ros']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_description) by extension 'ros'
+[0.348s] DEBUG:colcon.colcon_core.package_identification:Package 'ros/src/ros2_control_demo_description' with type 'ros.ament_cmake' and name 'ros2_control_demo_description'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_example_2) by extensions ['ignore', 'ignore_ament_install']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_example_2) by extension 'ignore'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_example_2) by extension 'ignore_ament_install'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_example_2) by extensions ['colcon_pkg']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_example_2) by extension 'colcon_pkg'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_example_2) by extensions ['colcon_meta']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_example_2) by extension 'colcon_meta'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_example_2) by extensions ['ros']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/ros2_control_demo_example_2) by extension 'ros'
+[0.349s] DEBUG:colcon.colcon_core.package_identification:Package 'ros/src/ros2_control_demo_example_2' with type 'ros.ament_cmake' and name 'ros2_control_demo_example_2'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/swarm_bot) by extensions ['ignore', 'ignore_ament_install']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/swarm_bot) by extension 'ignore'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/swarm_bot) by extension 'ignore_ament_install'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/swarm_bot) by extensions ['colcon_pkg']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/swarm_bot) by extension 'colcon_pkg'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/swarm_bot) by extensions ['colcon_meta']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/swarm_bot) by extension 'colcon_meta'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/swarm_bot) by extensions ['ros']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/swarm_bot) by extension 'ros'
+[0.349s] DEBUG:colcon.colcon_core.package_identification:Package 'ros/src/swarm_bot' with type 'ros.ament_cmake' and name 'swarm_bot'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/vslam) by extensions ['ignore', 'ignore_ament_install']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/vslam) by extension 'ignore'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/vslam) by extension 'ignore_ament_install'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/vslam) by extensions ['colcon_pkg']
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/vslam) by extension 'colcon_pkg'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/vslam) by extensions ['colcon_meta']
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/vslam) by extension 'colcon_meta'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/vslam) by extensions ['ros']
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(ros/src/vslam) by extension 'ros'
+[0.350s] DEBUG:colcon.colcon_core.package_identification:Package 'ros/src/vslam' with type 'ros.ament_cmake' and name 'vslam'
+[0.350s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.350s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.350s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.350s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.350s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.381s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.381s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.386s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/ubuntu/Documents/swarm/install/vslam' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.386s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/ubuntu/Documents/swarm/install/swarm_bot' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.386s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.386s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.386s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/ubuntu/Documents/swarm/install/vslam' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.386s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/ubuntu/Documents/swarm/install/swarm_bot' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.386s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.386s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.390s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/ubuntu/Documents/swarm/install
+[0.395s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 2 installed packages in /home/ubuntu/Documents/example_2/install
+[0.399s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/ubuntu/Documents/ex_2_old/install
+[0.405s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 325 installed packages in /opt/ros/humble
+[0.405s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.447s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_description' build argument 'cmake_args' from command line to 'None'
+[0.447s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_description' build argument 'cmake_target' from command line to 'None'
+[0.447s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.447s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.447s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.447s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.447s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.447s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.447s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.447s] DEBUG:colcon.colcon_core.verb:Building package 'ros2_control_demo_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/Documents/swarm/build/ros2_control_demo_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description', 'merge_install': False, 'path': '/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_description', 'symlink_install': True, 'test_result_base': None}
+[0.452s] Level 5:colcon.colcon_core.verb:set package 'swarm_bot' build argument 'cmake_args' from command line to 'None'
+[0.452s] Level 5:colcon.colcon_core.verb:set package 'swarm_bot' build argument 'cmake_target' from command line to 'None'
+[0.452s] Level 5:colcon.colcon_core.verb:set package 'swarm_bot' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.452s] Level 5:colcon.colcon_core.verb:set package 'swarm_bot' build argument 'cmake_clean_cache' from command line to 'False'
+[0.452s] Level 5:colcon.colcon_core.verb:set package 'swarm_bot' build argument 'cmake_clean_first' from command line to 'False'
+[0.452s] Level 5:colcon.colcon_core.verb:set package 'swarm_bot' build argument 'cmake_force_configure' from command line to 'False'
+[0.452s] Level 5:colcon.colcon_core.verb:set package 'swarm_bot' build argument 'ament_cmake_args' from command line to 'None'
+[0.452s] Level 5:colcon.colcon_core.verb:set package 'swarm_bot' build argument 'catkin_cmake_args' from command line to 'None'
+[0.452s] Level 5:colcon.colcon_core.verb:set package 'swarm_bot' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.452s] DEBUG:colcon.colcon_core.verb:Building package 'swarm_bot' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/Documents/swarm/build/swarm_bot', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/Documents/swarm/install/swarm_bot', 'merge_install': False, 'path': '/home/ubuntu/Documents/swarm/ros/src/swarm_bot', 'symlink_install': True, 'test_result_base': None}
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'vslam' build argument 'cmake_args' from command line to 'None'
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'vslam' build argument 'cmake_target' from command line to 'None'
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'vslam' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'vslam' build argument 'cmake_clean_cache' from command line to 'False'
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'vslam' build argument 'cmake_clean_first' from command line to 'False'
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'vslam' build argument 'cmake_force_configure' from command line to 'False'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'vslam' build argument 'ament_cmake_args' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'vslam' build argument 'catkin_cmake_args' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'vslam' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.457s] DEBUG:colcon.colcon_core.verb:Building package 'vslam' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/Documents/swarm/build/vslam', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/Documents/swarm/install/vslam', 'merge_install': False, 'path': '/home/ubuntu/Documents/swarm/ros/src/vslam', 'symlink_install': True, 'test_result_base': None}
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_example_2' build argument 'cmake_args' from command line to 'None'
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_example_2' build argument 'cmake_target' from command line to 'None'
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_example_2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_example_2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_example_2' build argument 'cmake_clean_first' from command line to 'False'
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_example_2' build argument 'cmake_force_configure' from command line to 'False'
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_example_2' build argument 'ament_cmake_args' from command line to 'None'
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_example_2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'ros2_control_demo_example_2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.461s] DEBUG:colcon.colcon_core.verb:Building package 'ros2_control_demo_example_2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2', 'merge_install': False, 'path': '/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2', 'symlink_install': True, 'test_result_base': None}
+[0.466s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.471s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.471s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_description' with build type 'ament_cmake'
+[0.471s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_description'
+[0.485s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.485s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.485s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.510s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ubuntu/Documents/swarm/ros/src/swarm_bot' with build type 'ament_cmake'
+[0.510s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ubuntu/Documents/swarm/ros/src/swarm_bot'
+[0.515s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.515s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.539s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ubuntu/Documents/swarm/ros/src/vslam' with build type 'ament_cmake'
+[0.539s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ubuntu/Documents/swarm/ros/src/vslam'
+[0.544s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.544s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.571s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description
+[0.575s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/swarm_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/swarm_bot -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/swarm_bot
+[0.577s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/vslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/vslam -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/vslam
+[0.994s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description
+[0.995s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/ros2_control_demo_description -- -j8 -l8
+[1.012s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/ros2_control_demo_description -- -j8 -l8
+[1.036s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/ros2_control_demo_description
+[1.046s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/swarm_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/swarm_bot -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/swarm_bot
+[1.046s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/swarm_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/swarm_bot -- -j8 -l8
+[1.062s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/swarm_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/swarm_bot -- -j8 -l8
+[1.077s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/swarm_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/swarm_bot
+[1.202s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(swarm_bot)
+[1.202s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/swarm_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/swarm_bot
+[1.210s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot' for CMake module files
+[1.210s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot' for CMake config files
+[1.210s] Level 1:colcon.colcon_core.shell:create_environment_hook('swarm_bot', 'cmake_prefix_path')
+[1.217s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/hook/cmake_prefix_path.ps1'
+[1.217s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/hook/cmake_prefix_path.dsv'
+[1.217s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/hook/cmake_prefix_path.sh'
+[1.218s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot/bin'
+[1.218s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot/lib/pkgconfig/swarm_bot.pc'
+[1.218s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot/lib/python3.10/site-packages'
+[1.218s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot/bin'
+[1.223s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.ps1'
+[1.224s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.dsv'
+[1.224s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.sh'
+[1.224s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.bash'
+[1.224s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.zsh'
+[1.224s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/Documents/swarm/install/swarm_bot/share/colcon-core/packages/swarm_bot)
+[1.233s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros2_control_demo_description)
+[1.233s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/ros2_control_demo_description
+[1.238s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description' for CMake module files
+[1.238s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description' for CMake config files
+[1.239s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros2_control_demo_description', 'cmake_prefix_path')
+[1.244s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/hook/cmake_prefix_path.ps1'
+[1.244s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/hook/cmake_prefix_path.dsv'
+[1.244s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/hook/cmake_prefix_path.sh'
+[1.244s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/bin'
+[1.244s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/lib/pkgconfig/ros2_control_demo_description.pc'
+[1.244s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/lib/python3.10/site-packages'
+[1.244s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/bin'
+[1.249s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/package.ps1'
+[1.250s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/package.dsv'
+[1.250s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/package.sh'
+[1.250s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/package.bash'
+[1.250s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/package.zsh'
+[1.250s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/colcon-core/packages/ros2_control_demo_description)
+[1.255s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(swarm_bot)
+[1.260s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot' for CMake module files
+[1.260s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot' for CMake config files
+[1.260s] Level 1:colcon.colcon_core.shell:create_environment_hook('swarm_bot', 'cmake_prefix_path')
+[1.265s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/hook/cmake_prefix_path.ps1'
+[1.265s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/hook/cmake_prefix_path.dsv'
+[1.265s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/hook/cmake_prefix_path.sh'
+[1.265s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot/bin'
+[1.265s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot/lib/pkgconfig/swarm_bot.pc'
+[1.265s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot/lib/python3.10/site-packages'
+[1.265s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/swarm_bot/bin'
+[1.270s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.ps1'
+[1.271s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.dsv'
+[1.271s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.sh'
+[1.271s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.bash'
+[1.271s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/swarm_bot/share/swarm_bot/package.zsh'
+[1.271s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/Documents/swarm/install/swarm_bot/share/colcon-core/packages/swarm_bot)
+[1.276s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros2_control_demo_description)
+[1.281s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description' for CMake module files
+[1.281s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description' for CMake config files
+[1.281s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros2_control_demo_description', 'cmake_prefix_path')
+[1.286s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/hook/cmake_prefix_path.ps1'
+[1.286s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/hook/cmake_prefix_path.dsv'
+[1.286s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/hook/cmake_prefix_path.sh'
+[1.286s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/bin'
+[1.286s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/lib/pkgconfig/ros2_control_demo_description.pc'
+[1.286s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/lib/python3.10/site-packages'
+[1.286s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/bin'
+[1.291s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/package.ps1'
+[1.291s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/package.dsv'
+[1.291s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/package.sh'
+[1.291s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/package.bash'
+[1.291s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/ros2_control_demo_description/package.zsh'
+[1.291s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/Documents/swarm/install/ros2_control_demo_description/share/colcon-core/packages/ros2_control_demo_description)
+[1.292s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2' with build type 'ament_cmake'
+[1.292s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2'
+[1.297s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.297s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.324s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2
+[2.418s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/vslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/vslam -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/vslam
+[2.418s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/vslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/vslam -- -j8 -l8
+[2.833s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2' returned '0': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2
+[2.834s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2 -- -j8 -l8
+[4.579s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2' returned '0': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2 -- -j8 -l8
+[4.597s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2
+[4.837s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros2_control_demo_example_2)
+[4.837s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2' returned '0': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2
+[4.851s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2' for CMake module files
+[4.851s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2' for CMake config files
+[4.852s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros2_control_demo_example_2', 'cmake_prefix_path')
+[4.864s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/cmake_prefix_path.ps1'
+[4.865s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/cmake_prefix_path.dsv'
+[4.865s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/cmake_prefix_path.sh'
+[4.865s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/lib'
+[4.866s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros2_control_demo_example_2', 'ld_library_path_lib')
+[4.878s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/ld_library_path_lib.ps1'
+[4.878s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/ld_library_path_lib.dsv'
+[4.878s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/ld_library_path_lib.sh'
+[4.878s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/bin'
+[4.879s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/lib/pkgconfig/ros2_control_demo_example_2.pc'
+[4.879s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/lib/python3.10/site-packages'
+[4.879s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/bin'
+[4.884s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.ps1'
+[4.884s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.dsv'
+[4.884s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.sh'
+[4.884s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.bash'
+[4.884s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.zsh'
+[4.885s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/colcon-core/packages/ros2_control_demo_example_2)
+[4.909s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros2_control_demo_example_2)
+[4.914s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2' for CMake module files
+[4.914s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2' for CMake config files
+[4.915s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros2_control_demo_example_2', 'cmake_prefix_path')
+[4.920s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/cmake_prefix_path.ps1'
+[4.920s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/cmake_prefix_path.dsv'
+[4.920s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/cmake_prefix_path.sh'
+[4.920s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/lib'
+[4.920s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros2_control_demo_example_2', 'ld_library_path_lib')
+[4.925s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/ld_library_path_lib.ps1'
+[4.925s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/ld_library_path_lib.dsv'
+[4.925s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/hook/ld_library_path_lib.sh'
+[4.925s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/bin'
+[4.925s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/lib/pkgconfig/ros2_control_demo_example_2.pc'
+[4.926s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/lib/python3.10/site-packages'
+[4.926s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/bin'
+[4.930s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.ps1'
+[4.931s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.dsv'
+[4.931s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.sh'
+[4.931s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.bash'
+[4.931s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.zsh'
+[4.931s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/colcon-core/packages/ros2_control_demo_example_2)
+[9.760s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/vslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/vslam -- -j8 -l8
+[9.798s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Documents/swarm/build/vslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/vslam
+[10.150s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vslam)
+[10.153s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Documents/swarm/build/vslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/vslam
+[10.157s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam' for CMake module files
+[10.157s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam' for CMake config files
+[10.158s] Level 1:colcon.colcon_core.shell:create_environment_hook('vslam', 'cmake_prefix_path')
+[10.163s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/cmake_prefix_path.ps1'
+[10.163s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/cmake_prefix_path.dsv'
+[10.163s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/cmake_prefix_path.sh'
+[10.163s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam/lib'
+[10.163s] Level 1:colcon.colcon_core.shell:create_environment_hook('vslam', 'ld_library_path_lib')
+[10.169s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/ld_library_path_lib.ps1'
+[10.169s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/ld_library_path_lib.dsv'
+[10.169s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/ld_library_path_lib.sh'
+[10.169s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam/bin'
+[10.169s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam/lib/pkgconfig/vslam.pc'
+[10.169s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam/lib/python3.10/site-packages'
+[10.169s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam/bin'
+[10.174s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.ps1'
+[10.174s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.dsv'
+[10.174s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.sh'
+[10.174s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.bash'
+[10.174s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.zsh'
+[10.174s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/Documents/swarm/install/vslam/share/colcon-core/packages/vslam)
+[10.242s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vslam)
+[10.248s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam' for CMake module files
+[10.248s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam' for CMake config files
+[10.248s] Level 1:colcon.colcon_core.shell:create_environment_hook('vslam', 'cmake_prefix_path')
+[10.253s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/cmake_prefix_path.ps1'
+[10.253s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/cmake_prefix_path.dsv'
+[10.253s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/cmake_prefix_path.sh'
+[10.253s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam/lib'
+[10.253s] Level 1:colcon.colcon_core.shell:create_environment_hook('vslam', 'ld_library_path_lib')
+[10.258s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/ld_library_path_lib.ps1'
+[10.258s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/ld_library_path_lib.dsv'
+[10.258s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/hook/ld_library_path_lib.sh'
+[10.258s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam/bin'
+[10.258s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam/lib/pkgconfig/vslam.pc'
+[10.258s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam/lib/python3.10/site-packages'
+[10.258s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Documents/swarm/install/vslam/bin'
+[10.263s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.ps1'
+[10.263s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.dsv'
+[10.263s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.sh'
+[10.263s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.bash'
+[10.263s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.zsh'
+[10.263s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/Documents/swarm/install/vslam/share/colcon-core/packages/vslam)
+[10.263s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[10.263s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[10.263s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[10.263s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[10.289s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[10.289s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[10.289s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[10.295s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[10.301s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/Documents/swarm/install/local_setup.ps1'
+[10.301s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ubuntu/Documents/swarm/install/_local_setup_util_ps1.py'
+[10.302s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/Documents/swarm/install/setup.ps1'
+[10.309s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/Documents/swarm/install/local_setup.sh'
+[10.310s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ubuntu/Documents/swarm/install/_local_setup_util_sh.py'
+[10.310s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/Documents/swarm/install/setup.sh'
+[10.315s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/Documents/swarm/install/local_setup.bash'
+[10.315s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/Documents/swarm/install/setup.bash'
+[10.320s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/Documents/swarm/install/local_setup.zsh'
+[10.320s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/Documents/swarm/install/setup.zsh'

@@ -1,7 +1,7 @@
 CMakeFiles/ros2_control_demo_example_2.dir/hardware/diffbot_system.cpp.o: \
- /home/ubuntu/Documents/swarm/ros/src/example_2/hardware/diffbot_system.cpp \
+ /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/diffbot_system.cpp \
  /usr/include/stdc-predef.h \
- /home/ubuntu/Documents/swarm/ros/src/example_2/hardware/include/ros2_control_demo_example_2/diffbot_system.hpp \
+ /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/diffbot_system.hpp \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/aarch64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h \
@@ -329,7 +329,8 @@ CMakeFiles/ros2_control_demo_example_2.dir/hardware/diffbot_system.cpp.o: \
  /usr/include/c++/11/bits/unordered_set.h \
  /opt/ros/humble/include/rclcpp/rclcpp/init_options.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/macros.hpp \
- /home/ubuntu/Documents/swarm/ros/src/example_2/hardware/include/ros2_control_demo_example_2/visibility_control.h \
+ /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/visibility_control.h \
+ /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/wheel.hpp \
  /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/aarch64-linux-gnu/bits/math-vector.h \
  /usr/include/aarch64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -351,8 +352,10 @@ CMakeFiles/ros2_control_demo_example_2.dir/hardware/diffbot_system.cpp.o: \
  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc /usr/include/c++/11/cstddef \
- /opt/ros/humble/include/hardware_interface/types/hardware_interface_type_values.hpp \
+ /usr/include/c++/11/tr1/riemann_zeta.tcc \
+ /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp \
+ /usr/include/c++/11/iostream \
+ /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/encoder.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp \
  /usr/include/c++/11/csignal /usr/include/signal.h \
  /usr/include/aarch64-linux-gnu/bits/signum-generic.h \
@@ -409,10 +412,9 @@ CMakeFiles/ros2_control_demo_example_2.dir/hardware/diffbot_system.cpp.o: \
  /usr/include/c++/11/bits/stl_multiset.h /usr/include/c++/11/thread \
  /usr/include/c++/11/bits/this_thread_sleep.h \
  /opt/ros/humble/include/rclcpp/rclcpp/executor.hpp \
- /usr/include/c++/11/cassert /usr/include/c++/11/iostream \
- /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
- /usr/include/c++/11/bits/list.tcc /usr/include/c++/11/map \
- /usr/include/c++/11/bits/stl_map.h \
+ /usr/include/c++/11/cassert /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h /usr/include/c++/11/bits/list.tcc \
+ /usr/include/c++/11/map /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h \
  /opt/ros/humble/include/rcpputils/rcpputils/scope_exit.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/guard_condition.hpp \
@@ -651,6 +653,9 @@ CMakeFiles/ros2_control_demo_example_2.dir/hardware/diffbot_system.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp \
+ /usr/include/c++/11/cstddef \
+ /opt/ros/humble/include/hardware_interface/lexical_casts.hpp \
+ /opt/ros/humble/include/hardware_interface/types/hardware_interface_type_values.hpp \
  /opt/ros/humble/include/pluginlib/pluginlib/class_list_macros.hpp \
  /opt/ros/humble/include/class_loader/class_loader/class_loader.hpp \
  /usr/include/console_bridge/console.h \

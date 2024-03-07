@@ -1,3 +1,0 @@
-Invoking command in '/home/ubuntu/Documents/swarm/build/vslam': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/vslam -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/vslam
-Invoked command in '/home/ubuntu/Documents/swarm/build/vslam' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/vslam -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/vslam
-Invoking command in '/home/ubuntu/Documents/swarm/build/vslam': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/vslam -- -j8 -l8

@@ -1,0 +1,1 @@
+/home/ubuntu/Documents/swarm/build/vslam/rosidl_generator_py/vslam/msg/__init__.py

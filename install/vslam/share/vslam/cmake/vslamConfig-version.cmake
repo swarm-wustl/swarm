@@ -1,0 +1,1 @@
+/home/ubuntu/Documents/swarm/build/vslam/ament_cmake_core/vslamConfig-version.cmake

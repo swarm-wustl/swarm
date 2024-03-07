@@ -1,18 +1,1 @@
-<?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
-
-<!-- ROS2 control is definitely better for the real robot but can be a little funkier in Gazebo -->
-  <xacro:arg name="use_ros2_control" default="true" />
-
-  <xacro:include filename="robot_core.xacro" />
-
-  <xacro:if value="$(arg use_ros2_control)">
-    <xacro:include filename="ros2_control.xacro" />
-  </xacro:if>
-  <xacro:unless value="$(arg use_ros2_control)">
-    <xacro:include filename="gazebo_control.xacro" />
-  </xacro:unless>
-
-  <xacro:include filename="camera.xacro" />
-
-</robot>
+/home/ubuntu/Documents/swarm/ros/src/swarm_bot/description/robot.urdf.xacro

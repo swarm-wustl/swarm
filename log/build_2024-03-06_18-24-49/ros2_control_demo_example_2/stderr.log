@@ -1,0 +1,35 @@
+In file included from [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:5[m[K,
+                 from [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/diffbot_system.hpp:35[m[K,
+                 from [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/diffbot_system.cpp:15[m[K:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/encoder.hpp:[m[K In member function ‘[01m[Kvoid Encoder::updateEncoder(int, int, int)[m[K’:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/encoder.hpp:12:32:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgpio[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   12 |         void updateEncoder([01;35m[Kint gpio[m[K, int level, int tick) {
+      |                            [01;35m[K~~~~^~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/encoder.hpp:12:42:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Klevel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   12 |         void updateEncoder(int gpio, [01;35m[Kint level[m[K, int tick) {
+      |                                      [01;35m[K~~~~^~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/encoder.hpp:12:53:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktick[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   12 |         void updateEncoder(int gpio, int level, [01;35m[Kint tick[m[K) {
+      |                                                 [01;35m[K~~~~^~~~[m[K
+In file included from [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/diffbot_system.hpp:35[m[K,
+                 from [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/diffbot_system.cpp:15[m[K:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:[m[K In member function ‘[01m[Kvoid PiComms::set_motor_values(int, int)[m[K’:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:69:31:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kval_1[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   69 |     void set_motor_values([01;35m[Kint val_1[m[K, int val_2)
+      |                           [01;35m[K~~~~^~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:69:42:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kval_2[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   69 |     void set_motor_values(int val_1, [01;35m[Kint val_2[m[K)
+      |                                      [01;35m[K~~~~^~~~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:[m[K In member function ‘[01m[Kvoid PiComms::set_pid_values(int, int, int, int)[m[K’:
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:77:29:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kk_p[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   77 |     void set_pid_values([01;35m[Kint k_p[m[K, int k_d, int k_i, int k_o)
+      |                         [01;35m[K~~~~^~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:77:38:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kk_d[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   77 |     void set_pid_values(int k_p, [01;35m[Kint k_d[m[K, int k_i, int k_o)
+      |                                  [01;35m[K~~~~^~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:77:47:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kk_i[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   77 |     void set_pid_values(int k_p, int k_d, [01;35m[Kint k_i[m[K, int k_o)
+      |                                           [01;35m[K~~~~^~~[m[K
+[01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:77:56:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kk_o[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   77 |     void set_pid_values(int k_p, int k_d, int k_i, [01;35m[Kint k_o[m[K)
+      |                                                    [01;35m[K~~~~^~~[m[K
