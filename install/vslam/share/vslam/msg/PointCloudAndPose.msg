@@ -1,0 +1,1 @@
+/home/ubuntu/Documents/swarm/ros/src/vslam/msg/PointCloudAndPose.msg

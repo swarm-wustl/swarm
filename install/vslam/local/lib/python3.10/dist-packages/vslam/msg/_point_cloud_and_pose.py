@@ -1,0 +1,1 @@
+/home/ubuntu/Documents/swarm/build/vslam/rosidl_generator_py/vslam/msg/_point_cloud_and_pose.py

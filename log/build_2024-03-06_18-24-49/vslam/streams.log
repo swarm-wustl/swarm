@@ -1,0 +1,665 @@
+[0.037s] Invoking command in '/home/ubuntu/Documents/swarm/build/vslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/vslam -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/vslam
+[0.082s] -- The C compiler identification is GNU 11.4.0
+[0.147s] -- The CXX compiler identification is GNU 11.4.0
+[0.151s] -- Detecting C compiler ABI info
+[0.184s] -- Detecting C compiler ABI info - done
+[0.194s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.194s] -- Detecting C compile features
+[0.195s] -- Detecting C compile features - done
+[0.198s] -- Detecting CXX compiler ABI info
+[0.240s] -- Detecting CXX compiler ABI info - done
+[0.248s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.249s] -- Detecting CXX compile features
+[0.249s] -- Detecting CXX compile features - done
+[0.251s] -- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.341s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.375s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.398s] -- Found rclcpp: 16.0.7 (/opt/ros/humble/share/rclcpp/cmake)
+[0.446s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.450s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.459s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.469s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.482s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.525s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.527s] -- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.585s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.599s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.623s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.630s] -- Looking for pthread.h
+[0.675s] -- Looking for pthread.h - found
+[0.675s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.727s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.727s] -- Found Threads: TRUE  
+[0.823s] -- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.905s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.912s] -- Found image_transport: 3.1.7 (/opt/ros/humble/share/image_transport/cmake)
+[0.941s] -- Found cv_bridge: 3.2.1 (/opt/ros/humble/share/cv_bridge/cmake)
+[0.948s] -- Found OpenCV: /usr/local (found version "4.6.0") 
+[1.150s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.568s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.702s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.723s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[1.724s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.750s] -- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[1.750s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.751s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.751s] -- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+[1.772s] -- Found PythonExtra: .so  
+[1.848s] -- Configuring done
+[1.870s] -- Generating done
+[1.872s] -- Build files have been written to: /home/ubuntu/Documents/swarm/build/vslam
+[1.877s] Invoked command in '/home/ubuntu/Documents/swarm/build/vslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/vslam -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/vslam
+[1.878s] Invoking command in '/home/ubuntu/Documents/swarm/build/vslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/vslam -- -j8 -l8
+[1.918s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.919s] [  5%] [32mBuilding CXX object CMakeFiles/video_reader.dir/src/video_reader.cpp.o[0m
+[1.925s] [  8%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.928s] [  8%] Built target ament_cmake_python_symlink_vslam
+[2.054s] running egg_info
+[2.055s] creating vslam.egg-info
+[2.055s] writing vslam.egg-info/PKG-INFO
+[2.055s] writing dependency_links to vslam.egg-info/dependency_links.txt
+[2.055s] writing top-level names to vslam.egg-info/top_level.txt
+[2.055s] writing manifest file 'vslam.egg-info/SOURCES.txt'
+[2.056s] reading manifest file 'vslam.egg-info/SOURCES.txt'
+[2.056s] writing manifest file 'vslam.egg-info/SOURCES.txt'
+[2.056s] [  8%] Built target vslam__cpp
+[2.071s] [ 13%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.071s] [ 13%] [32mBuilding C object CMakeFiles/vslam__rosidl_generator_c.dir/rosidl_generator_c/vslam/msg/detail/point_cloud_and_pose__functions.c.o[0m
+[2.073s] [ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[2.074s] [ 16%] Built target ament_cmake_python_build_vslam_egg
+[2.076s] [ 18%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.105s] [ 21%] [32m[1mLinking C shared library libvslam__rosidl_generator_c.so[0m
+[2.135s] [ 21%] Built target vslam__rosidl_generator_c
+[2.143s] [ 24%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[2.143s] [ 27%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.144s] [ 29%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[2.205s] [ 32%] [32mBuilding CXX object CMakeFiles/vslam__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/vslam/msg/detail/dds_fastrtps/point_cloud_and_pose__type_support.cpp.o[0m
+[2.216s] [ 35%] [32mBuilding CXX object CMakeFiles/vslam__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/vslam/msg/point_cloud_and_pose__type_support.cpp.o[0m
+[2.238s] [ 37%] [32mBuilding CXX object CMakeFiles/vslam__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/vslam/msg/detail/point_cloud_and_pose__type_support.cpp.o[0m
+[2.300s] [ 43%] [32mBuilding CXX object CMakeFiles/vslam__rosidl_typesupport_c.dir/rosidl_typesupport_c/vslam/msg/point_cloud_and_pose__type_support.cpp.o[0m
+[2.300s] [ 43%] [32mBuilding C object CMakeFiles/vslam__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/vslam/msg/detail/point_cloud_and_pose__type_support.c.o[0m
+[2.329s] [ 45%] [32m[1mLinking CXX shared library libvslam__rosidl_typesupport_c.so[0m
+[2.332s] [ 48%] [32mBuilding CXX object CMakeFiles/vslam__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/vslam/msg/detail/point_cloud_and_pose__type_support_c.cpp.o[0m
+[2.340s] [ 51%] [32m[1mLinking C shared library libvslam__rosidl_typesupport_introspection_c.so[0m
+[2.352s] [ 54%] [32m[1mLinking CXX shared library libvslam__rosidl_typesupport_cpp.so[0m
+[2.370s] [ 54%] Built target vslam__rosidl_typesupport_introspection_c
+[2.371s] [ 54%] Built target vslam__rosidl_typesupport_c
+[2.390s] [ 54%] Built target vslam__rosidl_typesupport_cpp
+[2.399s] [ 56%] [32m[1mLinking CXX shared library libvslam__rosidl_typesupport_fastrtps_cpp.so[0m
+[2.405s] [ 62%] [32mBuilding CXX object CMakeFiles/grid_mapper.dir/src/grid_mapper.cpp.o[0m
+[2.405s] [ 62%] [32mBuilding CXX object CMakeFiles/system.dir/src/system_node.cpp.o[0m
+[2.445s] [ 64%] [32m[1mLinking CXX shared library libvslam__rosidl_typesupport_introspection_cpp.so[0m
+[2.478s] [ 64%] Built target vslam__rosidl_typesupport_introspection_cpp
+[2.478s] [ 64%] Built target vslam__rosidl_typesupport_fastrtps_cpp
+[2.507s] [ 67%] [32m[1mLinking CXX shared library libvslam__rosidl_typesupport_fastrtps_c.so[0m
+[2.571s] [ 67%] Built target vslam__rosidl_typesupport_fastrtps_c
+[2.588s] [ 67%] Built target vslam
+[2.604s] [ 70%] [34m[1mGenerating Python code for ROS interfaces[0m
+[2.783s] [ 70%] Built target vslam__py
+[2.800s] [ 72%] [32mBuilding C object CMakeFiles/vslam__rosidl_generator_py.dir/rosidl_generator_py/vslam/msg/_point_cloud_and_pose_s.c.o[0m
+[2.916s] [ 75%] [32m[1mLinking C shared library rosidl_generator_py/vslam/libvslam__rosidl_generator_py.so[0m
+[2.959s] [ 75%] Built target vslam__rosidl_generator_py
+[2.980s] [ 81%] [32mBuilding C object CMakeFiles/vslam__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/vslam/_vslam_s.ep.rosidl_typesupport_c.c.o[0m
+[2.980s] [ 83%] [32mBuilding C object CMakeFiles/vslam__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/vslam/_vslam_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[2.980s] [ 83%] [32mBuilding C object CMakeFiles/vslam__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/vslam/_vslam_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[3.069s] [ 86%] [32m[1mLinking C shared library rosidl_generator_py/vslam/vslam_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so[0m
+[3.076s] [ 91%] [32m[1mLinking C shared library rosidl_generator_py/vslam/vslam_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so[0m
+[3.076s] [ 91%] [32m[1mLinking C shared library rosidl_generator_py/vslam/vslam_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so[0m
+[3.108s] [ 91%] Built target vslam__rosidl_typesupport_introspection_c__pyext
+[3.110s] [ 91%] Built target vslam__rosidl_typesupport_c__pyext
+[3.113s] [ 91%] Built target vslam__rosidl_typesupport_fastrtps_c__pyext
+[3.992s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:[m[K In function ‘[01m[Kvoid update_grid_map(std::vector<std::vector<int> >&, std::vector<std::vector<float> >, std::vector<float>)[m[K’:
+[3.993s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:20:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KBELOW_ROBOT_THRESHOLD[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[3.993s]    20 |   int [01;35m[KBELOW_ROBOT_THRESHOLD[m[K = 0.7;
+[3.993s]       |       [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.993s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:21:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KABOVE_ROBOT_THRESHOLD[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[3.993s]    21 |   int [01;35m[KABOVE_ROBOT_THRESHOLD[m[K = 1.3;
+[3.994s]       |       [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.994s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:[m[K In function ‘[01m[Kvoid display_grid_map(std::vector<std::vector<int> >&, cv::Mat, std::vector<float>)[m[K’:
+[3.994s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:52:21:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<int> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+[3.994s]    52 |   for (int i = 0; [01;35m[Ki < grid_map.size()[m[K; i++) {
+[3.995s]       |                   [01;35m[K~~^~~~~~~~~~~~~~~~~[m[K
+[3.995s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:53:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<int>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+[3.995s]    53 |     for (int j = 0; [01;35m[Kj < grid_map[i].size()[m[K; j++) {
+[3.995s]       |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~[m[K
+[4.013s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:[m[K In member function ‘[01m[Kvoid GridMapperNode::point_cloud_and_pose_callback(vslam::msg::PointCloudAndPose_<std::allocator<void> >::SharedPtr)[m[K’:
+[4.014s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:81:48:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((const std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>*)(& msg))->std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>::operator->()->vslam::msg::PointCloudAndPose_<std::allocator<void> >::pose.geometry_msgs::msg::Pose_<std::allocator<void> >::position.geometry_msgs::msg::Point_<std::allocator<void> >::x[m[K’ from ‘[01m[Kgeometry_msgs::msg::Point_<std::allocator<void> >::_x_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing-Wnarrowing]8;;[m[K]
+[4.014s]    81 |       vector<float> pose = {[01;35m[Kmsg->pose.position.x[m[K, msg->pose.position.y, msg->pose.position.z};
+[4.014s]       |                             [01;35m[K~~~~~~~~~~~~~~~~~~~^[m[K
+[4.014s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:81:48:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((const std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>*)(& msg))->std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>::operator->()->vslam::msg::PointCloudAndPose_<std::allocator<void> >::pose.geometry_msgs::msg::Pose_<std::allocator<void> >::position.geometry_msgs::msg::Point_<std::allocator<void> >::x[m[K’ from ‘[01m[Kgeometry_msgs::msg::Point_<std::allocator<void> >::_x_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing-Wnarrowing]8;;[m[K]
+[4.014s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:81:70:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((const std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>*)(& msg))->std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>::operator->()->vslam::msg::PointCloudAndPose_<std::allocator<void> >::pose.geometry_msgs::msg::Pose_<std::allocator<void> >::position.geometry_msgs::msg::Point_<std::allocator<void> >::y[m[K’ from ‘[01m[Kgeometry_msgs::msg::Point_<std::allocator<void> >::_y_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing-Wnarrowing]8;;[m[K]
+[4.014s]    81 |       vector<float> pose = {msg->pose.position.x, [01;35m[Kmsg->pose.position.y[m[K, msg->pose.position.z};
+[4.014s]       |                                                   [01;35m[K~~~~~~~~~~~~~~~~~~~^[m[K
+[4.015s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:81:70:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((const std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>*)(& msg))->std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>::operator->()->vslam::msg::PointCloudAndPose_<std::allocator<void> >::pose.geometry_msgs::msg::Pose_<std::allocator<void> >::position.geometry_msgs::msg::Point_<std::allocator<void> >::y[m[K’ from ‘[01m[Kgeometry_msgs::msg::Point_<std::allocator<void> >::_y_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing-Wnarrowing]8;;[m[K]
+[4.015s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:81:92:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((const std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>*)(& msg))->std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>::operator->()->vslam::msg::PointCloudAndPose_<std::allocator<void> >::pose.geometry_msgs::msg::Pose_<std::allocator<void> >::position.geometry_msgs::msg::Point_<std::allocator<void> >::z[m[K’ from ‘[01m[Kgeometry_msgs::msg::Point_<std::allocator<void> >::_z_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing-Wnarrowing]8;;[m[K]
+[4.015s]    81 |       vector<float> pose = {msg->pose.position.x, msg->pose.position.y, [01;35m[Kmsg->pose.position.z[m[K};
+[4.015s]       |                                                                         [01;35m[K~~~~~~~~~~~~~~~~~~~^[m[K
+[4.015s] [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/grid_mapper.cpp:81:92:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((const std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>*)(& msg))->std::__shared_ptr_access<vslam::msg::PointCloudAndPose_<std::allocator<void> >, __gnu_cxx::_S_atomic, false, false>::operator->()->vslam::msg::PointCloudAndPose_<std::allocator<void> >::pose.geometry_msgs::msg::Pose_<std::allocator<void> >::position.geometry_msgs::msg::Point_<std::allocator<void> >::z[m[K’ from ‘[01m[Kgeometry_msgs::msg::Point_<std::allocator<void> >::_z_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing-Wnarrowing]8;;[m[K]
+[4.409s] [ 94%] [32m[1mLinking CXX executable video_reader[0m
+[4.491s] /usr/bin/ld: warning: libopencv_core.so.4.5d, needed by /opt/ros/humble/lib/libcv_bridge.so, may conflict with libopencv_core.so.406
+[4.741s] [ 94%] Built target video_reader
+[4.961s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:30[m[K,
+[4.961s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[4.961s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[4.961s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[4.961s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[4.961s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[4.962s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[4.962s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[4.962s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/ImuTypes.h:[m[K In member function ‘[01m[Kvoid ORB_SLAM3::IMU::Preintegrated::printMeasurements() const[m[K’:
+[4.962s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/ImuTypes.h:204:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<ORB_SLAM3::IMU::Preintegrated::integrable>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+[4.962s]   204 |         for(int i=0; [01;35m[Ki<mvMeasurements.size()[m[K; i++){
+[4.962s]       |                      [01;35m[K~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.000s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:37[m[K,
+[5.000s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.000s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.001s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.001s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.001s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.001s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.001s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.002s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.002s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.002s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_vertex.h:[m[K At global scope:
+[5.002s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_vertex.h:62:74:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.003s]    62 |     typedef Eigen::Map<Matrix<double, D, D>, Matrix<double,D,D>::Flags & [01;35m[KAlignedBit[m[K ? Aligned : Unaligned >  HessianBlockType;
+[5.003s]       |                                                                          [01;35m[K^~~~~~~~~~[m[K
+[5.003s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.003s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.003s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.004s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.004s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.009s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.009s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.009s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.009s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.010s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.010s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.010s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.010s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.010s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.010s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.010s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:59:82:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.010s]    59 |       typedef Eigen::Map<Matrix<double, Di, Dj>, Matrix<double, Di, Dj>::Flags & [01;35m[KAlignedBit[m[K ? Aligned : Unaligned > HessianBlockType;
+[5.010s]       |                                                                                  [01;35m[K^~~~~~~~~~[m[K
+[5.010s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.011s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.011s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.011s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.011s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.011s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.011s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.011s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.011s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.011s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.012s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.012s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.012s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.012s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.012s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.012s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:60:82:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.012s]    60 |       typedef Eigen::Map<Matrix<double, Dj, Di>, Matrix<double, Dj, Di>::Flags & [01;35m[KAlignedBit[m[K ? Aligned : Unaligned > HessianBlockTransposedType;
+[5.012s]       |                                                                                  [01;35m[K^~~~~~~~~~[m[K
+[5.012s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.012s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.013s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.013s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.013s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.029s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:41[m[K,
+[5.029s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.029s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.029s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.029s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.029s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.029s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.029s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.029s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.029s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.029s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/se3quat.h:43:38:[m[K [01;35m[Kwarning: [m[Kextra ‘[01m[K;[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+[5.029s]    43 |       EIGEN_MAKE_ALIGNED_OPERATOR_NEW[01;35m[K;[m[K
+[5.029s]       |                                      [01;35m[K^[m[K
+[5.029s]       |                                      [31m[K-[m[K
+[5.179s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:37[m[K,
+[5.179s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.180s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.180s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.180s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.180s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.180s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.180s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.180s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.181s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.181s] /home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_vertex.h: In instantiation of ‘[01m[Kclass g2o::BaseVertex<3, Eigen::Matrix<double, 3, 1> >[m[K’:
+[5.181s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_sba.h:40:35:[m[K   required from here
+[5.181s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_vertex.h:62:72:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.181s]    62 |     typedef Eigen::Map<Matrix<double, D, D>, Matrix<double,D,D>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned >  HessianBlockType;
+[5.181s]       |                                                                  [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.181s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.182s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.182s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.182s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.182s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.190s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:37[m[K,
+[5.190s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.190s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.190s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.190s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.190s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.191s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.191s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.191s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.191s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.191s] /home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_vertex.h: In instantiation of ‘[01m[Kclass g2o::BaseVertex<6, g2o::SE3Quat>[m[K’:
+[5.191s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:59:33:[m[K   required from here
+[5.191s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_vertex.h:62:72:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.191s]    62 |     typedef Eigen::Map<Matrix<double, D, D>, Matrix<double,D,D>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned >  HessianBlockType;
+[5.191s]       |                                                                  [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.192s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.192s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.192s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.192s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.192s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.202s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.202s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.202s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.202s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.202s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.202s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.202s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.203s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.203s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.203s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.203s] /home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h: In instantiation of ‘[01m[Kclass g2o::BaseBinaryEdge<6, g2o::SE3Quat, g2o::VertexSE3Expmap, g2o::VertexSE3Expmap>[m[K’:
+[5.203s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:83:24:[m[K   required from here
+[5.203s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:59:80:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.203s]    59 |       typedef Eigen::Map<Matrix<double, Di, Dj>, Matrix<double, Di, Dj>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned > HessianBlockType;
+[5.204s]       |                                                                          [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.204s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.204s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.204s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.204s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.204s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.204s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.205s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.205s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.205s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.205s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.205s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.205s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.205s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.206s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.206s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.206s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:60:80:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.206s]    60 |       typedef Eigen::Map<Matrix<double, Dj, Di>, Matrix<double, Dj, Di>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned > HessianBlockTransposedType;
+[5.206s]       |                                                                          [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.206s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.206s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.207s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.207s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.207s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.228s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.228s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.228s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.228s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.229s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.229s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.229s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.229s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.229s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.230s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.230s] /home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h: In instantiation of ‘[01m[Kclass g2o::BaseBinaryEdge<2, Eigen::Matrix<double, 2, 1>, g2o::VertexSBAPointXYZ, g2o::VertexSE3Expmap>[m[K’:
+[5.230s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:114:35:[m[K   required from here
+[5.230s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:59:80:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.231s]    59 |       typedef Eigen::Map<Matrix<double, Di, Dj>, Matrix<double, Di, Dj>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned > HessianBlockType;
+[5.231s]       |                                                                          [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.231s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.231s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.231s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.232s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.232s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.233s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.234s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.234s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.234s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.234s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.234s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.234s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.234s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.234s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.234s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.234s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:60:80:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.235s]    60 |       typedef Eigen::Map<Matrix<double, Dj, Di>, Matrix<double, Dj, Di>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned > HessianBlockTransposedType;
+[5.235s]       |                                                                          [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.235s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.235s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.235s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.235s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.235s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.258s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.259s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.259s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.259s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.259s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.259s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.259s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.259s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.260s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.260s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.260s] /home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h: In instantiation of ‘[01m[Kclass g2o::BaseBinaryEdge<3, Eigen::Matrix<double, 3, 1>, g2o::VertexSBAPointXYZ, g2o::VertexSE3Expmap>[m[K’:
+[5.260s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:146:41:[m[K   required from here
+[5.260s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:59:80:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.260s]    59 |       typedef Eigen::Map<Matrix<double, Di, Dj>, Matrix<double, Di, Dj>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned > HessianBlockType;
+[5.261s]       |                                                                          [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.261s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.261s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.261s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.261s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.261s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.261s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.262s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.262s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.262s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.262s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.262s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.262s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.262s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.263s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.263s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.263s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:60:80:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.263s]    60 |       typedef Eigen::Map<Matrix<double, Dj, Di>, Matrix<double, Dj, Di>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned > HessianBlockTransposedType;
+[5.263s]       |                                                                          [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.263s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.264s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.264s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.264s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.264s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.553s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:37[m[K,
+[5.553s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.554s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.554s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.554s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.554s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.554s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.554s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.555s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.555s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.555s] /home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_vertex.h: In instantiation of ‘[01m[Kclass g2o::BaseVertex<7, g2o::Sim3>[m[K’:
+[5.555s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_seven_dof_expmap.h:48:35:[m[K   required from here
+[5.555s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_vertex.h:62:72:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.555s]    62 |     typedef Eigen::Map<Matrix<double, D, D>, Matrix<double,D,D>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned >  HessianBlockType;
+[5.555s]       |                                                                  [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.556s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.556s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.556s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.556s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.556s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.567s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.567s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.567s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.568s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.568s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.568s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.568s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.568s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.568s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.568s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.568s] /home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h: In instantiation of ‘[01m[Kclass g2o::BaseBinaryEdge<7, g2o::Sim3, g2o::VertexSim3Expmap, g2o::VertexSim3Expmap>[m[K’:
+[5.568s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_seven_dof_expmap.h:99:27:[m[K   required from here
+[5.568s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:59:80:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.569s]    59 |       typedef Eigen::Map<Matrix<double, Di, Dj>, Matrix<double, Di, Dj>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned > HessianBlockType;
+[5.569s]       |                                                                          [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.569s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.569s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.569s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.569s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.569s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.569s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.569s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.569s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.570s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.570s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.570s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.570s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.570s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.570s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.570s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.570s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:60:80:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.570s]    60 |       typedef Eigen::Map<Matrix<double, Dj, Di>, Matrix<double, Dj, Di>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned > HessianBlockTransposedType;
+[5.571s]       |                                                                          [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.571s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.571s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.571s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.571s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.571s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.584s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.585s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.585s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.585s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.585s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.585s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.585s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.586s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.586s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.586s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.586s] /home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h: In instantiation of ‘[01m[Kclass g2o::BaseBinaryEdge<2, Eigen::Matrix<double, 2, 1>, g2o::VertexSBAPointXYZ, g2o::VertexSim3Expmap>[m[K’:
+[5.586s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_seven_dof_expmap.h:130:36:[m[K   required from here
+[5.586s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:59:80:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.586s]    59 |       typedef Eigen::Map<Matrix<double, Di, Dj>, Matrix<double, Di, Dj>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned > HessianBlockType;
+[5.587s]       |                                                                          [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.587s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.587s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.587s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.587s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.587s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.590s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/types_six_dof_expmap.h:38[m[K,
+[5.590s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Converter.h:26[m[K,
+[5.591s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Frame.h:33[m[K,
+[5.591s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/KeyFrame.h:28[m[K,
+[5.591s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/MapPoint.h:23[m[K,
+[5.591s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:24[m[K,
+[5.591s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.591s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.591s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.592s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.592s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/Thirdparty/g2o/g2o/types/../core/base_binary_edge.h:60:80:[m[K [01;35m[Kwarning: [m[K‘[01m[KEigen::AlignedBit[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[5.592s]    60 |       typedef Eigen::Map<Matrix<double, Dj, Di>, Matrix<double, Dj, Di>::[01;35m[KFlags & AlignedBit[m[K ? Aligned : Unaligned > HessianBlockTransposedType;
+[5.592s]       |                                                                          [01;35m[K~~~~~~^~~~~~~~~~~~[m[K
+[5.592s] In file included from [01m[K/usr/include/eigen3/Eigen/Core:161[m[K,
+[5.592s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:19[m[K:
+[5.592s] [01m[K/usr/include/eigen3/Eigen/src/Core/util/Constants.h:167:37:[m[K [01;36m[Knote: [m[Kdeclared here
+[5.593s]   167 | EIGEN_DEPRECATED const unsigned int [01;36m[KAlignedBit[m[K = 0x80;
+[5.593s]       |                                     [01;36m[K^~~~~~~~~~[m[K
+[5.829s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Atlas.h:26[m[K,
+[5.830s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:25[m[K,
+[5.830s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.830s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.830s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.830s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.831s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/Pinhole.h:[m[K In member function ‘[01m[Kvirtual bool ORB_SLAM3::Pinhole::matchAndtriangulate(const cv::KeyPoint&, const cv::KeyPoint&, ORB_SLAM3::GeometricCamera*, Sophus::SE3f&, Sophus::SE3f&, float, float, Eigen::Vector3f&)[m[K’:
+[5.831s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/Pinhole.h:83:54:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kkp1[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.831s]    83 |         bool matchAndtriangulate([01;35m[Kconst cv::KeyPoint& kp1[m[K, const cv::KeyPoint& kp2, GeometricCamera* pOther,
+[5.831s]       |                                  [01;35m[K~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[5.832s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/Pinhole.h:83:79:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kkp2[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.832s]    83 |         bool matchAndtriangulate(const cv::KeyPoint& kp1, [01;35m[Kconst cv::KeyPoint& kp2[m[K, GeometricCamera* pOther,
+[5.832s]       |                                                           [01;35m[K~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[5.832s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/Pinhole.h:83:101:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KpOther[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.833s]    83 |         bool matchAndtriangulate(const cv::KeyPoint& kp1, const cv::KeyPoint& kp2, [01;35m[KGeometricCamera* pOther[m[K,
+[5.833s]       |                                                                                    [01;35m[K~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[5.833s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/Pinhole.h:84:48:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KTcw1[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.833s]    84 |                                  [01;35m[KSophus::SE3f& Tcw1[m[K, Sophus::SE3f& Tcw2,
+[5.833s]       |                                  [01;35m[K~~~~~~~~~~~~~~^~~~[m[K
+[5.834s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/Pinhole.h:84:68:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KTcw2[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.834s]    84 |                                  Sophus::SE3f& Tcw1, [01;35m[KSophus::SE3f& Tcw2[m[K,
+[5.834s]       |                                                      [01;35m[K~~~~~~~~~~~~~~^~~~[m[K
+[5.834s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/Pinhole.h:85:46:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KsigmaLevel1[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.834s]    85 |                                  [01;35m[Kconst float sigmaLevel1[m[K, const float sigmaLevel2,
+[5.834s]       |                                  [01;35m[K~~~~~~~~~~~~^~~~~~~~~~~[m[K
+[5.835s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/Pinhole.h:85:71:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KsigmaLevel2[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.835s]    85 |                                  const float sigmaLevel1, [01;35m[Kconst float sigmaLevel2[m[K,
+[5.835s]       |                                                           [01;35m[K~~~~~~~~~~~~^~~~~~~~~~~[m[K
+[5.835s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/Pinhole.h:86:51:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kx3Dtriangulated[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.835s]    86 |                                  [01;35m[KEigen::Vector3f& x3Dtriangulated[m[K) { return false;}
+[5.835s]       |                                  [01;35m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~[m[K
+[5.835s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Atlas.h:27[m[K,
+[5.835s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:25[m[K,
+[5.835s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.835s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.836s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.836s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.836s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:[m[K In constructor ‘[01m[KORB_SLAM3::KannalaBrandt8::KannalaBrandt8(std::vector<float>)[m[K’:
+[5.836s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:102:21:[m[K [01;35m[Kwarning: [m[K‘[01m[KORB_SLAM3::KannalaBrandt8::precision[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.836s]   102 |         const float [01;35m[Kprecision[m[K;
+[5.836s]       |                     [01;35m[K^~~~~~~~~[m[K
+[5.836s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:88:26:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::vector<int> ORB_SLAM3::KannalaBrandt8::mvLappingArea[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.836s]    88 |         std::vector<int> [01;35m[KmvLappingArea[m[K;
+[5.836s]       |                          [01;35m[K^~~~~~~~~~~~~[m[K
+[5.836s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Atlas.h:27[m[K,
+[5.837s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:25[m[K,
+[5.837s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.837s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.837s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.837s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.837s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:47:9:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.837s]    47 |         [01;35m[KKannalaBrandt8[m[K(const std::vector<float> _vParameters) : GeometricCamera(_vParameters), precision(1e-6), mvLappingArea(2,0) ,tvr(nullptr) {
+[5.837s]       |         [01;35m[K^~~~~~~~~~~~~~[m[K
+[5.837s] In file included from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Atlas.h:27[m[K,
+[5.838s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/FrameDrawer.h:25[m[K,
+[5.838s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Viewer.h:23[m[K,
+[5.838s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/Tracking.h:26[m[K,
+[5.838s]                  from [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/System.h:31[m[K,
+[5.838s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/vslam/src/system_node.cpp:20[m[K:
+[5.838s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:[m[K In constructor ‘[01m[KORB_SLAM3::KannalaBrandt8::KannalaBrandt8(std::vector<float>, float)[m[K’:
+[5.838s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:102:21:[m[K [01;35m[Kwarning: [m[K‘[01m[KORB_SLAM3::KannalaBrandt8::precision[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.838s]   102 |         const float [01;35m[Kprecision[m[K;
+[5.838s]       |                     [01;35m[K^~~~~~~~~[m[K
+[5.838s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:88:26:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::vector<int> ORB_SLAM3::KannalaBrandt8::mvLappingArea[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.839s]    88 |         std::vector<int> [01;35m[KmvLappingArea[m[K;
+[5.839s]       |                          [01;35m[K^~~~~~~~~~~~~[m[K
+[5.839s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:53:9:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.839s]    53 |         [01;35m[KKannalaBrandt8[m[K(const std::vector<float> _vParameters, const float _precision) : GeometricCamera(_vParameters),
+[5.839s]       |         [01;35m[K^~~~~~~~~~~~~~[m[K
+[5.839s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:[m[K In constructor ‘[01m[KORB_SLAM3::KannalaBrandt8::KannalaBrandt8(ORB_SLAM3::KannalaBrandt8*)[m[K’:
+[5.839s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:102:21:[m[K [01;35m[Kwarning: [m[K‘[01m[KORB_SLAM3::KannalaBrandt8::precision[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.839s]   102 |         const float [01;35m[Kprecision[m[K;
+[5.839s]       |                     [01;35m[K^~~~~~~~~[m[K
+[5.839s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:88:26:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::vector<int> ORB_SLAM3::KannalaBrandt8::mvLappingArea[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.840s]    88 |         std::vector<int> [01;35m[KmvLappingArea[m[K;
+[5.840s]       |                          [01;35m[K^~~~~~~~~~~~~[m[K
+[5.840s] [01m[K/home/ubuntu/Dev/ORB_SLAM3/include/CameraModels/KannalaBrandt8.h:59:9:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.840s]    59 |         [01;35m[KKannalaBrandt8[m[K(KannalaBrandt8* pKannala) : GeometricCamera(pKannala->mvParameters), precision(pKannala->precision), mvLappingArea(2,0) ,tvr(nullptr) {
+[5.840s]       |         [01;35m[K^~~~~~~~~~~~~~[m[K
+[6.646s] [ 97%] [32m[1mLinking CXX executable grid_mapper[0m
+[6.912s] [ 97%] Built target grid_mapper
+[8.862s] [100%] [32m[1mLinking CXX executable system[0m
+[9.034s] /usr/bin/ld: warning: libopencv_imgproc.so.4.5d, needed by /opt/ros/humble/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.406
+[9.034s] /usr/bin/ld: warning: libopencv_core.so.4.5d, needed by /opt/ros/humble/lib/libcv_bridge.so, may conflict with libopencv_core.so.406
+[9.214s] [100%] Built target system
+[9.220s] Invoked command in '/home/ubuntu/Documents/swarm/build/vslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/vslam -- -j8 -l8
+[9.259s] Invoking command in '/home/ubuntu/Documents/swarm/build/vslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/vslam
+[9.263s] -- Install configuration: ""
+[9.263s] -- Execute custom install script
+[9.263s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/ament_index/resource_index/rosidl_interfaces/vslam
+[9.274s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__functions.h
+[9.280s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__struct.h
+[9.287s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__type_support.h
+[9.294s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/point_cloud_and_pose.h
+[9.298s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/rosidl_generator_c__visibility_control.h
+[9.302s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/library_path.sh
+[9.314s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/library_path.dsv
+[9.322s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__rosidl_typesupport_fastrtps_c.h
+[9.329s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[9.336s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__builder.hpp
+[9.342s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__struct.hpp
+[9.348s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__traits.hpp
+[9.355s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/point_cloud_and_pose.hpp
+[9.362s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__rosidl_typesupport_fastrtps_cpp.hpp
+[9.368s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[9.370s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__rosidl_typesupport_introspection_c.h
+[9.373s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[9.376s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__rosidl_typesupport_introspection_cpp.hpp
+[9.378s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/pythonpath.sh
+[9.381s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/pythonpath.dsv
+[9.384s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam-0.0.0-py3.10.egg-info/PKG-INFO
+[9.386s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam-0.0.0-py3.10.egg-info/SOURCES.txt
+[9.389s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam-0.0.0-py3.10.egg-info/dependency_links.txt
+[9.391s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam-0.0.0-py3.10.egg-info/top_level.txt
+[9.394s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/__init__.py
+[9.397s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/_vslam_s.ep.rosidl_typesupport_c.c
+[9.400s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/_vslam_s.ep.rosidl_typesupport_fastrtps_c.c
+[9.409s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/_vslam_s.ep.rosidl_typesupport_introspection_c.c
+[9.415s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/libvslam__rosidl_generator_py.so
+[9.423s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg/__init__.py
+[9.428s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg/_point_cloud_and_pose.py
+[9.435s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg/_point_cloud_and_pose_s.c
+[9.440s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[9.447s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[9.452s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[9.460s] -- Up-to-date symlink: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[9.460s] -- Up-to-date symlink: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[9.460s] -- Up-to-date symlink: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[9.460s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/msg/PointCloudAndPose.idl
+[9.465s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/msg/PointCloudAndPose.msg
+[9.469s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/lib/vslam/system
+[9.478s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/lib/vslam/grid_mapper
+[9.484s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/lib/vslam/video_reader
+[9.490s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/ament_index/resource_index/package_run_dependencies/vslam
+[9.492s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/ament_index/resource_index/parent_prefix_path/vslam
+[9.495s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/ament_prefix_path.sh
+[9.498s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/ament_prefix_path.dsv
+[9.500s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/path.sh
+[9.503s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/path.dsv
+[9.506s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/local_setup.bash
+[9.508s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/local_setup.sh
+[9.511s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/local_setup.zsh
+[9.513s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/local_setup.dsv
+[9.516s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.dsv
+[9.519s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/ament_index/resource_index/packages/vslam
+[9.521s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/rosidl_cmake-extras.cmake
+[9.534s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/ament_cmake_export_dependencies-extras.cmake
+[9.541s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/ament_cmake_export_include_directories-extras.cmake
+[9.548s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/ament_cmake_export_libraries-extras.cmake
+[9.554s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/ament_cmake_export_targets-extras.cmake
+[9.561s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[9.568s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[9.572s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslamConfig.cmake
+[9.576s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslamConfig-version.cmake
+[9.581s] -- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.xml
+[9.586s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_generator_c.so
+[9.586s] -- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_generator_c.so" to ""
+[9.587s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_fastrtps_c.so
+[9.587s] -- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_fastrtps_c.so" to ""
+[9.587s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_fastrtps_cpp.so
+[9.588s] -- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_fastrtps_cpp.so" to ""
+[9.588s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_introspection_c.so
+[9.588s] -- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_introspection_c.so" to ""
+[9.588s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_c.so
+[9.588s] -- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_c.so" to ""
+[9.589s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_introspection_cpp.so
+[9.589s] -- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_introspection_cpp.so" to ""
+[9.589s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_cpp.so
+[9.589s] -- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_cpp.so" to ""
+[9.606s] Listing '/home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam'...
+[9.607s] Compiling '/home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/__init__.py'...
+[9.607s] Listing '/home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg'...
+[9.607s] Compiling '/home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg/__init__.py'...
+[9.607s] Compiling '/home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg/_point_cloud_and_pose.py'...
+[9.609s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_generator_py.so
+[9.609s] -- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_generator_py.so" to ""
+[9.609s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_generator_cExport.cmake
+[9.609s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_generator_cExport-noconfig.cmake
+[9.609s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_typesupport_fastrtps_cExport.cmake
+[9.610s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[9.610s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_generator_cppExport.cmake
+[9.610s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_typesupport_fastrtps_cppExport.cmake
+[9.610s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[9.610s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_introspection_cExport.cmake
+[9.610s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[9.611s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_cExport.cmake
+[9.611s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_cExport-noconfig.cmake
+[9.612s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_introspection_cppExport.cmake
+[9.612s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[9.612s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_cppExport.cmake
+[9.612s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_cppExport-noconfig.cmake
+[9.612s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_generator_pyExport.cmake
+[9.613s] -- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_generator_pyExport-noconfig.cmake
+[9.613s] Invoked command in '/home/ubuntu/Documents/swarm/build/vslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/vslam

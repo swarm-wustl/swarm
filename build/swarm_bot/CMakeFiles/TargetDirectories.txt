@@ -1,0 +1,9 @@
+/home/ubuntu/Documents/swarm/build/swarm_bot/CMakeFiles/uninstall.dir
+/home/ubuntu/Documents/swarm/build/swarm_bot/CMakeFiles/swarm_bot_uninstall.dir
+/home/ubuntu/Documents/swarm/build/swarm_bot/CMakeFiles/test.dir
+/home/ubuntu/Documents/swarm/build/swarm_bot/CMakeFiles/edit_cache.dir
+/home/ubuntu/Documents/swarm/build/swarm_bot/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/Documents/swarm/build/swarm_bot/CMakeFiles/list_install_components.dir
+/home/ubuntu/Documents/swarm/build/swarm_bot/CMakeFiles/install.dir
+/home/ubuntu/Documents/swarm/build/swarm_bot/CMakeFiles/install/local.dir
+/home/ubuntu/Documents/swarm/build/swarm_bot/CMakeFiles/install/strip.dir

@@ -1,0 +1,219 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 16.0.7 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)
+-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+-- Found image_transport: 3.1.7 (/opt/ros/humble/share/image_transport/cmake)
+-- Found cv_bridge: 3.2.1 (/opt/ros/humble/share/cv_bridge/cmake)
+-- Found OpenCV: /usr/local (found version "4.6.0") 
+-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+-- Found PythonExtra: .so  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ubuntu/Documents/swarm/build/vslam
+[  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[  5%] [32mBuilding CXX object CMakeFiles/video_reader.dir/src/video_reader.cpp.o[0m
+[  8%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[  8%] Built target ament_cmake_python_symlink_vslam
+running egg_info
+creating vslam.egg-info
+writing vslam.egg-info/PKG-INFO
+writing dependency_links to vslam.egg-info/dependency_links.txt
+writing top-level names to vslam.egg-info/top_level.txt
+writing manifest file 'vslam.egg-info/SOURCES.txt'
+reading manifest file 'vslam.egg-info/SOURCES.txt'
+writing manifest file 'vslam.egg-info/SOURCES.txt'
+[  8%] Built target vslam__cpp
+[ 13%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 13%] [32mBuilding C object CMakeFiles/vslam__rosidl_generator_c.dir/rosidl_generator_c/vslam/msg/detail/point_cloud_and_pose__functions.c.o[0m
+[ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 16%] Built target ament_cmake_python_build_vslam_egg
+[ 18%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 21%] [32m[1mLinking C shared library libvslam__rosidl_generator_c.so[0m
+[ 21%] Built target vslam__rosidl_generator_c
+[ 24%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 27%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 29%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 32%] [32mBuilding CXX object CMakeFiles/vslam__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/vslam/msg/detail/dds_fastrtps/point_cloud_and_pose__type_support.cpp.o[0m
+[ 35%] [32mBuilding CXX object CMakeFiles/vslam__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/vslam/msg/point_cloud_and_pose__type_support.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/vslam__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/vslam/msg/detail/point_cloud_and_pose__type_support.cpp.o[0m
+[ 43%] [32mBuilding CXX object CMakeFiles/vslam__rosidl_typesupport_c.dir/rosidl_typesupport_c/vslam/msg/point_cloud_and_pose__type_support.cpp.o[0m
+[ 43%] [32mBuilding C object CMakeFiles/vslam__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/vslam/msg/detail/point_cloud_and_pose__type_support.c.o[0m
+[ 45%] [32m[1mLinking CXX shared library libvslam__rosidl_typesupport_c.so[0m
+[ 48%] [32mBuilding CXX object CMakeFiles/vslam__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/vslam/msg/detail/point_cloud_and_pose__type_support_c.cpp.o[0m
+[ 51%] [32m[1mLinking C shared library libvslam__rosidl_typesupport_introspection_c.so[0m
+[ 54%] [32m[1mLinking CXX shared library libvslam__rosidl_typesupport_cpp.so[0m
+[ 54%] Built target vslam__rosidl_typesupport_introspection_c
+[ 54%] Built target vslam__rosidl_typesupport_c
+[ 54%] Built target vslam__rosidl_typesupport_cpp
+[ 56%] [32m[1mLinking CXX shared library libvslam__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/grid_mapper.dir/src/grid_mapper.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/system.dir/src/system_node.cpp.o[0m
+[ 64%] [32m[1mLinking CXX shared library libvslam__rosidl_typesupport_introspection_cpp.so[0m
+[ 64%] Built target vslam__rosidl_typesupport_introspection_cpp
+[ 64%] Built target vslam__rosidl_typesupport_fastrtps_cpp
+[ 67%] [32m[1mLinking CXX shared library libvslam__rosidl_typesupport_fastrtps_c.so[0m
+[ 67%] Built target vslam__rosidl_typesupport_fastrtps_c
+[ 67%] Built target vslam
+[ 70%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 70%] Built target vslam__py
+[ 72%] [32mBuilding C object CMakeFiles/vslam__rosidl_generator_py.dir/rosidl_generator_py/vslam/msg/_point_cloud_and_pose_s.c.o[0m
+[ 75%] [32m[1mLinking C shared library rosidl_generator_py/vslam/libvslam__rosidl_generator_py.so[0m
+[ 75%] Built target vslam__rosidl_generator_py
+[ 81%] [32mBuilding C object CMakeFiles/vslam__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/vslam/_vslam_s.ep.rosidl_typesupport_c.c.o[0m
+[ 83%] [32mBuilding C object CMakeFiles/vslam__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/vslam/_vslam_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 83%] [32mBuilding C object CMakeFiles/vslam__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/vslam/_vslam_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[ 86%] [32m[1mLinking C shared library rosidl_generator_py/vslam/vslam_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so[0m
+[ 91%] [32m[1mLinking C shared library rosidl_generator_py/vslam/vslam_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so[0m
+[ 91%] [32m[1mLinking C shared library rosidl_generator_py/vslam/vslam_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so[0m
+[ 91%] Built target vslam__rosidl_typesupport_introspection_c__pyext
+[ 91%] Built target vslam__rosidl_typesupport_c__pyext
+[ 91%] Built target vslam__rosidl_typesupport_fastrtps_c__pyext
+[ 94%] [32m[1mLinking CXX executable video_reader[0m
+[ 94%] Built target video_reader
+[ 97%] [32m[1mLinking CXX executable grid_mapper[0m
+[ 97%] Built target grid_mapper
+[100%] [32m[1mLinking CXX executable system[0m
+[100%] Built target system
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/ament_index/resource_index/rosidl_interfaces/vslam
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__functions.h
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__struct.h
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__type_support.h
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/point_cloud_and_pose.h
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/rosidl_generator_c__visibility_control.h
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/library_path.sh
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/library_path.dsv
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__builder.hpp
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__struct.hpp
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__traits.hpp
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/point_cloud_and_pose.hpp
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/include/vslam/vslam/msg/detail/point_cloud_and_pose__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/pythonpath.sh
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/pythonpath.dsv
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam-0.0.0-py3.10.egg-info/PKG-INFO
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam-0.0.0-py3.10.egg-info/top_level.txt
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/__init__.py
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/_vslam_s.ep.rosidl_typesupport_c.c
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/_vslam_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/_vslam_s.ep.rosidl_typesupport_introspection_c.c
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/libvslam__rosidl_generator_py.so
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg/__init__.py
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg/_point_cloud_and_pose.py
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg/_point_cloud_and_pose_s.c
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+-- Up-to-date symlink: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+-- Up-to-date symlink: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+-- Up-to-date symlink: /home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/vslam_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/msg/PointCloudAndPose.idl
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/msg/PointCloudAndPose.msg
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/lib/vslam/system
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/lib/vslam/grid_mapper
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/lib/vslam/video_reader
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/ament_index/resource_index/package_run_dependencies/vslam
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/ament_index/resource_index/parent_prefix_path/vslam
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/ament_prefix_path.sh
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/ament_prefix_path.dsv
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/path.sh
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/environment/path.dsv
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/local_setup.bash
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/local_setup.sh
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/local_setup.zsh
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/local_setup.dsv
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.dsv
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/ament_index/resource_index/packages/vslam
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/rosidl_cmake-extras.cmake
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/ament_cmake_export_libraries-extras.cmake
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/ament_cmake_export_targets-extras.cmake
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslamConfig.cmake
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslamConfig-version.cmake
+-- Symlinking: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/package.xml
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_generator_c.so
+-- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_generator_c.so" to ""
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_fastrtps_c.so
+-- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_fastrtps_c.so" to ""
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_fastrtps_cpp.so
+-- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_introspection_c.so
+-- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_c.so
+-- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_c.so" to ""
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_introspection_cpp.so
+-- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_cpp.so
+-- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_typesupport_cpp.so" to ""
+Listing '/home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam'...
+Compiling '/home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/__init__.py'...
+Listing '/home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg'...
+Compiling '/home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg/__init__.py'...
+Compiling '/home/ubuntu/Documents/swarm/install/vslam/local/lib/python3.10/dist-packages/vslam/msg/_point_cloud_and_pose.py'...
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_generator_py.so
+-- Set runtime path of "/home/ubuntu/Documents/swarm/install/vslam/lib/libvslam__rosidl_generator_py.so" to ""
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_generator_cExport.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_generator_cppExport.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_cExport.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_cppExport.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/vslam__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_generator_pyExport.cmake
+-- Installing: /home/ubuntu/Documents/swarm/install/vslam/share/vslam/cmake/export_vslam__rosidl_generator_pyExport-noconfig.cmake

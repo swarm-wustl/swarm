@@ -1,0 +1,114 @@
+[0.032s] Invoking command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2
+[0.094s] -- The CXX compiler identification is GNU 11.4.0
+[0.100s] -- Detecting CXX compiler ABI info
+[0.149s] -- Detecting CXX compiler ABI info - done
+[0.153s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.153s] -- Detecting CXX compile features
+[0.153s] -- Detecting CXX compile features - done
+[0.154s] -- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.292s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.339s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.373s] -- Found hardware_interface: 2.37.0 (/opt/ros/humble/share/hardware_interface/cmake)
+[0.398s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.401s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.405s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.412s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.421s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.835s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.836s] -- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.855s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.876s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.878s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.887s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.892s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.896s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.901s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.907s] -- Looking for C++ include pthread.h
+[0.960s] -- Looking for C++ include pthread.h - found
+[0.962s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.002s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.002s] -- Found Threads: TRUE  
+[1.137s] -- Found ament_cmake_pytest: 1.3.6 (/opt/ros/humble/share/ament_cmake_pytest/cmake)
+[1.500s] -- Configuring done
+[1.527s] -- Generating done
+[1.529s] -- Build files have been written to: /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2
+[1.541s] Invoked command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2' returned '0': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake /home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2
+[1.542s] Invoking command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2 -- -j8 -l8
+[1.580s] [ 50%] [32mBuilding CXX object CMakeFiles/ros2_control_demo_example_2.dir/hardware/diffbot_system.cpp.o[0m
+[2.645s] In file included from [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:5[m[K,
+[2.645s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/diffbot_system.hpp:35[m[K,
+[2.645s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/diffbot_system.cpp:15[m[K:
+[2.646s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/encoder.hpp:[m[K In member function ‘[01m[Kvoid Encoder::updateEncoder(int, int, int)[m[K’:
+[2.646s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/encoder.hpp:12:32:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kgpio[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.646s]    12 |         void updateEncoder([01;35m[Kint gpio[m[K, int level, int tick) {
+[2.646s]       |                            [01;35m[K~~~~^~~~[m[K
+[2.647s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/encoder.hpp:12:42:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Klevel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.647s]    12 |         void updateEncoder(int gpio, [01;35m[Kint level[m[K, int tick) {
+[2.647s]       |                                      [01;35m[K~~~~^~~~~[m[K
+[2.647s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/encoder.hpp:12:53:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktick[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.648s]    12 |         void updateEncoder(int gpio, int level, [01;35m[Kint tick[m[K) {
+[2.648s]       |                                                 [01;35m[K~~~~^~~~[m[K
+[2.648s] In file included from [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/diffbot_system.hpp:35[m[K,
+[2.648s]                  from [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/diffbot_system.cpp:15[m[K:
+[2.648s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:[m[K In member function ‘[01m[Kvoid PiComms::set_motor_values(int, int)[m[K’:
+[2.648s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:69:31:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kval_1[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.648s]    69 |     void set_motor_values([01;35m[Kint val_1[m[K, int val_2)
+[2.649s]       |                           [01;35m[K~~~~^~~~~[m[K
+[2.649s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:69:42:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kval_2[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.649s]    69 |     void set_motor_values(int val_1, [01;35m[Kint val_2[m[K)
+[2.649s]       |                                      [01;35m[K~~~~^~~~~[m[K
+[2.649s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:[m[K In member function ‘[01m[Kvoid PiComms::set_pid_values(int, int, int, int)[m[K’:
+[2.649s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:77:29:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kk_p[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.650s]    77 |     void set_pid_values([01;35m[Kint k_p[m[K, int k_d, int k_i, int k_o)
+[2.650s]       |                         [01;35m[K~~~~^~~[m[K
+[2.650s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:77:38:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kk_d[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.650s]    77 |     void set_pid_values(int k_p, [01;35m[Kint k_d[m[K, int k_i, int k_o)
+[2.650s]       |                                  [01;35m[K~~~~^~~[m[K
+[2.650s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:77:47:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kk_i[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.650s]    77 |     void set_pid_values(int k_p, int k_d, [01;35m[Kint k_i[m[K, int k_o)
+[2.651s]       |                                           [01;35m[K~~~~^~~[m[K
+[2.651s] [01m[K/home/ubuntu/Documents/swarm/ros/src/ros2_control_demo_example_2/hardware/include/ros2_control_demo_example_2/pi_comms.hpp:77:56:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kk_o[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.651s]    77 |     void set_pid_values(int k_p, int k_d, int k_i, [01;35m[Kint k_o[m[K)
+[2.651s]       |                                                    [01;35m[K~~~~^~~[m[K
+[3.145s] [100%] [32m[1mLinking CXX shared library libros2_control_demo_example_2.so[0m
+[3.277s] [100%] Built target ros2_control_demo_example_2
+[3.287s] Invoked command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2' returned '0': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake --build /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2 -- -j8 -l8
+[3.304s] Invoking command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2
+[3.312s] -- Install configuration: ""
+[3.312s] -- Execute custom install script
+[3.312s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2//ros2_control_demo_example_2.xml
+[3.322s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/include/ros2_control_demo_example_2/ros2_control_demo_example_2/diffbot_system.hpp
+[3.330s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/include/ros2_control_demo_example_2/ros2_control_demo_example_2/encoder.hpp
+[3.337s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/include/ros2_control_demo_example_2/ros2_control_demo_example_2/pi_comms.hpp
+[3.343s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/include/ros2_control_demo_example_2/ros2_control_demo_example_2/visibility_control.h
+[3.349s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/include/ros2_control_demo_example_2/ros2_control_demo_example_2/wheel.hpp
+[3.356s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/launch/view_robot.launch.py
+[3.363s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/ros2_control/diffbot.ros2_control.xacro
+[3.372s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/urdf/diffbot.urdf.xacro
+[3.380s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/launch/diffbot.launch.py
+[3.388s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/config/diffbot_controllers.yaml
+[3.395s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/library_path.sh
+[3.403s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/library_path.dsv
+[3.410s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ament_index/resource_index/package_run_dependencies/ros2_control_demo_example_2
+[3.418s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ament_index/resource_index/parent_prefix_path/ros2_control_demo_example_2
+[3.424s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/ament_prefix_path.sh
+[3.432s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/ament_prefix_path.dsv
+[3.440s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/path.sh
+[3.448s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/path.dsv
+[3.455s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/local_setup.bash
+[3.463s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/local_setup.sh
+[3.471s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/local_setup.zsh
+[3.478s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/local_setup.dsv
+[3.486s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.dsv
+[3.494s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ament_index/resource_index/packages/ros2_control_demo_example_2
+[3.502s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/ros2_control_demo_example_2
+[3.509s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/ament_cmake_export_targets-extras.cmake
+[3.516s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/ament_cmake_export_dependencies-extras.cmake
+[3.523s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/ros2_control_demo_example_2Config.cmake
+[3.530s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/ros2_control_demo_example_2Config-version.cmake
+[3.536s] -- Symlinking: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.xml
+[3.542s] -- Installing: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/lib/libros2_control_demo_example_2.so
+[3.543s] -- Set runtime path of "/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/lib/libros2_control_demo_example_2.so" to ""
+[3.543s] -- Installing: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/export_ros2_control_demo_example_2Export.cmake
+[3.543s] -- Installing: /home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/export_ros2_control_demo_example_2Export-noconfig.cmake
+[3.545s] Invoked command in '/home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2' returned '0': CMAKE_PREFIX_PATH=/home/ubuntu/Documents/swarm/install/ros2_control_demo_description:/home/ubuntu/Documents/ex_2_old/install/ros2_control_demo_example_2:/home/ubuntu/Documents/swarm/install/vslam:/home/ubuntu/Documents/swarm/install/swarm_bot:/home/ubuntu/Documents/swarm/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_example_2:/home/ubuntu/Documents/example_2/install/ros2_control_demo_description:/opt/ros/humble /usr/bin/cmake --install /home/ubuntu/Documents/swarm/build/ros2_control_demo_example_2
