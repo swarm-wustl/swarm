@@ -35,31 +35,33 @@ class ShittyPiComms:
         GPIO.cleanup()
 
     def forward(self, speed):
-        GPIO.output(self.IN1, 1)
-        GPIO.output(self.IN2, 0)
+        GPIO.output(self.IN1, 0)
+        GPIO.output(self.IN2, 1)
         GPIO.output(self.IN3, 1)
         GPIO.output(self.IN4, 0)
         self.pwm.ChangeDutyCycle(speed)
 
     def backward(self, speed):
-        GPIO.output(self.IN1, 0)
-        GPIO.output(self.IN2, 1)
-        GPIO.output(self.IN3, 0)
-        GPIO.output(self.IN4, 1)
-        self.pwm.ChangeDutyCycle(speed)
-
-    def left(self, speed):
-        GPIO.output(self.IN1, 0)
-        GPIO.output(self.IN2, 1)
-        GPIO.output(self.IN3, 1)
-        GPIO.output(self.IN4, 0)
-        self.pwm.ChangeDutyCycle(speed)
-
-    def right(self, speed):
         GPIO.output(self.IN1, 1)
         GPIO.output(self.IN2, 0)
         GPIO.output(self.IN3, 0)
         GPIO.output(self.IN4, 1)
+        self.pwm.ChangeDutyCycle(speed)
+
+
+    def left(self, speed):
+        GPIO.output(self.IN1, 0)
+        GPIO.output(self.IN2, 1)
+        GPIO.output(self.IN3, 0)
+        GPIO.output(self.IN4, 1)
+        self.pwm.ChangeDutyCycle(speed)
+
+
+    def right(self, speed):
+        GPIO.output(self.IN1, 1)
+        GPIO.output(self.IN2, 0)
+        GPIO.output(self.IN3, 1)
+        GPIO.output(self.IN4, 0)
         self.pwm.ChangeDutyCycle(speed)
 
     def stop(self):
