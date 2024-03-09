@@ -82,6 +82,10 @@ RViz visualizes the robot. In contrast to Gazebo, it doesn't run physics simulat
 rviz2 src/swarm_bot/config/view_bot.rviz                    
 ```
 
+#ASLAM
+
+See the [ASLAM README](/ros/src/swarm_bot/aslam/README.md) about ASLAM specific information
+
 # VSLAM
 
 See the [VSLAM README](/ros/src/swarm_bot/vslam/README.md) for more information on how to run the VSLAM system.
