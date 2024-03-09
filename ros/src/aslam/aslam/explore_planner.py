@@ -82,12 +82,12 @@ class plan():
         
         theDist = math.sqrt((xVal2-xVal).pow(2) + (yVal2-yVal).pow(2))
 
-        opt1 = self.obj_swarm.robo_orient.opt1
-        opt2 = self.obj_swarm.robo_orient.opt2
-        opt3 = self.obj_swarm.robo_orient.opt3
-        opt4 = self.obj_swarm.robo_orient.opt4
+        optX = self.obj_swarm.robo_orient.optX
+        optY = self.obj_swarm.robo_orient.optY
+        optZ = self.obj_swarm.robo_orient.optZ
+        optW = self.obj_swarm.robo_orient.optW
         #Robot orientation
-        roll,pitch,yaw = self.q2Ang(opt1, opt2, opt3, opt4)
+        roll,pitch,yaw = self.q2Ang(optX, optY, optZ, optW)
         slope2 = math.tan(yaw)
         theta = self.angle(slope1, slope2)
         #check if grid is in sensor range
