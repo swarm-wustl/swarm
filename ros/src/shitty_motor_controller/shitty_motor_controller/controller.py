@@ -6,18 +6,20 @@ from geometry_msgs.msg import Twist
 import RPi.GPIO as GPIO
 
 class ShittyPiComms:
-    def __init__(self):
+    def __init__(self, shitty_pi_comms):
+        self.shitty_pi_comms = shitty_pi_comms
+
         GPIO.setwarnings(True)
 
         # Set up GPIO pins
         GPIO.setmode(GPIO.BCM)
 
-        IN1 = 12
-        IN2 = 16
-        IN3 = 20
-        IN4 = 21
+        self.IN1 = 12
+        self.IN2 = 16
+        self.IN3 = 20
+        self.IN4 = 21
 
-        pins = [IN1, IN2, IN3, IN4]
+        pins = [self.IN1, self.IN2, self.IN3, self.IN4]
 
         for pin in pins:
             GPIO.setup(pin, GPIO.OUT)
@@ -26,47 +28,47 @@ class ShittyPiComms:
         # Set up PWM
         self.pwm = GPIO.PWM(IN1, 100)
 
-    def __del__(self):
-        GPIO.output(IN1, 0)
-        GPIO.output(IN2, 0)
-        GPIO.output(IN3, 0)
-        GPIO.output(IN4, 0)
+    def shutdown(self):
+        GPIO.output(self.IN1, 0)
+        GPIO.output(self.IN2, 0)
+        GPIO.output(self.IN3, 0)
+        GPIO.output(self.IN4, 0)
         self.pwm.stop()
         GPIO.cleanup()
 
     def forward(self, speed):
-        GPIO.output(IN1, 1)
-        GPIO.output(IN2, 0)
-        GPIO.output(IN3, 1)
-        GPIO.output(IN4, 0)
+        GPIO.output(self.IN1, 1)
+        GPIO.output(self.IN2, 0)
+        GPIO.output(self.IN3, 1)
+        GPIO.output(self.IN4, 0)
         self.pwm.ChangeDutyCycle(speed)
 
     def backward(self, speed):
-        GPIO.output(IN1, 0)
-        GPIO.output(IN2, 1)
-        GPIO.output(IN3, 0)
-        GPIO.output(IN4, 1)
+        GPIO.output(self.IN1, 0)
+        GPIO.output(self.IN2, 1)
+        GPIO.output(self.IN3, 0)
+        GPIO.output(self.IN4, 1)
         self.pwm.ChangeDutyCycle(speed)
 
     def left(self, speed):
-        GPIO.output(IN1, 0)
-        GPIO.output(IN2, 1)
-        GPIO.output(IN3, 1)
-        GPIO.output(IN4, 0)
+        GPIO.output(self.IN1, 0)
+        GPIO.output(self.IN2, 1)
+        GPIO.output(self.IN3, 1)
+        GPIO.output(self.IN4, 0)
         self.pwm.ChangeDutyCycle(speed)
 
     def right(self, speed):
-        GPIO.output(IN1, 1)
-        GPIO.output(IN2, 0)
-        GPIO.output(IN3, 0)
-        GPIO.output(IN4, 1)
+        GPIO.output(self.IN1, 1)
+        GPIO.output(self.IN2, 0)
+        GPIO.output(self.IN3, 0)
+        GPIO.output(self.IN4, 1)
         self.pwm.ChangeDutyCycle(speed)
 
     def stop(self):
-        GPIO.output(IN1, 0)
-        GPIO.output(IN2, 0)
-        GPIO.output(IN3, 0)
-        GPIO.output(IN4, 0)
+        GPIO.output(self.IN1, 0)
+        GPIO.output(self.IN2, 0)
+        GPIO.output(self.IN3, 0)
+        GPIO.output(self.IN4, 0)
         self.pwm.stop()
         GPIO.cleanup()
 
@@ -81,8 +83,6 @@ class Controller(Node):
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
-
-        self.shitty_pi_comms = ShittyPiComms()
 
     def listener_callback(self, msg):
         x_vel = msg.linear.x
@@ -104,7 +104,8 @@ class Controller(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    controller = Controller()
+    shitty_pi_comms = ShittyPiComms()
+    controller = Controller(shitty_pi_comms)
 
     rclpy.spin(controller)
 
@@ -112,6 +113,7 @@ def main(args=None):
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
     controller.destroy_node()
+    shitty_pi_comms.shutdown()
     rclpy.shutdown()
 
 
