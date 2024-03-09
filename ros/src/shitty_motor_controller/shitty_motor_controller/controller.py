@@ -24,7 +24,7 @@ class ShittyPiComms:
             GPIO.output(pin, 0)
 
         # Set up PWM
-        self.pwm = GPIO.PWM(IN1, 100)
+        self.pwm = GPIO.PWM(self.IN1, 100)
 
     def shutdown(self):
         GPIO.output(self.IN1, 0)
