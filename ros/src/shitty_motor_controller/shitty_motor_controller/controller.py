@@ -111,9 +111,9 @@ def main(args=None):
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
-    controller.destroy_node()
-    shitty_pi_comms.shutdown()
-    shitty_pi_comms.stop()
+    if controller.destroy_node():
+        shitty_pi_comms.shutdown()
+        shitty_pi_comms.stop()
     rclpy.shutdown()
 
 
