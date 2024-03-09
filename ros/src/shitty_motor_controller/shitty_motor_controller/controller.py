@@ -6,9 +6,7 @@ from geometry_msgs.msg import Twist
 import RPi.GPIO as GPIO
 
 class ShittyPiComms:
-    def __init__(self, shitty_pi_comms):
-        self.shitty_pi_comms = shitty_pi_comms
-
+    def __init__(self):
         GPIO.setwarnings(True)
 
         # Set up GPIO pins
@@ -75,7 +73,7 @@ class ShittyPiComms:
 
 class Controller(Node):
 
-    def __init__(self):
+    def __init__(self, shitty_pi_comms):
         super().__init__('controller')
         self.subscription = self.create_subscription(
             Twist,
@@ -83,6 +81,7 @@ class Controller(Node):
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
+        self.shitty_pi_comms = shitty_pi_comms
 
     def listener_callback(self, msg):
         x_vel = msg.linear.x
