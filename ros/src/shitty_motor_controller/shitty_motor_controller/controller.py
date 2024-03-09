@@ -73,7 +73,7 @@ class ShittyPiComms:
 
 class Controller(Node):
 
-    def __init__(self, shitty_pi_comms):
+    def __init__(self):
         super().__init__('controller')
         self.subscription = self.create_subscription(
             Twist,
@@ -81,7 +81,12 @@ class Controller(Node):
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
-        self.shitty_pi_comms = shitty_pi_comms
+        self.shitty_pi_comms = ShittyPiComms()
+
+    def __del__(self):
+        self.shitty_pi_comms.shutdown()
+        self.shitty_pi_comms.stop()
+        super().__del__()
 
     def listener_callback(self, msg):
         x_vel = msg.linear.x
@@ -103,17 +108,14 @@ class Controller(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    shitty_pi_comms = ShittyPiComms()
-    controller = Controller(shitty_pi_comms)
+    controller = Controller()
 
     rclpy.spin(controller)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
-    if controller.destroy_node():
-        shitty_pi_comms.shutdown()
-        shitty_pi_comms.stop()
+    controller.destroy_node()
     rclpy.shutdown()
 
 
