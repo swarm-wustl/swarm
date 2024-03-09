@@ -96,7 +96,7 @@ class Controller(Node):
         elif z_ang < 0:
             self.shitty_pi_comms.right(100)
         else:
-            self.get_logger().info('Stop')
+            self.shitty_pi_comms.stop()
 
 
 
@@ -113,6 +113,7 @@ def main(args=None):
     # when the garbage collector destroys the node object)
     controller.destroy_node()
     shitty_pi_comms.shutdown()
+    shitty_pi_comms.stop()
     rclpy.shutdown()
 
 
