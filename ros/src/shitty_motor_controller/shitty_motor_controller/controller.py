@@ -67,8 +67,6 @@ class ShittyPiComms:
         GPIO.output(self.IN2, 0)
         GPIO.output(self.IN3, 0)
         GPIO.output(self.IN4, 0)
-        self.pwm.stop()
-        GPIO.cleanup()
 
 
 class Controller(Node):
