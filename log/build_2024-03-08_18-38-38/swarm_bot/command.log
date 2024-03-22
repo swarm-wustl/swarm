@@ -1,0 +1,2 @@
+Invoking command in '/home/swarmpi-one/swarm/build/swarm_bot': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/swarmpi-one/swarm/ros/src/swarm_bot -DCMAKE_INSTALL_PREFIX=/home/swarmpi-one/swarm/install/swarm_bot
+Invoked command in '/home/swarmpi-one/swarm/build/swarm_bot' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/swarmpi-one/swarm/ros/src/swarm_bot -DCMAKE_INSTALL_PREFIX=/home/swarmpi-one/swarm/install/swarm_bot

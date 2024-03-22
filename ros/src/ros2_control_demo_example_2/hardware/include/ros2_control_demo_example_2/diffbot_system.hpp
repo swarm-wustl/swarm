@@ -86,14 +86,10 @@ public:
     const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
 private:
-  // Parameters for the DiffBot simulation
-  double hw_start_sec_;
-  double hw_stop_sec_;
-
-  // Store the command for the simulated robot
-  std::vector<double> hw_commands_;
-  std::vector<double> hw_positions_;
-  std::vector<double> hw_velocities_;
+  PiComms comms_;
+  Config cfg_;
+  Wheel wheel_l_;
+  Wheel wheel_r_;
 };
 
 }  // namespace ros2_control_demo_example_2

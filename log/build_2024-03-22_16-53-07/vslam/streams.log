@@ -1,0 +1,6 @@
+[0.093s] Invoking command in '/home/swarmpi-one/swarm/build/vslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/swarmpi-one/swarm/ros/install/shitty_motor_controller:/opt/ros/humble /usr/bin/cmake --build /home/swarmpi-one/swarm/build/vslam -- -j4 -l4
+[0.123s] [0mCMake Error: The current CMakeCache.txt directory /home/swarmpi-one/swarm/build/vslam/CMakeCache.txt is different than the directory /home/ubuntu/Documents/swarm/build/vslam where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+[0.182s] [0mCMake Error: The source directory "/home/ubuntu/Documents/swarm/ros/src/vslam" does not exist.
+[0.183s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.186s] gmake: *** [Makefile:870: cmake_check_build_system] Error 1
+[0.192s] Invoked command in '/home/swarmpi-one/swarm/build/vslam' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/swarmpi-one/swarm/ros/install/shitty_motor_controller:/opt/ros/humble /usr/bin/cmake --build /home/swarmpi-one/swarm/build/vslam -- -j4 -l4

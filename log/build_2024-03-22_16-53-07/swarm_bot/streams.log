@@ -1,0 +1,6 @@
+[0.092s] Invoking command in '/home/swarmpi-one/swarm/build/swarm_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/swarmpi-one/swarm/ros/install/shitty_motor_controller:/opt/ros/humble /usr/bin/cmake --build /home/swarmpi-one/swarm/build/swarm_bot -- -j4 -l4
+[0.119s] [0mCMake Error: The current CMakeCache.txt directory /home/swarmpi-one/swarm/build/swarm_bot/CMakeCache.txt is different than the directory /home/ubuntu/Documents/swarm/build/swarm_bot where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+[0.167s] [0mCMake Error: The source directory "/home/ubuntu/Documents/swarm/ros/src/swarm_bot" does not exist.
+[0.168s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.171s] gmake: *** [Makefile:226: cmake_check_build_system] Error 1
+[0.184s] Invoked command in '/home/swarmpi-one/swarm/build/swarm_bot' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/swarmpi-one/swarm/ros/install/shitty_motor_controller:/opt/ros/humble /usr/bin/cmake --build /home/swarmpi-one/swarm/build/swarm_bot -- -j4 -l4
