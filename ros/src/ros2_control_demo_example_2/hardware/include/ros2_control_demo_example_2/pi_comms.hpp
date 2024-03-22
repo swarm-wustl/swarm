@@ -4,14 +4,14 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-#include <pigpio.h>
+#include <pigpiod_if2.h>
 #include <ros2_control_demo_example_2/encoder.hpp>
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
 
 class PiComms {
   private:
-    bool is_connected = false;
+    int pi_code = -1;
 
     const int MOTOR_FWD = 17;
     const int MOTOR_REV = 22;
@@ -31,19 +31,25 @@ class PiComms {
     void connect() {
       std::cout << "Connecting to Pi... " << std::flush;
 
-      int status = gpioInitialise();
-      if (status < 0) {
+      pi_code = pigpio_start(NULL, NULL);
+      if (pi_code < 0) {
         std::cout << "ERROR: Failed to connect to Pi" << std::endl;
+        return;
       }
 
-      gpioSetMode(MOTOR_FWD, PI_OUTPUT);
-      gpioSetMode(MOTOR_REV, PI_OUTPUT);
+      std::cout << "past starting..." << std::flush;
 
-      enc1 = Encoder(ENC_1_A, ENC_1_B);
-      enc2 = Encoder(ENC_2_A, ENC_2_B);
+      set_mode(pi_code, MOTOR_FWD, PI_OUTPUT);
+      set_mode(pi_code, MOTOR_REV, PI_OUTPUT);
+
+      std::cout << "past modes..." << std::flush;
+
+      enc1 = Encoder(pi_code, ENC_1_A, ENC_1_B);
+      enc2 = Encoder(pi_code, ENC_2_A, ENC_2_B);
+
+      std::cout << "past encoders..." << std::flush;
+      std::cout << "wtf..." << std::flush;
       RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Set pin modes");
-
-      is_connected = true;
 
       std::cout << "done!" << std::endl;
     }
@@ -51,14 +57,14 @@ class PiComms {
     void disconnect() {
       std::cout << "Disconnecting from Pi... " << std::flush;
 
-      gpioTerminate();
-      is_connected = false;
+      pigpio_stop(pi_code);
+      pi_code = -1;
 
       std::cout << "done!" << std::endl;
     }
 
     bool connected() const {
-      return is_connected;
+      return pi_code >= 0;
     }
 
     void read_encoder_values(int &val_1, int &val_2)
@@ -71,8 +77,8 @@ class PiComms {
     void set_motor_values(int val_1, int val_2)
     {
       // TODO: change this to integrate with PID
-      gpioPWM(MOTOR_FWD, val_1);
-      gpioPWM(MOTOR_REV, val_2);
+      set_PWM_dutycycle(pi_code, MOTOR_FWD, val_1);
+      set_PWM_dutycycle(pi_code, MOTOR_REV, val_2);
       RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Set motor values");
     }
 

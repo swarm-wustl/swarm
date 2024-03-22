@@ -36,7 +36,7 @@ ament_target_dependencies(
 )
 
 # Link pigpio
-target_link_libraries(ros2_control_demo_example_2 PUBLIC pigpio)
+target_link_libraries(ros2_control_demo_example_2 PUBLIC pigpiod_if2)
 
 # Causes the visibility macros to use dllexport rather than dllimport,
 # which is appropriate when building the dll but not consuming it.
