@@ -201,15 +201,28 @@ hardware_interface::return_type ros2_control_demo_example_2 ::DiffBotSystemHardw
     return hardware_interface::return_type::ERROR;
   }
 
-  // TODO: change this to actual values (wheel_l_.cmd / wheel_l_.rads_per_count;)
-  int motor_l_counts_per_loop = 255;
-  int motor_r_counts_per_loop = 255;
-  comms_.set_motor_values(motor_l_counts_per_loop, motor_r_counts_per_loop);
-  
-  return hardware_interface::return_type::OK;
-}
+  /*
+    CMD USES STAMPED VELOCITY
+    TO MAKE THIS UNSTAMPED, GO TO bringup/config/diffbot_controllers.yaml
+    FIND LINE use_stamped_vel: false
 
-}  // namespace ros2_control_demo_example_2
+    ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/ros2_control_demo_example_2/cmd_vel_unstamped
+
+    sudo pigpiod
+
+    colcon build --symlink-install --packages-select ros2_control_demo_example_2
+    ros2 launch ros2_control_demo_example_2 diffbot.launch.py
+  */
+
+  // TODO: change this to actual values (wheel_l_.cmd / wheel_l_.rads_per_count;)
+  int motor_l_counts_per_loop = wheel_l_.cmd * 7.5;
+  int motor_r_counts_per_loop = wheel_r_.cmd * 7.5;
+  comms_.set_motor_values(motor_l_counts_per_loop, motor_r_counts_per_loop);
+
+  RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "%d", motor_l_counts_per_loop);
+
+}  
+}// namespace ros2_control_demo_example_2
 
 #include "pluginlib/class_list_macros.hpp"
 PLUGINLIB_EXPORT_CLASS(

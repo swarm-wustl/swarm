@@ -81,11 +81,16 @@ class PiComms {
     void set_motor_values(int val_1, int val_2)
     {
       // TODO: change this to integrate with PID
-      set_PWM_dutycycle(pi_code, MOTOR_FWD_A, val_1);
-      set_PWM_dutycycle(pi_code, MOTOR_FWD_B, val_2);
-
-      gpio_write(pi_code, MOTOR_FWD_A, 1);
-      gpio_write(pi_code, MOTOR_FWD_B, 0);
+      if (val_1 > 0) {
+        set_PWM_dutycycle(pi_code, MOTOR_FWD_A, val_1);
+        set_PWM_dutycycle(pi_code, MOTOR_FWD_B, 0);
+      } else if (val_1 < 0) {
+        set_PWM_dutycycle(pi_code, MOTOR_FWD_A, 0);
+        set_PWM_dutycycle(pi_code, MOTOR_FWD_B, -val_1);
+      } else {
+        set_PWM_dutycycle(pi_code, MOTOR_FWD_A, 0);
+        set_PWM_dutycycle(pi_code, MOTOR_FWD_B, 0);
+      }
 
       gpio_write(pi_code, ENABLE, 1);
 
