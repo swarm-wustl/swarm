@@ -11,8 +11,8 @@ GPIO.setwarnings(True)
 # Set up GPIO pins
 GPIO.setmode(GPIO.BCM)
 
-IN1 = 12
-IN2 = 16
+IN1 = 40
+IN2 = 39
 IN3 = 20
 IN4 = 21
 

@@ -13,8 +13,13 @@ class PiComms {
   private:
     int pi_code = -1;
 
-    const int MOTOR_FWD = 17;
-    const int MOTOR_REV = 22;
+    const int ENABLE = 17;
+
+    const int MOTOR_FWD_A = 27;
+    const int MOTOR_FWD_B = 22;
+    
+    const int MOTOR_REV_A = 20;
+    const int MOTOR_REV_B = 19;
 
     const int ENC_1_A = 5;
     const int ENC_1_B = 6;
@@ -37,18 +42,17 @@ class PiComms {
         return;
       }
 
-      std::cout << "past starting..." << std::flush;
+      set_mode(pi_code, ENABLE, PI_INPUT);
 
-      set_mode(pi_code, MOTOR_FWD, PI_OUTPUT);
-      set_mode(pi_code, MOTOR_REV, PI_OUTPUT);
+      set_mode(pi_code, MOTOR_FWD_A, PI_INPUT);
+      set_mode(pi_code, MOTOR_FWD_B, PI_INPUT);
 
-      std::cout << "past modes..." << std::flush;
+      set_mode(pi_code, MOTOR_REV_A, PI_INPUT);
+      set_mode(pi_code, MOTOR_REV_B, PI_INPUT);
 
       enc1 = Encoder(pi_code, ENC_1_A, ENC_1_B);
       enc2 = Encoder(pi_code, ENC_2_A, ENC_2_B);
 
-      std::cout << "past encoders..." << std::flush;
-      std::cout << "wtf..." << std::flush;
       RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Set pin modes");
 
       std::cout << "done!" << std::endl;
@@ -77,8 +81,14 @@ class PiComms {
     void set_motor_values(int val_1, int val_2)
     {
       // TODO: change this to integrate with PID
-      set_PWM_dutycycle(pi_code, MOTOR_FWD, val_1);
-      set_PWM_dutycycle(pi_code, MOTOR_REV, val_2);
+      set_PWM_dutycycle(pi_code, MOTOR_FWD_A, val_1);
+      set_PWM_dutycycle(pi_code, MOTOR_FWD_B, val_2);
+
+      gpio_write(pi_code, MOTOR_FWD_A, 1);
+      gpio_write(pi_code, MOTOR_FWD_B, 0);
+
+      gpio_write(pi_code, ENABLE, 1);
+
       RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Set motor values");
     }
 

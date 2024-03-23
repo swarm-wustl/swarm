@@ -202,8 +202,8 @@ hardware_interface::return_type ros2_control_demo_example_2 ::DiffBotSystemHardw
   }
 
   // TODO: change this to actual values (wheel_l_.cmd / wheel_l_.rads_per_count;)
-  int motor_l_counts_per_loop = 100;
-  int motor_r_counts_per_loop = 100;
+  int motor_l_counts_per_loop = 255;
+  int motor_r_counts_per_loop = 255;
   comms_.set_motor_values(motor_l_counts_per_loop, motor_r_counts_per_loop);
   
   return hardware_interface::return_type::OK;
