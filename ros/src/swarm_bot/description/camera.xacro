@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
   <joint name="camera_joint" type="fixed">
     <parent link="chassis"/>
     <child link="camera_link"/>
@@ -7,12 +7,12 @@
   </joint>
 
   <link name="camera_link">
-    <!-- Cylinder with r=20mm, h=5mm (ASSUMPTION) -->
+    <!-- Box with dimensions 50mm x 30mm x 30mm -->
     <visual>
       <geometry>
         <box size="0.05 0.03 0.03" />
       </geometry>
-      <material name="green"/>
+      <material name="blue"/>
     </visual>
   </link>
 
