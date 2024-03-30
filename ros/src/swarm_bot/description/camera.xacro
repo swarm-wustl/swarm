@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
-  <joint name="camera_joint" type="fixed">
+  <!-- Left Camera -->
+  <joint name="left_camera_joint" type="fixed">
     <parent link="chassis"/>
-    <child link="camera_link"/>
-    <origin xyz="0.08 0 0.025" rpy="0 0.005 0" />
+    <child link="left_camera_link"/>
+    <origin xyz="0.08 -0.05 0.025" rpy="0 0.005 0" />
   </joint>
 
-  <link name="camera_link">
+  <link name="left_camera_link">
     <!-- Box with dimensions 50mm x 30mm x 30mm -->
     <visual>
       <geometry>
@@ -16,17 +17,17 @@
     </visual>
   </link>
 
-  <joint name="camera_optical_joint" type="fixed">
-    <parent link="camera_link"/>
-    <child link="camera_link_optical"/>
-    <origin xyz="0.08 0 0.025" rpy="${-pi/2} 0 ${-pi/2}" />
+  <joint name="left_camera_optical_joint" type="fixed">
+    <parent link="left_camera_link"/>
+    <child link="left_camera_link_optical"/>
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
   </joint>
 
-  <link name="camera_link_optical"></link>
+  <link name="left_camera_link_optical"></link>
 
-  <gazebo reference="camera_link">
+  <gazebo reference="left_camera_link">
     <material>Gazebo/Green</material>
-    <sensor name="camera" type="camera">
+    <sensor name="left_camera" type="camera">
       <pose>0 0 0 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>10</update_rate>
@@ -42,9 +43,59 @@
           <far>20.0</far>
         </clip>
       </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <!-- Note that this is associated with the optical link, not the simulated link -->
-        <frame_name>camera_link_optical</frame_name>
+      <plugin name="left_camera_controller" filename="libgazebo_ros_camera.so">
+        <image_topic_name>left_camera/image_raw</image_topic_name>
+        <frame_name>left_camera_link_optical</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Right Camera -->
+  <joint name="right_camera_joint" type="fixed">
+    <parent link="chassis"/>
+    <child link="right_camera_link"/>
+    <origin xyz="0.08 0.05 0.025" rpy="0 0.005 0" />
+  </joint>
+
+  <link name="right_camera_link">
+    <!-- Box with dimensions 50mm x 30mm x 30mm -->
+    <visual>
+      <geometry>
+        <box size="0.05 0.03 0.03" />
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <joint name="right_camera_optical_joint" type="fixed">
+    <parent link="right_camera_link"/>
+    <child link="right_camera_link_optical"/>
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+  </joint>
+
+  <link name="right_camera_link_optical"></link>
+
+  <gazebo reference="right_camera_link">
+    <material>Gazebo/Green</material>
+    <sensor name="right_camera" type="camera">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <camera>
+        <horizontal_fov>1.089</horizontal_fov>
+        <image>
+          <format>R8G8B8</format>
+          <width>640</width>
+          <height>480</height>
+        </image>
+        <clip>
+          <near>0.005</near>
+          <far>20.0</far>
+        </clip>
+      </camera>
+      <plugin name="right_camera_controller" filename="libgazebo_ros_camera.so">
+        <image_topic_name>right_camera/image_raw</image_topic_name>
+        <frame_name>right_camera_link_optical</frame_name>
       </plugin>
     </sensor>
   </gazebo>
