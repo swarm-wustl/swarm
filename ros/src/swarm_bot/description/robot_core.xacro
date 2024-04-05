@@ -80,7 +80,7 @@
   <joint name="left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin xyz="0 0.122 0" rpy="-${pi/2} 0 0"/>
+    <origin xyz="0 0.1 0" rpy="-${pi/2} 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
@@ -111,7 +111,7 @@
   <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
-    <origin xyz="0 -0.122 0" rpy="${pi/2} 0 0"/>
+    <origin xyz="0 -0.10 0" rpy="${pi/2} 0 0"/>
     <axis xyz="0 0 -1"/>
   </joint>
 
@@ -140,13 +140,51 @@
 
   <!-- CASTER WHEEL LINK -->
   <!-- Frictionless ball that does not rotate -->
-  <joint name="caster_wheel_joint" type="fixed">
-    <parent link="chassis"/>
-    <child link="caster_wheel"/>
-    <origin xyz="-0.0875 0 -0.03"/>
-  </joint>
 
+   <joint name="caster_wheel_joint" type="fixed">
+	<parent link="chassis"/>
+	<child link="caster_wheel"/>
+	<origin xyz="-0.0875 0 -0.03"/>
+  </joint>
+ 
+    
   <link name="caster_wheel">
+	<!-- Sphere with r=25mm (ASSUMPTION) -->
+	<visual>
+  	<geometry>
+    	<sphere radius="0.025"/>
+  	</geometry>
+  	<material name="blue"/>
+	</visual>
+	<collision>
+  	<geometry>
+    	<sphere radius="0.025"/>
+  	</geometry>
+	</collision>
+	<!-- Mass=0.1kg (ASSUMPTION) -->
+	<xacro:inertial_sphere mass="0.1" radius="0.025">
+  	<origin xyz="0 0 0" rpy="0 0 0"/>
+	</xacro:inertial_sphere>
+  </link>
+ 
+
+  <!-- No friction -->
+  <gazebo reference="caster_wheel">
+	<material>Gazebo/Blue</material>
+	<mu1>0.001</mu1>
+	<mu2>0.001</mu2>
+  </gazebo>
+ 
+
+
+  
+  <joint name="front_caster_wheel_joint" type="fixed">
+    <parent link="chassis"/>
+    <child link="caster_wheel_2"/>
+    <origin xyz="0.0875 0 -0.03"/>
+  </joint>
+  
+  <link name="caster_wheel_2">
     <!-- Sphere with r=25mm (ASSUMPTION) -->
     <visual>
       <geometry>
@@ -164,9 +202,9 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:inertial_sphere>
   </link>
-
-  <!-- No friction -->
-  <gazebo reference="caster_wheel">
+  
+  
+  <gazebo reference="caster_wheel_2">
     <material>Gazebo/Red</material>
     <mu1>0.001</mu1>
     <mu2>0.001</mu2>

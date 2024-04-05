@@ -21,13 +21,21 @@ run these commands in /ros directory
 
 ros2 launch swarm_bot launch_sim.launch.py world:=./src/swarm_bot/worlds/apartmentswag.world
 
+### maze map and running gazebo
+
+ros2 launch swarm_bot launch_sim.launch.py world:=./src/swarm_bot/worlds/maze_swarm_map.world
+
 ### Async SLam
 
 ros2 launch slam_toolbox online_async_launch.py params_file:=./src/swam_bot/config/mapper_params_online_async.yaml use_sim_time:=true
 
 ### nav2 
 
-ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
+ros2 launch swarm_bot navigation.launch.py use_sim_time:=true
+
+### nav2 with nav2_bringup (usually dont use this)
+
+ros2 launch nav2_bringup navigation.launch.py use_sim_time:=true
 
 ### twist mux 
 
