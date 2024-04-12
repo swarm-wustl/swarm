@@ -27,7 +27,7 @@ ros2 launch swarm_bot launch_sim.launch.py world:=./src/swarm_bot/worlds/maze_sw
 
 ### Async SLam
 
-ros2 launch slam_toolbox online_async_launch.py params_file:=./src/swam_bot/config/mapper_params_online_async.yaml use_sim_time:=true
+ros2 launch slam_toolbox online_async_launch.py params_file:=./src/swarm_bot/config/mapper_params_online_async.yaml use_sim_time:=true
 
 ### nav2 
 
