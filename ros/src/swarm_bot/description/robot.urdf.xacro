@@ -15,7 +15,11 @@
   </xacro:unless>
   -->
   <xacro:include filename="camera.xacro" />
+<<<<<<< HEAD
   <xacro:include filename="lidar.xacro" /> 
 
+=======
+  <xacro:include filename="imu.xacro" />
+>>>>>>> origin/mapping
 
 </robot>
