@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 """
 Created on Fri Feb 16 15:44:45 2024
@@ -9,16 +10,22 @@ Created on Fri Feb 16 15:44:45 2024
 import RPi.GPIO as GPIO
 import time
 import argparse
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Define GPIO pins based on BCM numbering
-MotFwd = 18  # Motor Forward pin (BCM pin 18)
-MotRev = 23  # Motor Reverse pin (BCM pin 23)
+MotFwd = 17  # Motor Forward pin (BCM pin 18)
+MotRev = 22 # Motor Reverse pin (BCM pin 23)
 encoderPin1 = 5  # Encoder Output 'A' (BCM pin 24)
 encoderPin2 = 6  # Encoder Output 'B' (BCM pin 25)
 
 lastEncoded = 0
 encoderValue = 0
 encoderValues = [] # List to store encouder values 
+timeStamps = []  # List to store time stamps
+
+
+
 
 # Command Line Arguments 
 def parseArguments():
@@ -44,7 +51,8 @@ def setupGPIO():
 # Read and interpret signals from rotary encoder attached to motors
 # Funciton Tracks the position or rotation count of the motor shaft. 
 def updateEncoder(channel):
-    global lastEncoded, encoderValue
+    global lastEncoded, encoderValue, startTime   
+    
     MSB = GPIO.input(encoderPin1)
     LSB = GPIO.input(encoderPin2)
 
@@ -58,8 +66,13 @@ def updateEncoder(channel):
 
     lastEncoded = encoded
     encoderValues.append(encoderValue)  # Append the current encoder value to the list
+    currentTime = time.time() - startTime  # Calculate elapsed time since start
+    timeStamps.append(currentTime)  # Append the current time to the timeStamps list
 
 def main():
+    global startTime 
+    
+    print("Start Sequence: ")
     args = parseArguments()
     setupGPIO()
 
@@ -74,13 +87,99 @@ def main():
         if elapsedTime % args.spinDuration < args.spinDuration:
             GPIO.output(MotFwd, GPIO.LOW)
             GPIO.output(MotRev, GPIO.HIGH)
-            print(f"Forward  {encoderValue}")
+            print(f"Forward  Time: {elapsedTime} || Data: {encoderValue}")
 
         time.sleep(0.1)  # Reduce delay to check condition more frequently
 
     print("Test completed.")
-    print("Encoder values collected:", encoderValues)  # Print the collected encoder values
+    # print("Encoder values collected:", encoderValues)  # Print the collected encoder values
+    
+    # Write encoder values and timestamps to a file
+    with open("Encoder_Data_Measurement.txt", "w") as file:
+        for value, timeStamp in zip(encoderValues, timeStamps):
+            file.write(f'Time (s): {timeStamp:.2f} || Data: {value:.2f}\n')
+    
+    GPIO.remove_event_detect(encoderPin1)
+    GPIO.remove_event_detect(encoderPin2)
+    time.sleep(1)  # Short delay to ensure all GPIO callbacks are completed
     GPIO.cleanup()
+ 
+def moving_average(data, window_size):
+    """Calculate the moving average using a simple sliding window algorithm."""
+    
+    
+    return np.convolve(data, np.ones(window_size) / window_size, mode='valid')
 
+def plot_data(timeStamps, encoderValues, window_size=10):
+    global startTime
+    
+    
+    """Plot the raw data, moving average, noise, and deviation, and save the plots."""
+    rawEncoderData = np.array(encoderValues)
+    timeArray = np.array(timeStamps)
+    
+    # 1. Plot Time vs Encoder Data
+    plt.figure(figsize=(10, 8))
+    plt.subplot(4, 1, 1)
+    plt.plot(timeArray, rawEncoderData, label='Raw Encoder Data')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Encoder Value')
+    plt.title('Time vs Encoder Data')
+    plt.legend()
+    plt.savefig('Time_vs_Encoder_Data.png')
+    plt.close()  # Close the plot to prevent it from displaying
+
+    # 2. Moving Average
+    movingAvg = moving_average(rawEncoderData, window_size)
+    timeForMovingAvg = timeArray[:len(movingAvg)]  # Adjust time array for moving average plot
+    plt.figure(figsize=(10, 8))
+    plt.plot(timeForMovingAvg, movingAvg, label='Moving Average', color='orange')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Encoder Value')
+    plt.title('Moving Average of Encoder Data')
+    plt.legend()
+    plt.savefig('Moving_Average_of_Encoder_Data.png')
+    plt.close()
+
+    # 3. Noise Plot
+    extendedMovingAvg = np.interp(timeArray, timeForMovingAvg, movingAvg)
+    noise = rawEncoderData - extendedMovingAvg
+    plt.figure(figsize=(10, 8))
+    plt.plot(timeArray, noise, label='Noise', color='green')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Noise')
+    plt.title('Noise in Encoder Data')
+    plt.legend()
+    plt.savefig('Noise_in_Encoder_Data.png')
+    plt.close()
+
+    # 4. Deviation Data Plot
+    deviationArrayData = np.abs(np.diff(rawEncoderData))
+    timeForDeviation = timeArray[1:]  # Adjust time array for deviation plot
+    plt.figure(figsize=(10, 8))
+    plt.plot(timeForDeviation, deviationArrayData, label='Deviation', color='red')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Deviation')
+    plt.title('Deviation of Encoder Data')
+    plt.legend()
+    plt.savefig('Deviation_of_Encoder_Data.png')
+    plt.close()
+    
+    
 if __name__ == "__main__":
-    main()
+    print("Running Main Sequence: ")
+    main() 
+    
+    print("Starting Plotting Sequence: ")
+    # After main function completes, call the plotting function
+    
+    if len(timeStamps) != len(encoderValues):
+        print(f"Mismatch in lengths: TimeStamps={len(timeStamps)}, EncoderValues={len(encoderValues)}")
+        min_length = min(len(timeStamps), len(encoderValues))
+        timeStamps = timeStamps[:min_length]
+        encoderValues = encoderValues[:min_length]
+    # Optionally adjust the arrays here
+
+    plot_data(timeStamps, encoderValues, window_size=10)
+    print("Ploting sequence Completed. ")
+    

@@ -5,7 +5,7 @@ First, you will need to build ORB_SLAM3 and its dependencies. Follow the instruc
 
 ```
 cd ~/Dev/ORB_SLAM3
-./Examples/Monocular/mono_euroc ./Vocabulary/ORBvoc.txt ./Examples/Monocular/EuRoC.yaml ~/Datasets/EuRoC/MH01 ./Examples/Monocular/EuRoC_TimeStamps/MH01.txt
+./Examples/Monocular/mono_euroc ./Vocabulary/ORBvoc.txt ./Examples/Monocular/EuRoC.yaml ~/Datasets/EuRoc/MH01 ./Examples/Monocular/EuRoC_TimeStamps/MH01.txt
 ```
 
 If the video feed does not appear, edit the source file `Examples/Monocular/mono_euroc.cc` and change line 83 to `ORB_SLAM3::System SLAM(argv[1],argv[2],ORB_SLAM3::System::MONOCULAR, true);` (false has been swapped to true).
