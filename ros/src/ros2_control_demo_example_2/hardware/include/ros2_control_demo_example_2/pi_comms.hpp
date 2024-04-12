@@ -13,13 +13,13 @@ class PiComms {
   private:
     int pi_code = -1;
 
-    const int ENABLE = 17;
-
-    const int MOTOR_FWD_A = 27;
-    const int MOTOR_FWD_B = 22;
+    const int MOTOR_FWD_A = 22;
+    const int MOTOR_FWD_B = 27;
+    const int MOTOR_FWD_EN = 17;
     
-    const int MOTOR_REV_A = 20;
-    const int MOTOR_REV_B = 19;
+    const int MOTOR_REV_A = 23;
+    const int MOTOR_REV_B = 24;
+    const int MOTOR_REV_EN = 25;
 
     const int ENC_1_A = 5;
     const int ENC_1_B = 6;
@@ -42,13 +42,13 @@ class PiComms {
         return;
       }
 
-      set_mode(pi_code, ENABLE, PI_INPUT);
-
       set_mode(pi_code, MOTOR_FWD_A, PI_INPUT);
       set_mode(pi_code, MOTOR_FWD_B, PI_INPUT);
+      set_mode(pi_code, MOTOR_FWD_EN, PI_INPUT);
 
       set_mode(pi_code, MOTOR_REV_A, PI_INPUT);
       set_mode(pi_code, MOTOR_REV_B, PI_INPUT);
+      set_mode(pi_code, MOTOR_REV_EN, PI_INPUT);
 
       enc1 = Encoder(pi_code, ENC_1_A, ENC_1_B);
       enc2 = Encoder(pi_code, ENC_2_A, ENC_2_B);
@@ -82,17 +82,18 @@ class PiComms {
     {
       // TODO: change this to integrate with PID
       if (val_1 > 0) {
-        set_PWM_dutycycle(pi_code, MOTOR_FWD_A, val_1);
-        set_PWM_dutycycle(pi_code, MOTOR_FWD_B, 0);
+        gpio_write(pi_code, MOTOR_FWD_A, 1);
+        gpio_write(pi_code, MOTOR_FWD_B, 0);
+        set_PWM_dutycycle(pi_code, MOTOR_FWD_EN, val_1);
       } else if (val_1 < 0) {
-        set_PWM_dutycycle(pi_code, MOTOR_FWD_A, 0);
-        set_PWM_dutycycle(pi_code, MOTOR_FWD_B, -val_1);
+        gpio_write(pi_code, MOTOR_FWD_A, 0);
+        gpio_write(pi_code, MOTOR_FWD_B, 1);
+        set_PWM_dutycycle(pi_code, MOTOR_FWD_EN, -val_1);
       } else {
-        set_PWM_dutycycle(pi_code, MOTOR_FWD_A, 0);
-        set_PWM_dutycycle(pi_code, MOTOR_FWD_B, 0);
+        gpio_write(pi_code, MOTOR_FWD_A, 0);
+        gpio_write(pi_code, MOTOR_FWD_B, 0);
+        set_PWM_dutycycle(pi_code, MOTOR_FWD_EN, 0);
       }
-
-      gpio_write(pi_code, ENABLE, 1);
 
       RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Set motor values");
     }

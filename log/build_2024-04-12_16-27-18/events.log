@@ -1,0 +1,4 @@
+[0.000000] (-) TimerEvent: {}
+[0.002816] (-) JobUnselected: {'identifier': 'swarm_bot'}
+[0.004406] (-) JobUnselected: {'identifier': 'vslam'}
+[0.005166] (-) EventReactorShutdown: {}

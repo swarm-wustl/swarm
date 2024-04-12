@@ -206,7 +206,7 @@ hardware_interface::return_type ros2_control_demo_example_2 ::DiffBotSystemHardw
     TO MAKE THIS UNSTAMPED, GO TO bringup/config/diffbot_controllers.yaml
     FIND LINE use_stamped_vel: false
 
-    ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/ros2_control_demo_example_2/cmd_vel_unstamped
+    ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diffbot_base_controller/cmd_vel_unstamped
 
     sudo pigpiod
 
