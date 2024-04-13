@@ -11,9 +11,9 @@ import time
 GPIO.setmode(GPIO.BCM)  # Set GPIO numbering mode to BCM
 
 # Motor 1 setup
-Motor1A = 23  # Motor 1, Pin A
-Motor1B = 24  # Motor 1, Pin B
-Motor1EN = 25  # Motor 1, Enable Pin
+Motor1A = 6  # Motor 1, Pin A
+Motor1B = 26  # Motor 1, Pin B
+Motor1EN = 16 # Motor 1, Enable Pin
 
 # Motor 2 setup
 Motor2A = 22  # Motor 2, Pin A
@@ -67,9 +67,9 @@ pwm1 = GPIO.PWM(Motor1EN, 1000)  # PWM instance for Motor 1
 pwm2 = GPIO.PWM(Motor2EN, 1000)  # PWM instance for Motor 2
 
 # Motor 1 forward and ramp up
-forward(1)
-ramp_up(pwm1, 1)
-pwm1.stop()
+# forward(1)
+# ramp_up(pwm1, 1)
+# pwm1.stop()
 
 # Motor 2 forward and ramp up
 forward(2)
