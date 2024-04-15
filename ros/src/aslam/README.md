@@ -8,10 +8,11 @@ AT CURRENT ITERATION this version uses LIDAR slam and is still WIP
 
 install these packages
 
-- sudo apt install ros-humble-navigation2
-- sudo apt install ros-humble-nav2-bringup
-- sudo apt install ros-humble-twist-mux
-- sudo apt install ros-humble-slam-toolbox
+- sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup ros-humble-twist-mux ros-humble-slam-toolbox ros-humble-gazebo-ros2-control
+
+### trouble shoot errors (queue full)
+
+You must have ros-humble-gazebo-ros2-control set up you'll get a queue is full error when running nav2. TBH idk why there is NOTHING ONLINE ABOUT THAT like bruh.
 
 ## running
 
@@ -27,15 +28,15 @@ ros2 launch swarm_bot launch_sim.launch.py world:=./src/swarm_bot/worlds/maze_sw
 
 ### Async SLam
 
-ros2 launch slam_toolbox online_async_launch.py params_file:=./src/swarm_bot/config/mapper_params_online_async.yaml use_sim_time:=true
+ros2 launch slam_toolbox online_async_launch.py params_file:=./src/swarm_bot/config/mapper_params_online_async.yaml use_sim_time:=True
 
 ### nav2 
 
-ros2 launch swarm_bot navigation.launch.py use_sim_time:=true
+ros2 launch swarm_bot navigation_launch.py use_sim_time:=True
 
 ### nav2 with nav2_bringup (usually dont use this)
 
-ros2 launch nav2_bringup navigation.launch.py use_sim_time:=true
+ros2 launch nav2_bringup navigation_launch.py use_sim_time:=True
 
 ### twist mux 
 
