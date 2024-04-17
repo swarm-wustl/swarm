@@ -12,9 +12,13 @@ username: swarmpi-one
 password: 1234 
 
 To Clone Github:
+
 $ cd .ssh
+
 $ ssh-keygen -t ed25519 -C "your_email@wustl.edu"
+
 $ cd ..
+
 $ git clone git@github.com:swarm-wustl/swarm.git
 
 % Controlling GPIO pins with C++
