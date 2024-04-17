@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Apr  6 14:27:39 2024
-
+Created on Sat Apr 6 14:27:39 2024
 @author: Wayne
 """
 
@@ -56,36 +55,31 @@ def ramp_up(pwm, motor_number):
     pwm.start(80)  # Start PWM with 80% duty cycle
     print(f"Ramping up Motor {motor_number}: Starting at 80% power.")
     for i in range(80, 110, 10):  # Increase duty cycle from 80% to 100% in steps of 10%
-        pwm.ChangeDutyCycle(i)
         if i > 100:
+            pwm.ChangeDutyCycle(100)
             print(f"Motor {motor_number} at maximum power: 100%.")
         else:
+            pwm.ChangeDutyCycle(i)
             print(f"Motor {motor_number} power level: {i}%.")
         time.sleep(5)
 
 pwm1 = GPIO.PWM(Motor1EN, 1000)  # PWM instance for Motor 1
 pwm2 = GPIO.PWM(Motor2EN, 1000)  # PWM instance for Motor 2
 
-# Motor 1 forward and ramp up
-# forward(1)
-# ramp_up(pwm1, 1)
-# pwm1.stop()
+# Test both forward and reverse for each motor
+for motor_id in [1, 2]:
+    # Motor forward and ramp up
+    forward(motor_id)
+    ramp_up(pwm1 if motor_id == 1 else pwm2, motor_id)
+    (pwm1 if motor_id == 1 else pwm2).stop()
 
-# Motor 2 forward and ramp up
-forward(2)
-ramp_up(pwm2, 2)
-pwm2.stop()
+    time.sleep(1)  # Short delay between forward and reverse
 
-time.sleep(1)
+    # Motor reverse and ramp up
+    reverse(motor_id)
+    ramp_up(pwm1 if motor_id == 1 else pwm2, motor_id)
+    (pwm1 if motor_id == 1 else pwm2).stop()
 
-# Motor 1 reverse and ramp up
-reverse(1)
-ramp_up(pwm1, 1)
-pwm1.stop()
-
-# Motor 2 reverse and ramp up
-reverse(2)
-ramp_up(pwm2, 2)
-pwm2.stop()
+    time.sleep(1)  # Short delay before moving to the next motor
 
 GPIO.cleanup()  # Clean up GPIO to ensure a clean exit
