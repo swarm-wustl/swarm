@@ -1,13 +1,23 @@
 #!/usr/bin/env python
 
 import rclpy
+import rclpy.logging
 from rclpy.node import Node 
 from rclpy.action import ActionClient
 
 import sys
-from nav2_simple_commander.robot_navigator import BasicNavigator
+from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 
-from nav_msgs.msg import OccupancyGrid
+from actionlib_msgs.msg import *
+from geometry_msgs.msg import *
+#these import the classes for cost map, Occupancy Grid
+from nav_msgs.msg import *
+from nav2_msgs.msg import *
+
+from tf2_msgs.msg import TFMessage
+
+from nav_msgs.srv import *
+from std_msgs.msg import *
 #from nav2_msgs.msg import CostMap
 
 from rclpy.duration import Duration
@@ -36,14 +46,25 @@ class MapNav(Node):
         
         #here create the actual node inheriting from the node class
         super().__init__("swarm_aslam")
-        #self.create_subscription(OccupancyGrid, "map", self.map_callback);
-        #self.create_subscription(CostMap, "move_base/global_cosmap/costmap", self.cost_map_callback )
+        self.create_subscription(OccupancyGrid, 
+                                 "map", 
+                                 self.map_callback)
+        self.create_subscription(Costmap, 
+                                 "global_cosmap/costmap",
+                                   self.cost_map_callback )
+        self.create_subscription(TFMessage, 
+                                 "tf", 
+                                 self.pose_callback )
         #self.rob_pub = self.create_publisher("cmd_vel",Twist,queue_size=10)
         #action server for nav2
         #self.ac = ActionClient(,"move_base"); 
         self.navigator = BasicNavigator()
+        
+        #dont think I need this
+        #self.navigator.setInitialPose(init_pose)
 
     def test_move(self):
+        print(TaskResult)
         goalPose = PoseStamped()
         goalPose.header.frame_id = 'map'
         goalPose.header.stamp = self.navigator.get_clock().now().to_msg()
@@ -57,7 +78,7 @@ class MapNav(Node):
 
         self.navigator.goToPose(goalPose)
         print("move sent!")
-        while not self.navigator.isNavComplete():
+        while not self.navigator.isTaskComplete():
             print("MEOW")
         self.navigator.lifecycleShutdown()
 
@@ -97,48 +118,57 @@ class MapNav(Node):
 
     def moveToGoal(self,xGoal,yGoal):
 
-    #set up the frame parameters
-        self.goal.target_pose.header.frame_id = "map"
-        self.goal.target_pose.header.stamp = rclpy.Time.now()
+        #stamp and header info
+        goalPose = PoseStamped()
+        goalPose.header.frame_id = 'map'
+        goalPose.header.stamp = self.navigator.get_clock().now().to_msg()
+        
+        #set position to inputted xGoal
+        goalPose.pose.position.x = xGoal
+        goalPose.pose.position.y = yGoal
+        goalPose.pose.position.z = 0.0
+        goalPose.pose.orientation.x = 0.0
+        goalPose.pose.orientation.y = 0.0
+        goalPose.pose.orientation.z = 0.0
+        goalPose.pose.orientation.w = 1.0
 
-    # moving towards the goal* look at all functions with move in global planner
-        self.goal.target_pose.pose.position =  Point(xGoal,yGoal,0)
-        self.goal.target_pose.pose.orientation.optX = 0.0
-        self.goal.target_pose.pose.orientation.optY = 0.0
-        self.goal.target_pose.pose.orientation.optZ = 0.0
-        self.goal.target_pose.pose.orientation.optW = 1.0
+        #move to goal Pose
+        self.navigator.goToPose(goalPose)
 
-        rclpy.loginfo("Sending goal location ...") #check this later...
-        self.ac.send_goal(self.goal)            
-        self.ac.wait_for_result(rclpy.Duration(40))#check this later...
+        #get there until task is complete, meaning the robot goal ended (which could be succeed for giving up)
+        
+        #or end this attempt if it takes to long
 
-        while( (self.ac.get_state() != GoalStatus.ABORTED) 
-              and (self.ac.get_state() != GoalStatus.REJECTED) 
-              and (self.ac.get_state() != GoalStatus.PREEMPTING)
-                and (self.ac.get_state() != GoalStatus.SUCCEEDED)):
-             
-        # print("2 robot current position:", self.robo_position)
-            continue
-
-        if self.ac.get_state() == GoalStatus.SUCCEEDED:
-            rclpy.loginfo("You have reached the destination")           #check this later...
-
+        while not self.navigator.isTaskComplete():
+            #if the goToPose takes longer than 600 seconds give up
+            feedback = self.navigator.getFeedback()
+            if feedback.navigation_duration > 600:
+                self.navigator.cancelTask()
+        self.navigator.lifecycleShutdown()
+        
+        result = self.navigator.getResult()
+        
+        #if robot made it return true, else false meaning the robot failed
+        if result == TaskResult.SUCCEEDED:
+            print('Goal succeeded!')
             return True
+        elif result == TaskResult.CANCELED:
+            print('Goal was canceled!')
+        elif result == TaskResult.FAILED:
+            print('Goal failed!')
+        return False
 
-        if self.ac.get_state() == GoalStatus.ABORTED:
-            rclpy.loginfo("The robot failed to reach the destination")  #check this later...
+def test(args=None):
 
-            return False
-    
-    def main():
-    
-        rclpy.init()
-
-        mapNode = MapNav()
-
-        mapNode.test_move(); 
-
-if __name__ == "__main__":
+    rclpy.init(args=args)
     mapNode = MapNav()
 
     mapNode.test_move()
+
+def main(args=None):
+    rclpy.init(args=args)
+    mapNode = MapNav()
+
+##technically this should never be called main unless for testing
+if __name__ == "__main__":
+    main()

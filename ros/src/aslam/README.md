@@ -55,3 +55,12 @@ rviz2 src/swarm_bot/config/view_bot.rviz
 ### rviz with the cost map (run this last)
 
 rviz2 src/swarm_bot/config/view_bot.rviz    
+
+## Running ASLAM
+
+The package will be ran from the package aslam. Launch scripts can be found in setup.py
+
+### test setting goal
+
+ros2 run aslam nav_test
+
