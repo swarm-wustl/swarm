@@ -14,5 +14,6 @@
   </xacro:unless>
 
   <xacro:include filename="camera.xacro" />
+  <xacro:include filename="imu.xacro" />
 
 </robot>
