@@ -28,58 +28,45 @@ GPIO.setup(Motor2A, GPIO.OUT)
 GPIO.setup(Motor2B, GPIO.OUT)
 GPIO.setup(Motor2EN, GPIO.OUT)
 
-def forward(motor):
-    """Function to set the motor direction to forward."""
-    if motor == 1:
+# PWM instances for both motors, set to 70% duty cycle
+pwm1 = GPIO.PWM(Motor1EN, 1000)
+pwm1.start(70)
+pwm2 = GPIO.PWM(Motor2EN, 1000)
+pwm2.start(70)
+
+def forward(motor_number):
+    """Function to set the motor direction to forward and run it at 70% power."""
+    if motor_number == 1:
         GPIO.output(Motor1A, GPIO.HIGH)
         GPIO.output(Motor1B, GPIO.LOW)
-        print("Motor 1 set to forward.")
-    elif motor == 2:
+        print("Motor 1 is running forward at 70% power.")
+    elif motor_number == 2:
         GPIO.output(Motor2A, GPIO.HIGH)
         GPIO.output(Motor2B, GPIO.LOW)
-        print("Motor 2 set to forward.")
+        print("Motor 2 is running forward at 70% power.")
 
-def reverse(motor):
-    """Function to set the motor direction to reverse."""
-    if motor == 1:
+def reverse(motor_number):
+    """Function to set the motor direction to reverse and run it at 70% power."""
+    if motor_number == 1:
         GPIO.output(Motor1A, GPIO.LOW)
         GPIO.output(Motor1B, GPIO.HIGH)
-        print("Motor 1 set to reverse.")
-    elif motor == 2:
+        print("Motor 1 is running in reverse at 70% power.")
+    elif motor_number == 2:
         GPIO.output(Motor2A, GPIO.LOW)
         GPIO.output(Motor2B, GPIO.HIGH)
-        print("Motor 2 set to reverse.")
+        print("Motor 2 is running in reverse at 70% power.")
 
-def ramp_up(pwm, motor_number):
-    """Function to gradually increase the motor's speed."""
-    pwm.start(80)  # Start PWM with 80% duty cycle
-    print(f"Ramping up Motor {motor_number}: Starting at 80% power.")
-    for i in range(80, 110, 10):  # Increase duty cycle from 80% to 100% in steps of 10%
-        if i > 100:
-            pwm.ChangeDutyCycle(100)
-            print(f"Motor {motor_number} at maximum power: 100%.")
-        else:
-            pwm.ChangeDutyCycle(i)
-            print(f"Motor {motor_number} power level: {i}%.")
-        time.sleep(5)
-
-pwm1 = GPIO.PWM(Motor1EN, 1000)  # PWM instance for Motor 1
-pwm2 = GPIO.PWM(Motor2EN, 1000)  # PWM instance for Motor 2
-
-# Test both forward and reverse for each motor
+# Test each motor in forward and reverse directions
 for motor_id in [1, 2]:
-    # Motor forward and ramp up
+    # Test forward direction
     forward(motor_id)
-    ramp_up(pwm1 if motor_id == 1 else pwm2, motor_id)
-    (pwm1 if motor_id == 1 else pwm2).stop()
+    time.sleep(5)  # Run each test for 5 seconds
 
-    time.sleep(1)  # Short delay between forward and reverse
-
-    # Motor reverse and ramp up
+    # Test reverse direction
     reverse(motor_id)
-    ramp_up(pwm1 if motor_id == 1 else pwm2, motor_id)
-    (pwm1 if motor_id == 1 else pwm2).stop()
+    time.sleep(5)  # Run each test for 5 seconds
 
-    time.sleep(1)  # Short delay before moving to the next motor
+    # Stop the motor
+    (pwm1 if motor_id == 1 else pwm2).stop()
 
 GPIO.cleanup()  # Clean up GPIO to ensure a clean exit
