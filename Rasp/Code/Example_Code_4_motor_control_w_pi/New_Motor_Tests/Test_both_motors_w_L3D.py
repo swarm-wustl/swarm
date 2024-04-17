@@ -8,6 +8,7 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BCM)  # Set GPIO numbering mode to BCM
+GPIO.setwarnings(False)  # Disable GPIO warnings
 
 # Motor 1 setup
 Motor1A = 6  # Motor 1, Pin A
@@ -31,9 +32,28 @@ GPIO.setup(Motor2EN, GPIO.OUT)
 # PWM instances for both motors, set to 70% duty cycle
 pwm1 = GPIO.PWM(Motor1EN, 1000)
 pwm1.start(70)
+
 pwm2 = GPIO.PWM(Motor2EN, 1000)
 pwm2.start(70)
 
+print("Testing motor1 Forward: ")
+GPIO.output(Motor1A, GPIO.HIGH)
+GPIO.output(Motor1B, GPIO.LOW)
+print("Testing motor1 Reverse: ")
+GPIO.output(Motor1A, GPIO.LOW)
+GPIO.output(Motor1B, GPIO.HIGH)
+
+print("Testing motor2 Forward: ")
+GPIO.output(Motor1A, GPIO.LOW)
+GPIO.output(Motor1B, GPIO.HIGH)
+print("Testing motor2 Reverse: ")
+
+pwm1.stop()
+pwm2.stop()
+
+GPIO.cleanup()  # Clean up GPIO to ensure a clean exit
+
+'''
 def forward(motor_number):
     """Function to set the motor direction to forward and run it at 70% power."""
     if motor_number == 1:
@@ -70,3 +90,4 @@ for motor_id in [1, 2]:
     (pwm1 if motor_id == 1 else pwm2).stop()
 
 GPIO.cleanup()  # Clean up GPIO to ensure a clean exit
+''' 
