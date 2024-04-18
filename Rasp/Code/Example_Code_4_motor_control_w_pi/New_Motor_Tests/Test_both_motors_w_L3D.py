@@ -1,11 +1,16 @@
 import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BCM)
+Motor1A= 26
+Motor2A = 6
+Motor1EN = 5
+
+'''
+
 Motor1A= 17
 Motor2A = 27
 Motor1EN = 5
 
-'''
 Motor1A = 6  # Motor 1, Pin A
 Motor1B = 26  # Motor 1, Pin B
 Motor1EN = 16 # Motor 1, Enable Pin
