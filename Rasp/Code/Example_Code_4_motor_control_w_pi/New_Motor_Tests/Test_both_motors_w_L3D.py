@@ -33,6 +33,7 @@ GPIO.setup(Motor2EN, GPIO.OUT)
 pwm1 = GPIO.PWM(Motor1EN, 1000)
 pwm2 = GPIO.PWM(Motor2EN, 1000)
 
+'''
 pwm1.start(70)
 print("Testing motor1 Forward: ")
 GPIO.output(Motor1A, GPIO.HIGH)
@@ -44,6 +45,7 @@ GPIO.output(Motor1A, GPIO.LOW)
 GPIO.output(Motor1B, GPIO.HIGH)
 time.sleep(4)
 pwm1.stop()
+'''
 
 pwm2.start(70)
 print("Testing motor2 Forward: ")
