@@ -1,6 +1,6 @@
 from digi.xbee.devices import DigiMeshDevice
 from digi.xbee.util import utils
-from example_interfaces.srv import AddTwoInts
+from common.srv import XbeeOut
 import random
 
 import rclpy
@@ -11,7 +11,7 @@ class XBeeService(Node):
 
     def __init__(self):
         super().__init__('xbee_service')
-        self.srv = self.create_service(AddTwoInts, 'send_xbee_msg', self.send_xbee_msg)
+        self.srv = self.create_service(XbeeOut, 'send_xbee_msg', self.send_xbee_msg)
 
         usb = "/dev/ttyUSB0"
         ni = "bot_{:04}".format(random.randint(0, 9999))
@@ -28,10 +28,23 @@ class XBeeService(Node):
         self.get_logger().info("XBee service has started on %s with NI: %s" % (usb, ni))
 
     def send_xbee_msg(self, request, response):
-        # response.sum = request.a + request.b
-        self.get_logger().info('Incoming request\na: %d b: %d' % (request.a, request.b))
-        self.xbee.send_data_broadcast("a: %d b: %d" % (request.a, request.b))
-        # xbee1.send_data_64(xbee2.get_64bit_addr(), msg)
+        response.success = True
+
+        data = request.data
+        ni = request.target_ni
+
+        try:
+            if ni == "":
+                self.get_logger().info('Broadcasting data: %s' % data)
+                self.xbee.send_data_broadcast(data)
+            else:
+                self.get_logger().info('Sending data to %s: %s' % (ni, data))
+                self.get_logger().info('Not yet implemented!')
+                response.success = False
+                # xbee1.send_data_64(xbee2.get_64bit_addr(), msg)
+        except Exception as e:
+            self.get_logger().error('Error sending data: %s' % e)
+            response.success = False
 
         return response
 

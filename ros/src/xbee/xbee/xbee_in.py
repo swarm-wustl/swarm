@@ -28,14 +28,15 @@ class XBeeReceiver(Node):
         self.xbee.set_parameter("NI",  bytearray(ni, 'utf8'))
         self.xbee.set_parameter("RP",  utils.hex_string_to_bytes("5"))
 
-    def timer_callback(self):
+        self.xbee.add_data_received_callback(self.xbee_received)
+
+    def xbee_received(self, xbee_message):
+        address = xbee_message.remote_device.get_64bit_addr()
+        data = xbee_message.data.decode("utf8")
+        self.get_logger().info('Received data from %s: %s' % (address, data))
         msg = String()
-        rec_msg = self.xbee.read_data()
-        if rec_msg is None:
-            pass
-        else:
-            msg.data = rec_msg.data.decode()
-            self.publisher_.publish(msg)
+        msg.data = data
+        self.publisher_.publish(msg)
 
 
 def main(args=None):
