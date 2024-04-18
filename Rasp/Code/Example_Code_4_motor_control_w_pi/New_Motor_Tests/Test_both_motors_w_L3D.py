@@ -3,7 +3,7 @@ import time
 GPIO.setmode(GPIO.BCM)
 Motor1A= 17
 Motor2A = 27
-Motor1EN = 16
+Motor1EN = 5
 
 
 
