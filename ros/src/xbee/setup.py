@@ -21,7 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'xbee_srv = xbee.xbee_srv:main',
-            'xbee_rec = xbee.xbee_rec:main',
+            'xbee_test_send = xbee.xbee_test_send:main',
         ],
     },
 )
