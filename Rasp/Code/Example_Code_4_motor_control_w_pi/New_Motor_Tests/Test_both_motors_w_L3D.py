@@ -1,15 +1,19 @@
 import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BCM)
+Motor1A= 17
+Motor2A = 27
+Motor1EN = 12
+
+
+
+'''
+
+Left motor: 
 Motor1A= 26
 Motor2A = 6
 Motor1EN = 5
 
-'''
-
-Motor1A= 17
-Motor2A = 27
-Motor1EN = 5
 
 Motor1A = 6  # Motor 1, Pin A
 Motor1B = 26  # Motor 1, Pin B
@@ -41,12 +45,16 @@ def ramp_up():
         time.sleep(5)
 
 pwm = GPIO.PWM(Motor1EN, 1000)
+print("Testing Motor1 Forward: ")
 forward()
 ramp_up()
 pwm.stop()
 time.sleep(1)
+print("Testing Motor1 Reverse: ")
 reverse()
 ramp_up()
 pwm.stop()
+
+
 
 GPIO.cleanup()
