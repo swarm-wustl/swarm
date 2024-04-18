@@ -59,7 +59,17 @@ class MapNav(Node):
         #action server for nav2
         #self.ac = ActionClient(,"move_base"); 
         self.navigator = BasicNavigator()
-        
+
+        initial_pose = PoseStamped()
+        initial_pose.header.frame_id = 'map'
+        initial_pose.header.stamp = self.navigator.get_clock().now().to_msg()
+        initial_pose.pose.position.x = 0
+        initial_pose.pose.position.y = 0
+        initial_pose.pose.orientation.z = 0
+        initial_pose.pose.orientation.w = 1.0
+        self.navigator.setInitialPose(initial_pose)
+
+        self.navigator.waitUntilNav2Active()
         #dont think I need this
         #self.navigator.setInitialPose(init_pose)
 
@@ -115,6 +125,9 @@ class MapNav(Node):
             self.prev_init_local_pose = path.poses[0].pose
     def track_global(self, path):
             pass
+    
+    def getClockNow(self):
+        return self.navigator.get_clock().now().to_msg()
 
     def moveToGoal(self,xGoal,yGoal):
 

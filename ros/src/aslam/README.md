@@ -38,14 +38,6 @@ ros2 launch swarm_bot navigation_launch.py use_sim_time:=True
 
 ros2 launch nav2_bringup navigation_launch.py use_sim_time:=True
 
-### twist mux 
-
-only run if the launch twist mux not working and the robot doesnt move when given a goal
-
-ros2 run twist_mux twist_mux --ros-args --params-file ./src/swarm_bot/config/twist_mux.yaml -r cmd_vel_out:=diff_cont/cmd_vel_unstamped
-
-### teleop manual controlling
-
 when using nav2 you still need to create a map by moving around and having lidar generate a map. In the future we may have this update in real time with localization maybe
 
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
