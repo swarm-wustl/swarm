@@ -31,10 +31,10 @@ GPIO.setup(Motor2EN, GPIO.OUT)
 
 # PWM instances for both motors, set to 70% duty cycle
 pwm1 = GPIO.PWM(Motor1EN, 1000)
-pwm1.start(70)
+#pwm1.start(70)
 
 pwm2 = GPIO.PWM(Motor2EN, 1000)
-pwm2.start(70)
+#pwm2.start(70)
 
 print("Testing motor1 Forward: ")
 GPIO.output(Motor1A, GPIO.HIGH)
