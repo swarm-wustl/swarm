@@ -15,10 +15,11 @@ find_package(OpenCV REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(common REQUIRED)
 
 # add executables
 add_executable(detect_ball src/detect_ball.cpp)
-ament_target_dependencies(detect_ball rclcpp sensor_msgs image_transport cv_bridge OpenCV)
+ament_target_dependencies(detect_ball rclcpp sensor_msgs image_transport cv_bridge OpenCV common)
 
 add_executable(capture_ball src/capture_ball.cpp)
 ament_target_dependencies(capture_ball rclcpp sensor_msgs geometry_msgs)
