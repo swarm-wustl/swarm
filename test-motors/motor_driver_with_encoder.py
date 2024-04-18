@@ -6,12 +6,18 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
 import motor_funcs as motor
 
-in1 = 13
-in2 = 15
-en  = 11
+# Motor 1
+in1A = 36
+in2A = 38
+enA  = 32
+c1 = 24
+c2 = 26
 
-c1 = 16
-c2 = 18
+# Motor 2
+in1B = 35
+in2B = 37
+enB  = 33
+
 
 GPIO.setup(c1, GPIO.IN)
 GPIO.setup(c2, GPIO.IN)
@@ -24,22 +30,27 @@ parser = argparse.ArgumentParser(description="Collect rotational data.")
 parser.add_argument("--time", default = 4, type=float, action="store", help  = "Duration of program.")
 parser.add_argument("--enSample", default = 1, type = float, action = "store", help = "Delay between readings in micro seconds.")
 parser.add_argument("--speedCalc", default = 10, type = float, action = "store", help = "Delay between RPS calculators in msec (Default is 0.1s).")
-parser.add_argument("--duty", default = 5., type = float, action= "store", help= "Desired RPS for the motor")
+parser.add_argument("--duty", default = 50., type = float, action= "store", help= "Desired RPS for the motor")
 parser.add_argument("--debug", action= 'store_true', help= "Specify if debug statements are printed")
 
 
 args = parser.parse_args()
 
-pwm_pin   = motor.motor_init(in1, in2, en, 1000, args.duty)
-time.sleep(1)
-motor.motor_direction(in1, in2, 1)
+pwm_pinA   = motor.motor_init(in1A, in2A, enA, 1000, args.duty)
+time.sleep(0.025)
+pwm_pinB   = motor.motor_init(in1B, in2B, enB, 1000, args.duty)
+time.sleep(0.25)
+motor.motor_direction(in1A, in2A, 1)
+time.sleep(0.025)
+motor.motor_direction(in1B, in2B, 1)
+time.sleep(0.025)
 
 # Setup for delta timing
 startTime = time.time()
 currentTime = startTime
 
 # Variable for how far back we want to calc speeds
-n = 5
+n = 10
 i = 0
 
 # Time for encoder data collection
