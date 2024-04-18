@@ -44,6 +44,7 @@ print("Testing motor1 Reverse: ")
 GPIO.output(Motor1A, GPIO.LOW)
 GPIO.output(Motor1B, GPIO.HIGH)
 time.sleep(4)
+pwm1.stop()
 
 print("Testing motor2 Forward: ")
 GPIO.output(Motor2A, GPIO.HIGH)
@@ -53,9 +54,8 @@ print("Testing motor2 Reverse: ")
 GPIO.output(Motor2A, GPIO.LOW)
 GPIO.output(Motor2B, GPIO.HIGH)
 time.sleep(4)
-
-pwm1.stop()
 pwm2.stop()
+
 
 GPIO.cleanup()  # Clean up GPIO to ensure a clean exit
 
