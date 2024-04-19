@@ -46,13 +46,19 @@ class Controller(Node):
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
+        print('sub')
 
         # publish encoder data
         self.publisher = self.create_publisher(Twist, '/left_encoder', 10)
         # self.publisher = self.create_publisher(Twist, '/left_encoder', 10)
 
         # timer
+<<<<<<< HEAD
         self.timer = self.create_timer(0.01, self.timer_callback)
+=======
+        self.timer = self.create_timer(0.1, self.timer_callback)
+        print('timer')
+>>>>>>> d6eb8aa2b0678d2b2f269667d0583389d5de63e4
 
         self.target_left_speed = 0
         self.target_right_speed = 0
@@ -78,6 +84,7 @@ class Controller(Node):
         time.sleep(0.025)
         self.pwm_pinB = motor_init(self.in1B, self.in2B, self.enB, 1000, 50)
         time.sleep(0.25)
+        print('init')
 
         first_val = GPIO.input(self.c1)
         self.look_for_1 = not first_val
@@ -96,8 +103,14 @@ class Controller(Node):
         right_speed = x_vel + z_ang
 
         # slowly approach target speeds
+<<<<<<< HEAD
         self.target_left_speed = 0.95*self.target_left_speed + 0.05*left_speed
         self.target_right_speed = 0.95*self.target_right_speed + 0.05*right_speed
+=======
+        self.target_left_speed = 0.9*self.target_left_speed + 0.1*left_speed
+        self.target_right_speed = 0.9*self.target_right_speed + 0.1*right_speed
+        print('target', self.target_left_speed, self.target_right_speed)
+>>>>>>> d6eb8aa2b0678d2b2f269667d0583389d5de63e4
 
     def timer_callback(self):
         # set motor speeds
@@ -105,6 +118,7 @@ class Controller(Node):
         motor2 = int(abs(self.target_right_speed)*100)
         motor1 = min(90, motor1) if motor1 > 20 else 0
         motor2 = min(90, motor2) if motor2 > 20 else 0
+        print('pwms', motor1, motor2)
 
         motor_pwm_change(self.pwm_pinA, motor1)
         motor_pwm_change(self.pwm_pinB, motor2)
@@ -137,7 +151,6 @@ class Controller(Node):
             speed = 0
 
         self.get_logger().info('Speed: %f' % speed)
-
 
 def main(args=None):
     rclpy.init(args=args)
