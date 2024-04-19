@@ -72,6 +72,9 @@ class Controller(Node):
             10)
         self.subscription  # prevent unused variable warning
 
+        # timer
+        self.timer = self.create_timer(0.1, self.timer_callback)
+
         self.target_left_speed = 0
         self.target_right_speed = 0
 
@@ -106,17 +109,27 @@ class Controller(Node):
         left_speed = x_vel - z_ang
         right_speed = x_vel + z_ang
 
-        # update target speeds by 10% of the difference
-        self.target_left_speed += 0.1 * (left_speed - self.target_left_speed)
-        self.target_right_speed += 0.1 * (right_speed - self.target_right_speed)
+        # slowly approach target speeds
+        self.target_left_speed = 0.9*self.target_left_speed + 0.1*left_speed
+        self.target_right_speed = 0.9*self.target_right_speed + 0.1*right_speed
 
+    def timer_callback(self):
         # set motor speeds
-        motor_pwm_change(self.pwm_pinA, int(abs(self.target_left_speed))*10)
-        motor_pwm_change(self.pwm_pinB, int(abs(self.target_right_speed))*10)
+        motor1 = int(abs(self.target_left_speed))*100
+        motor2 = int(abs(self.target_right_speed))*100
+        motor1 = min(90, motor1) if motor1 > 20 else 0
+        motor2 = min(90, motor2) if motor2 > 20 else 0
+
+        motor_pwm_change(self.pwm_pinA, motor1)
+        motor_pwm_change(self.pwm_pinB, motor2)
 
         # set motor directions
         motor_direction(self.in1A, self.in2A, 1 if self.target_left_speed > 0 else -1)
         motor_direction(self.in1B, self.in2B, 1 if self.target_right_speed > 0 else -1)
+
+        # decay motor speeds
+        self.target_left_speed *= 0.9
+        self.target_right_speed *= 0.9
 
 
 def main(args=None):
