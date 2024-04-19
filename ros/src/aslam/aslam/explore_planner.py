@@ -7,6 +7,7 @@ import random
 import rclpy
 import rclpy.exceptions
 import rclpy.exceptions
+import rclpy.executors
 import rclpy.logging
 from rclpy.node import Node 
 from rclpy.action import ActionClient
@@ -20,6 +21,7 @@ from geometry_msgs.msg import *
 from nav_msgs.msg import *
 from nav2_msgs.msg import *
 
+import rclpy.subscription
 from tf2_msgs.msg import TFMessage
 
 from nav_msgs.srv import *
@@ -39,6 +41,8 @@ import numpy as np
 
 from math import radians, degrees
 
+import asyncio
+
 LOW = 0
 HIGH = 1
 BURGER_MAX_LIN_VEL = 0.22
@@ -52,7 +56,6 @@ class MapNav(Node):
         #here create the actual node inheriting from the node class
         super().__init__("swarm_aslam")
 
-        print("MEOWWW")
         self.create_subscription(OccupancyGrid, 
                                  "map", 
                                  self.map_callback,
@@ -69,22 +72,29 @@ class MapNav(Node):
         #action server for nav2
         #self.ac = ActionClient(,"move_base"); 
 
-        print("MEOWWW")
+        ## this is to ensure that the map is made first before running the goal planner
+        self.map_made = False
+        self.robot_pos_made = False
+        self.ready = False
         self.navigator = BasicNavigator()
 
         initial_pose = PoseStamped()
         initial_pose.header.frame_id = 'map'
         initial_pose.header.stamp = self.navigator.get_clock().now().to_msg()
-        initial_pose.pose.position.x = 0
-        initial_pose.pose.position.y = 0
-        initial_pose.pose.orientation.z = 0
+        initial_pose.pose.position.x = 0.0
+        initial_pose.pose.position.y = 0.0
+        initial_pose.pose.orientation.z = 0.0
         initial_pose.pose.orientation.w = 1.0
-        print("MEOWWW")
         self.navigator.setInitialPose(initial_pose)
 
-        self.navigator.waitUntilNav2Active()
+        self.navigator.waitUntilNav2Active(localizer="bt_navigator")
         #dont think I need this
         #self.navigator.setInitialPose(init_pose)
+
+    def create_task(self, task):
+         print("made task")
+         self.init_task = task
+         self.ready = True
 
     def test_move(self):
         print(TaskResult)
@@ -107,11 +117,18 @@ class MapNav(Node):
 
 
     def map_callback(self, data):
+        print("map_callback!")
         self.map_meta = MapMetaData()
         self.map_header = Header()
         self.map_meta = data.info
         self.map_header = data.header
         self.map_grid_vals = np.array(data.data)
+        if not self.map_made and not self.robot_pos_made:
+                self.map_made = True
+        elif not self.map_made:
+            self.map_made = True
+            self.init_task.cancel()
+        
 
     def global_costmap_callback(self, data):
         self.global_costmap_meta = MapMetaData()
@@ -121,18 +138,28 @@ class MapNav(Node):
         self.global_costmap_probs = np.array(data.data)
 
     def pose_callback(self, data):
+
+        #print(data)
+        #print(data.transforms[-1].header.frame_id)
         if data.transforms[-1].header.frame_id == "map":
-            if data.transforms[-1].header.frame_id == "odom":
-                self.roboPos = Point()  #figure out this function
-                self.roboPos.optX = data.transforms[-1].transform.translation.optX
-                self.roboPos.optY = data.transforms[-1].transform.translation.optY
+            if data.transforms[-1].child_frame_id == "odom":
+                
+                #print("MEOW MOVE ")
+                self.robo_position = Point()  #figure out this function
+                self.robo_position.x = data.transforms[-1].transform.translation.x
+                self.robo_position.y = data.transforms[-1].transform.translation.y
 
                 self.robo_orient = Quaternion() #figure out this function
                 #check hidden function in explore_planner
-                self.robo_orient.optX = data.transforms[-1].transform.rotation.optX
-                self.robo_orient.optY = data.transforms[-1].transform.rotation.optY
-                self.robo_orient.optZ = data.transforms[-1].transform.rotation.optZ
-                self.robo_orient.optW = data.transforms[-1].transform.rotation.optW
+                self.robo_orient.x = data.transforms[-1].transform.rotation.x
+                self.robo_orient.y = data.transforms[-1].transform.rotation.y
+                self.robo_orient.z = data.transforms[-1].transform.rotation.z
+                self.robo_orient.w = data.transforms[-1].transform.rotation.w
+                if not self.map_made and not self.robot_pos_made:
+                    self.robot_pos_made = True
+                elif not self.robot_pos_made:
+                    self.robot_pos_made = True
+                    self.init_task.cancel()
 
     def track_local(self, path):
             self.prev_init_local_pose = path.poses[0].pose
@@ -168,7 +195,7 @@ class MapNav(Node):
         while not self.navigator.isTaskComplete():
             #if the goToPose takes longer than 600 seconds give up
             feedback = self.navigator.getFeedback()
-            if feedback.navigation_duration > 600:
+            if feedback.navigation_time.sec > 600:
                 self.navigator.cancelTask()
         self.navigator.lifecycleShutdown()
         
@@ -190,8 +217,8 @@ class GoalPlanner():
     #constructor
     def __init__(self, navigator): 
         self.nav = navigator
-        self.mapH = navigator.meta_map.height #height of map
-        self.mapW = navigator.meta_map.width #width of map
+        self.mapH = navigator.map_meta.height #height of map
+        self.mapW = navigator.map_meta.width #width of map
         self.hidden = np.zeros((self.mapW*self.mapH), dtype= bool)#place not yet been
         self.frontier = np.zeros((self.mapW*self.mapH), dtype= bool)#frontier
         self.stack = np.zeros((self.mapW*self.mapH), dtype = bool)#if its on the stack
@@ -220,7 +247,7 @@ class GoalPlanner():
         t3 = 2.0*(w*z + x*y)
         t4 = 1.0 - 2.0*(y*y+z*z)
 
-        zCord = math.atan(t3, t4)
+        zCord = math.atan2(t3, t4)
 
         return xCord, yCord, zCord
     
@@ -260,14 +287,14 @@ class GoalPlanner():
         else:
             slope1 = (math.tan(math.pi/2))
         
-        dist = math.sqrt((xVal2-xVal).pow(2) + (yVal2-yVal).pow(2))
+        dist = math.sqrt(pow((xVal2-xVal),2) + pow((yVal2-yVal),2))
 
-        optX = self.nav.robo_orient.optX
-        optY = self.nav.robo_orient.optY
-        optZ = self.nav.robo_orient.optZ
-        optW = self.nav.robo_orient.optW
+        x = self.nav.robo_orient.x
+        y = self.nav.robo_orient.y
+        z = self.nav.robo_orient.z
+        w = self.nav.robo_orient.w
         #Robot orientation
-        roll,pitch,yaw = self.q2Ang(optX, optY, optZ, optW)
+        roll,pitch,yaw = self.q2Ang(x, y, z, w)
         slope2 = math.tan(yaw)
         angle = self.angle(slope1, slope2)
         #check if grid is in sensor range
@@ -331,20 +358,18 @@ class GoalPlanner():
 
             prev_gx,prev_gy = self.getMapCords(self.prevGoalX, self.prevGoalY)
 
-            start.header.seq = 0
             start.header.stamp = self.nav.getClockNow()
             start.header.frame_id = "map"
             start.pose.position.x = prev_gx
             start.pose.position.y = prev_gy
             start.pose.position.z = 0.0
-            start.pose.orientation.x = 0
-            start.pose.orientation.y = 0
-            start.pose.orientation.z = 0
-            start.pose.orientation.w = 1
+            start.pose.orientation.x = 0.0
+            start.pose.orientation.y = 0.0
+            start.pose.orientation.z = 0.0
+            start.pose.orientation.w = 1.0
 
             gx,gy = self.getMapCords(i, j)
 
-            goal.header.seq = 0
             goal.header.stamp = self.nav.getClockNow()
             goal.header.frame_id = "map"
             goal.pose.position.x = gx
@@ -356,9 +381,14 @@ class GoalPlanner():
             goal.pose.orientation.w = 1.0
 
 
-            plan = self.nav.navigator.getPath(start, goal)
-
-            if len(plan.plan.poses) == 0:
+            path = self.nav.navigator.getPath(start, goal)
+            fail = False
+            if path is None:
+                 fail=True
+            else:
+                 if len(path.poses) == 0:
+                    fail=True
+            if fail:
                 print("path to location:(%d,%d) not feasible" % (i, j))
                 self.removeFromStack(i*self.mapW + j)
                 self.removeFromStack((i+1)*self.mapW + j)
@@ -368,7 +398,7 @@ class GoalPlanner():
                 self.removeFromStack((i-1)*self.mapW + j-1)
                 return False, None
             else:
-                return True, len(plan.plan.poses)
+                return True, len(path.poses)
             
     def setCurrentGoal(self):
 
@@ -376,7 +406,7 @@ class GoalPlanner():
             upper_poses_len_thresh = 30
             
             # checking if there are any goals on stack
-            if np.sum(self.on_stack)  != 0:
+            if np.sum(self.stack)  != 0:
 
                 # check for hidden gaps
                 if np.sum(self.hidden) > 0:
@@ -482,9 +512,9 @@ class GoalPlanner():
 
             result = self.nav.moveToGoal(xGoal,yGoal)
 
-            self.rotate_nsec()
+            #self.rotate_nsec()
 
-            # update the on_stack list after movement
+            # update the stack list after movement
             self.updateStack()
 
             # goal position reached
@@ -550,27 +580,75 @@ if __name__ == '__main__':
     except:
         print("ended")
 
-def main(args=None):
+async def spin_once(node):
+     rclpy.spin_once(node, timeout_sec=0)
 
-    print("started")
-    rclpy.init()
-    navigator = MapNav()
+async def run_node(node):
+     while True:
+          await spin_once(node)
+          await asyncio.sleep(0.0)
 
-    print("meow???")
-    goal_planner = GoalPlanner(navigator)
 
-    print("meow???")
-    goal_planner.fillStack()
-    print("meow???")
+
+async def goal_plan_task(goal_planner):
     while(1):
+         
         nextGoal = goal_planner.setCurrentGoal(); 
         if nextGoal == False:
                 print("no more goal states")
                 break
         goal_planner.move()
         print("moved")
-    print("exploration done")
-    rclpy.spin()
+     
+async def begin_aslam(navigator, goal_planner):
+    await asyncio.gather(run_node(navigator), goal_plan_task(goal_planner))
+
+
+def main(args=None):
+
+    print("started")
+    rclpy.init()
+    navigator = MapNav()
+    print("navigator instatiated")
+    #rclpy.spin(navigator)
+
+    ##need to have this node spin in the a different thread
+
+    nav_loop = asyncio.get_event_loop()
+    task = nav_loop.create_task(run_node(navigator))
+
+    navigator.create_task(task)
+    try:
+         nav_loop.run_until_complete(task)
+    except asyncio.CancelledError:
+        pass
+    goal_planner = GoalPlanner(navigator)
+    goal_planner.fillStack()
+    loop = asyncio.get_event_loop()
+    
+    print("map made, beginning async running aslam ")
+    asyncio.run(begin_aslam(
+         navigator=navigator,
+         goal_planner=goal_planner
+         ))
+    # asyncio.run(run_node(navigator))
+    #rclpy.spin(navigator)
+
+    # goal_planner = GoalPlanner(navigator)
+
+    # print("meow???")
+    # goal_planner.fillStack()
+    # print("meow???")
+    # while(1):
+         
+    #     nextGoal = goal_planner.setCurrentGoal(); 
+    #     if nextGoal == False:
+    #             print("no more goal states")
+    #             break
+    #     goal_planner.move()
+    #     print("moved")
+    # print("exploration done")
+    
     # try:
     #     rclpy.init()
     #     navigator = MapNav()

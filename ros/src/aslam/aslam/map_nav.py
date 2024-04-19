@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+## DEPRECATED FOR NOW
+
+
 import rclpy
 import rclpy.logging
 from rclpy.node import Node 

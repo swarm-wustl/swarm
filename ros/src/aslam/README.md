@@ -16,7 +16,7 @@ You must have ros-humble-gazebo-ros2-control set up you'll get a queue is full e
 
 ## running
 
-run these commands in /ros directory
+run these commands in /ros directory before running ASLAM
 
 ### apartment map and running gazebo
 
@@ -32,7 +32,7 @@ ros2 launch slam_toolbox online_async_launch.py params_file:=./src/swarm_bot/con
 
 ### nav2 
 
-ros2 launch swarm_bot navigation_launch.py use_sim_time:=True
+ros2 launch swarm_bot navigation_launch.py params_file:=./src/swarm_bot/config/nav2_params.yaml use_sim_time:=True
 
 ### nav2 with nav2_bringup (usually dont use this)
 
@@ -43,6 +43,17 @@ when using nav2 you still need to create a map by moving around and having lidar
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 
 rviz2 src/swarm_bot/config/view_bot.rviz    
+
+## AMCL Adaptive Monte-Carlo Localization (Don't need)
+
+YOU DO NOT NEED TO RUN THIS AS WE ARE NOT DOING LOCALIZATION
+
+ros2 run nav2_amcl amcl --ros-args -p use_sim_time:=True
+
+ros2 run nav2_util lifecycle_bringup amcl
+
+This localizes the robot in the dyamic map we are creating, in the video by articul bot a map server is used, however that really just prints the topic of /map, slam tool box should be doing that too. 
+
 
 ### rviz with the cost map (run this last)
 
@@ -56,3 +67,6 @@ The package will be ran from the package aslam. Launch scripts can be found in s
 
 ros2 run aslam nav_test
 
+## running aslam
+
+ros2 run aslam aslam
