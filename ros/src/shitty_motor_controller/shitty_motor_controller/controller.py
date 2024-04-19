@@ -4,6 +4,7 @@ from rclpy.node import Node
 import time
 
 from geometry_msgs.msg import Twist
+from std_msgs.msg import Float32
 
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
@@ -49,8 +50,8 @@ class Controller(Node):
         print('sub')
 
         # publish encoder data
-        self.publisher = self.create_publisher(Twist, '/left_encoder', 10)
-        # self.publisher = self.create_publisher(Twist, '/left_encoder', 10)
+        self.publisher_left = self.create_publisher(Float32, '/left_encoder', 10)
+        self.publisher_right = self.create_publisher(Float32, '/right_encoder', 10)
 
         # timer
         self.timer = self.create_timer(0.01, self.timer_callback)
@@ -171,7 +172,14 @@ class Controller(Node):
 
         # pwmB = self.Kp * self.error + self.Ki * self.sum_error + self.Kd * (self.error - self.prev_error) + self.duty + 10
 
-        self.get_logger().info('Speed: %f' % speed)
+        self.get_logger().info('Speed A: %f, Speed B: %f' % (self.speedA, self.speedB))
+        msg_left = Float32()
+        msg_left.data = self.speedA
+        self.publisher_left.publish(msg_left)
+
+        msg_right = Float32()
+        msg_right.data = self.speedB
+        self.publisher_right.publish(msg_right)
 
 def main(args=None):
     rclpy.init(args=args)
