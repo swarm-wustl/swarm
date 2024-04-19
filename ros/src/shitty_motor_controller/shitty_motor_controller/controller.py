@@ -36,31 +36,6 @@ def motor_direction(in1, in2, direction, debug=False):
       GPIO.output(in1,GPIO.HIGH)
       GPIO.output(in2,GPIO.LOW)
 
-def movingAvg(arr, position, numvals=3, wrap=1):
-    # default to 3 pt moving average with wrap around on getting values 
-    # arr       - array
-    # posistion - start from this point on averages
-    # numvals   - Number of values in moving average, default of 3
-    # wrap      - wrap around to top or bottom of array if 1 (default), no if 0
-    sumvals    = 0
-    count      = 0    
-    array_size = len(arr)
-    # if less than numvals data, then just use what is available
-    for i in range(numvals):
-        # add an item to the list
-        if (position - i >= 0 and position - 1 < array_size):
-            sumvals = sumvals + arr[(position - i)]
-            count   = count + 1
-        # wrap backwards, goes to top of array, works in python
-        elif (position - i < 0 and wrap == 1): 
-            sumvals = sumvals + arr[(position - i)]
-            count   = count + 1
-        # wrap around to bottom of array with mod
-        elif (position - i > array_size and wrap == 1):
-            sumvals = sumvals + arr[(position - i)%array_size]
-            count   = count + 1
-    return sumvals/count
-
 class Controller(Node):
 
     def __init__(self):
@@ -72,8 +47,12 @@ class Controller(Node):
             10)
         self.subscription  # prevent unused variable warning
 
+        # publish encoder data
+        self.publisher = self.create_publisher(Twist, '/left_encoder', 10)
+        # self.publisher = self.create_publisher(Twist, '/left_encoder', 10)
+
         # timer
-        self.timer = self.create_timer(0.1, self.timer_callback)
+        self.timer = self.create_timer(0.01, self.timer_callback)
 
         self.target_left_speed = 0
         self.target_right_speed = 0
@@ -100,6 +79,13 @@ class Controller(Node):
         self.pwm_pinB = motor_init(self.in1B, self.in2B, self.enB, 1000, 50)
         time.sleep(0.25)
 
+        first_val = GPIO.input(self.c1)
+        self.look_for_1 = not first_val
+        self.n = 10
+        self.i = 0
+        self.transitionTimes = [0] * self.n
+        self.startTime = time.time()
+
 
     def listener_callback(self, msg):
         x_vel = msg.linear.x
@@ -110,13 +96,13 @@ class Controller(Node):
         right_speed = x_vel + z_ang
 
         # slowly approach target speeds
-        self.target_left_speed = 0.9*self.target_left_speed + 0.1*left_speed
-        self.target_right_speed = 0.9*self.target_right_speed + 0.1*right_speed
+        self.target_left_speed = 0.95*self.target_left_speed + 0.05*left_speed
+        self.target_right_speed = 0.95*self.target_right_speed + 0.05*right_speed
 
     def timer_callback(self):
         # set motor speeds
-        motor1 = int(abs(self.target_left_speed))*100
-        motor2 = int(abs(self.target_right_speed))*100
+        motor1 = int(abs(self.target_left_speed)*100)
+        motor2 = int(abs(self.target_right_speed)*100)
         motor1 = min(90, motor1) if motor1 > 20 else 0
         motor2 = min(90, motor2) if motor2 > 20 else 0
 
@@ -128,8 +114,29 @@ class Controller(Node):
         motor_direction(self.in1B, self.in2B, 1 if self.target_right_speed > 0 else -1)
 
         # decay motor speeds
-        self.target_left_speed *= 0.9
-        self.target_right_speed *= 0.9
+        self.target_left_speed *= 0.7
+        self.target_right_speed *= 0.7
+
+        # get encoder data
+        c1_val = GPIO.input(self.c1)
+        # c2_val = GPIO.input(self.c2)
+
+        if self.look_for_1 and c1_val == 0:
+            self.transitionTimes[self.i%self.n] = self.startTime - time.time()
+            self.look_for_1 = False
+            self.i += 1
+        elif not self.look_for_1 and c1_val == 1:
+            self.transitionTimes[self.i%self.n] = self.startTime - time.time()
+            self.look_for_1 = True
+            self.i += 1
+
+        # calculate speeds
+        if self.i > self.n:
+            speed = 1/(self.transitionTimes[(self.i-1)%self.n] - self.transitionTimes[(self.i-self.n)%self.n])
+        else:
+            speed = 0
+
+        self.get_logger().info('Speed: %f' % speed)
 
 
 def main(args=None):
