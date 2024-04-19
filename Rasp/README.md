@@ -17,6 +17,8 @@ $ cd .ssh
 
 $ ssh-keygen -t ed25519 -C "your_email@wustl.edu"
 
+Go to github settings and add ssh key. Copy paste the .pub key in.
+
 $ cd ..
 
 $ git clone git@github.com:swarm-wustl/swarm.git
