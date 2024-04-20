@@ -89,8 +89,15 @@ class RCMotorDriver(Node):
         else:
             in2A_out = GPIO.HIGH
             in2B_out = GPIO.LOW
-            right_motor = 100 * motor_motor
+            right_motor = 100 * right_motor
 
+        # Update the pins.
+        self.pins['in1A'].output(in1A_out)
+        self.pins['in1B'].output(in1B_out)
+        self.pins['in2A'].output(in2A_out)
+        self.pins['in2B'].output(in2B_out)
+        self.pwmA.start(left_motor)
+        self.pwmB.start(right_motor)
 
 def main(args=None):
     rclpy.init(args=args)
