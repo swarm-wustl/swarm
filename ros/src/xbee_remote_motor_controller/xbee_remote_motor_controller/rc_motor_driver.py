@@ -92,10 +92,10 @@ class RCMotorDriver(Node):
             right_motor = 100 * right_motor
 
         # Update the pins.
-        self.pins['in1A'].output(in1A_out)
-        self.pins['in1B'].output(in1B_out)
-        self.pins['in2A'].output(in2A_out)
-        self.pins['in2B'].output(in2B_out)
+        GPIO.output(self.pins['in1A'], in1A_out)
+        GPIO.output(self.pins['in1B'], in1B_out)
+        GPIO.output(self.pins['in2A'], in2A_out)
+        GPIO.output(self.pins['in2B'], in2B_out)
         self.pwmA.start(left_motor)
         self.pwmB.start(right_motor)
 
