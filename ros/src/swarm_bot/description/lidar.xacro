@@ -6,7 +6,7 @@
         <child link="laser_frame"/>
         <origin xyz="0.0 0 0.02" rpy="0 0 0"/>
     </joint>
-
+    
     <link name="laser_frame">
         <visual>
             <geometry>
