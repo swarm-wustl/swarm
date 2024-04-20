@@ -7,13 +7,12 @@ from rclpy.node import Node
 from digi.xbee.devices import DigiMeshDevice
 from digi.xbee.util import utils
 
-from std_msgs.msg import String
-
 class RCMotorDriver(Node):
     def __init__(self):
         super().__init__('rc_motor_driver')
 
         # Set up GPIO.
+        GPIO.setmode(GPIO.BOARD)
         self.pins = {'in1A': 36,
                      'in2A': 38,
                      'enA': 32,
