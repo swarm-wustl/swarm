@@ -197,7 +197,7 @@ class MapNav(Node):
             feedback = self.navigator.getFeedback()
             if feedback.navigation_time.sec > 600:
                 self.navigator.cancelTask()
-        self.navigator.lifecycleShutdown()
+        #self.navigator.lifecycleShutdown()
         
         result = self.navigator.getResult()
         
@@ -224,7 +224,7 @@ class GoalPlanner():
         self.stack = np.zeros((self.mapW*self.mapH), dtype = bool)#if its on the stack
         self.visited = np.zeros((self.mapW*self.mapH), dtype = bool) #visited
         #THIS WILL NEED TO BE CHANGED
-        self.laser_range = 50
+        self.laser_range = 12
         self.goalX = 0
         self.goalY = 0
         
@@ -402,8 +402,9 @@ class GoalPlanner():
             
     def setCurrentGoal(self):
 
-            lower_poses_len_thresh = 10
-            upper_poses_len_thresh = 30
+            lower_poses_len_thresh = 5
+            upper_poses_len_thresh = 40
+            
             
             # checking if there are any goals on stack
             if np.sum(self.stack)  != 0:
@@ -415,10 +416,34 @@ class GoalPlanner():
                     backup_i = 0
                     backup_j = 0
 
-                    for i in range(self.mapH):
-                        for j in range(self.mapW):
-                            index = i*self.mapW + j
+                    ## start posiiton search in middle row of map to speed stuf up
+                    direction = 1
+            
+                    if self.mapH/2 > self.nav.robo_position.y:
+                        direction = -1
 
+
+
+                    mid = int(self.mapH/2)
+
+                    for i in range(self.mapH):
+
+                        prev_pose = -1
+
+                        amt = 0
+                        print("MEOW")
+                        for j in range(self.mapW):
+
+                            p = mid + direction*(i)
+                            if(p > self.mapH):
+                                 p = 0
+                            if(p < 0):
+                                 p = self.mapH
+                            index = (p)*self.mapW + j 
+                            
+                            
+                                
+                            
                             if self.hidden[index] == True and self.stack[index] == True:
 
                                 # check if global path to the goal is available	
@@ -426,7 +451,20 @@ class GoalPlanner():
 
                                 if is_path_avail == False:
                                     continue
+                                
+                                if prev_pose == -1:
+                                     prev_pose = poses_len
 
+                                if poses_len > prev_pose and poses_len > upper_poses_len_thresh*2:
+                                     amt = amt + 1
+                                     print(amt)
+                                     if amt >= 4:
+                                          print("skipping looking in row")
+                                          break
+                                else:
+                                     amt = 0
+                                
+                                prev_pose = poses_len
                                 if (poses_len > lower_poses_len_thresh) and (poses_len < upper_poses_len_thresh):
                                     self.goali = i
                                     self.goalj = j
@@ -434,6 +472,7 @@ class GoalPlanner():
                                     print("hidden goal states: %d,%d" % (self.goali, self.goalj))
                                     return True
                                 else:
+                                    print(poses_len)
                                     backup_i = i
                                     backup_j = j
 
