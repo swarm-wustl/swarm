@@ -89,6 +89,10 @@ Kp = 1
 Ki = 0.1
 Kd = 0
 
+# Direction Variables
+followA = True # When true, it can turn left. When false it can turn right
+reduction = 0.75 # fraction of speed of the follow motor
+
 # If debug, save all data
 if args.debug:
     encoder1AData = []
@@ -172,18 +176,35 @@ while currentTime - startTime < args.time:
         ### PID control to match the speeds
         # Set motor 1 as the "goal" speed and make motor 2 match it.
 
-        prev_error = error
-        error = speedA - speedB
-        sum_error += error
+        if followA:
+            prev_error = error
+            error = speedA * reduction - speedB
+            sum_error += error
 
-        pwmB = Kp * error + Ki * sum_error + Kd * (error - prev_error) + args.duty + 10
+            pwmB = Kp * error + Ki * sum_error + Kd * (error - prev_error) + args.duty + 10
 
-        if pwmB > 100:
-            pwmB = 100
-        elif pwmB < 10:
-            pwmB = 10
+            if pwmB > 100:
+                pwmB = 100
+            elif pwmB < 0:
+                pwmB = 0
 
-        motor.motor_pwm_change(pwm_pinB, pwmB)
+            motor.motor_pwm_change(pwm_pinA, args.duty)
+            motor.motor_pwm_change(pwm_pinB, pwmB)
+        else:
+            prev_error = error
+            error = speedB * reduction - speedA
+            sum_error += error
+
+            pwmA = Kp * error + Ki * sum_error + Kd * (error - prev_error) + args.duty + 10
+
+            if pwmA > 100:
+                pwmA = 100
+            elif pwmA < 0:
+                pwmA = 0
+
+            motor.motor_pwm_change(pwm_pinA, pwmA)
+            motor.motor_pwm_change(pwm_pinB, args.duty)
+
 
 
     currentTime = time.time()
@@ -215,7 +236,7 @@ if args.debug:
 
 motor.motor_pwm_change(pwm_pinA, 0)
 motor.motor_pwm_change(pwm_pinB, 0)
-time.sleep(0.2)
+time.sleep(0.5)
 
 servo_pwm.start(7)
 time.sleep(0.1)

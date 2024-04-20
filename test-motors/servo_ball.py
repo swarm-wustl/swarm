@@ -16,7 +16,7 @@ servo_pwm = GPIO.PWM(servo_pin, freq)
 servo_pwm.start(7)
 time.sleep(1)
 
-servo_pwm.start(6)
+servo_pwm.start(3)
 time.sleep(1)
 
 servo_pwm.start(7)
