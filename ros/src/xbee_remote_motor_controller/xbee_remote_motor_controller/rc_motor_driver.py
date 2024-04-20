@@ -71,21 +71,21 @@ class RCMotorDriver(Node):
         if left_motor >= 0:
             in1A_out = GPIO.LOW
             in2A_out = GPIO.HIGH
-            left_motor = -100 * left_motor
+            left_motor = 100 * left_motor
         else:
             in1A_out = GPIO.HIGH
             in2A_out = GPIO.LOW
-            left_motor = 100 * left_motor
+            left_motor = -100 * left_motor
         
         # Update right motor outs.
         if right_motor >= 0:
             in1B_out = GPIO.LOW
             in2B_out = GPIO.HIGH
-            right_motor = -100 * right_motor
+            right_motor = 100 * right_motor
         else:
             in1B_out = GPIO.HIGH
             in2B_out = GPIO.LOW
-            right_motor = 100 * right_motor
+            right_motor = -100 * right_motor
 
         # Update the pins.
         GPIO.output(self.pins['in1A'], in1A_out)
