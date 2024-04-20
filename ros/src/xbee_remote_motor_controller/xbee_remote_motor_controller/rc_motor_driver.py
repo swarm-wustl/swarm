@@ -23,7 +23,7 @@ class RCMotorDriver(Node):
 
         for k, v in self.pins.items():
             GPIO.setup(v, GPIO.OUT)
-            GPIO.output(v, 0)
+            GPIO.output(v, GPIO.LOW)
 
         # PWM can take on values from 0 to 100
         self.pwmA = GPIO.PWM(self.pins['enA'], 50)
@@ -55,14 +55,42 @@ class RCMotorDriver(Node):
 
     def __del__(self):
         for k, v in self.pins.items():
-            GPIO.output(v, 0)
+            GPIO.output(v, GPIO.LOW)
         self.pwmA.stop()
         self.pwnB.stop()
         self.pwmServo.stop()
 
     def update_motors(self, message):
         data = message.data.decode('utf8')
-        print(data)
+        parse = data.split()
+
+        if(parse[0] != 'A'):
+            return
+
+        left_motor = float(parse[1])
+        right_motor = float(parse[2])
+        servo = float(parse[3])
+
+        # Update left motor outs.
+        if left_motor >= 0:
+            in1A_out = GPIO.LOW
+            in2A_out = GPIO.HIGH
+            left_motor = -100 * left_motor
+        else:
+            in1A_out = GPIO.HIGH
+            in2A_out = GPIO.LOW
+            left_motor = 100 * left_motor
+        
+        # Update right motor outs.
+        if right_motor >= 0:
+            in2A_out = GPIO.LOW
+            in2B_out = GPIO.HIGH
+            right_motor = -100 * right_motor
+        else:
+            in2A_out = GPIO.HIGH
+            in2B_out = GPIO.LOW
+            right_motor = 100 * motor_motor
+
 
 def main(args=None):
     rclpy.init(args=args)
