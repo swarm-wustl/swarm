@@ -54,11 +54,7 @@ class RCMotorDriver(Node):
         self.xbee.add_data_received_callback(self.update_motors)
 
     def __del__(self):
-        for k, v in self.pins.items():
-            GPIO.output(v, GPIO.LOW)
-        self.pwmA.stop()
-        self.pwnB.stop()
-        self.pwmServo.stop()
+        GPIO.cleanup()
 
     def update_motors(self, message):
         data = message.data.decode('utf8')
@@ -83,11 +79,11 @@ class RCMotorDriver(Node):
         
         # Update right motor outs.
         if right_motor >= 0:
-            in2A_out = GPIO.LOW
+            in1B_out = GPIO.LOW
             in2B_out = GPIO.HIGH
             right_motor = -100 * right_motor
         else:
-            in2A_out = GPIO.HIGH
+            in1B_out = GPIO.HIGH
             in2B_out = GPIO.LOW
             right_motor = 100 * right_motor
 
