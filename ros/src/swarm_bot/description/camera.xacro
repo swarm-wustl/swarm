@@ -11,7 +11,7 @@
     <!-- Box with dimensions 50mm x 30mm x 30mm -->
     <visual>
       <geometry>
-        <box size="0.005 0.0254 0.0254 " />
+        <box size="0.005 0.0154 0.0254 " />
       </geometry>
       <material name="blue"/>
     </visual>
