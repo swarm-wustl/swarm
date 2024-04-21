@@ -26,6 +26,10 @@ ros2 launch swarm_bot launch_sim.launch.py world:=./src/swarm_bot/worlds/apartme
 
 ros2 launch swarm_bot launch_sim.launch.py world:=./src/swarm_bot/worlds/maze_swarm_map.world
 
+### turtle
+
+ros2 launch swarm_bot launch_sim.launch.py world:=./src/swarm_bot/worlds/turtle_world.world
+
 ### Async SLam
 
 ros2 launch slam_toolbox online_async_launch.py params_file:=./src/swarm_bot/config/mapper_params_online_async.yaml use_sim_time:=True

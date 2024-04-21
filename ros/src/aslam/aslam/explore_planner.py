@@ -86,7 +86,7 @@ class MapNav(Node):
         initial_pose.pose.orientation.z = 0.0
         initial_pose.pose.orientation.w = 1.0
         self.navigator.setInitialPose(initial_pose)
-
+        self.fill_call_made = False
         self.navigator.waitUntilNav2Active(localizer="bt_navigator")
         #dont think I need this
         #self.navigator.setInitialPose(init_pose)
@@ -95,6 +95,11 @@ class MapNav(Node):
          print("made task")
          self.init_task = task
          self.ready = True
+
+    ## ONE THING IS MAKE ASLAM ACCOUNT FOR THE MAP GETTING BIGGER
+    def add_fill_call_back(self, call_back):
+         self.fill_call_made = True
+         self.fill_call_back = call_back
 
     def test_move(self):
         print(TaskResult)
@@ -403,7 +408,7 @@ class GoalPlanner():
     def setCurrentGoal(self):
 
             lower_poses_len_thresh = 5
-            upper_poses_len_thresh = 40
+            upper_poses_len_thresh = 100
             
             
             # checking if there are any goals on stack
@@ -434,14 +439,13 @@ class GoalPlanner():
                         prev_pose = -1
 
                         amt = 0
-                        print("MEOW")
                         for j in range(self.mapW):
 
                             p = mid + direction*(i)
                             if(p > self.mapH):
                                  p = 0
                             if(p < 0):
-                                 p = self.mapH
+                                 p = self.mapH-1
                             index = (p)*self.mapW + j 
                             
                             
@@ -514,9 +518,9 @@ class GoalPlanner():
     
     ##HERHERHEHREHRHE
     def mapCoverage(self,pos_y,pos_x):
-
-            sum_coverage = 0
             
+            sum_coverage = 0
+		
             for y in max(-int(self.mapH/2),(pos_y - 2)),min((pos_y+2),int(self.mapH/2)) : 
                 for x in max(-int(self.mapW/2),(pos_x - 2)),min((pos_x+2),int(self.mapW/2)):
                     index = y*self.mapW + x
@@ -528,6 +532,7 @@ class GoalPlanner():
                 return LOW
             else:
                 return HIGH
+
     def removeFromStack(self, index):
         self.visited[index] = False
         self.hidden[index] = False
@@ -666,6 +671,7 @@ def main(args=None):
         pass
     goal_planner = GoalPlanner(navigator)
     goal_planner.fillStack()
+    navigator.add_fill_call_back(goal_planner.fillStack)
     loop = asyncio.get_event_loop()
     
     print("map made, beginning async running aslam ")
