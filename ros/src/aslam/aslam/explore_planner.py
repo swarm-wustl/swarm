@@ -419,12 +419,15 @@ class GoalPlanner():
                     ## start posiiton search in middle row of map to speed stuf up
                     direction = 1
             
+                    mid = int(self.mapH/2)
                     if self.mapH/2 > self.nav.robo_position.y:
                         direction = -1
 
-
-
-                    mid = int(self.mapH/2)
+                    if self.nav.robo_position.y > self.mapH/4 and self.nav.robo_position.y < 3*self.mapH/4:
+                         mid = 0
+                    else:
+                        if self.mapH/2 > self.nav.robo_position.y:
+                            direction = -1
 
                     for i in range(self.mapH):
 
