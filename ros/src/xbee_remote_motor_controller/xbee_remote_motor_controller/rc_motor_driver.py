@@ -28,7 +28,7 @@ class RCMotorDriver(Node):
         # PWM can take on values from 0 to 100
         self.pwmA = GPIO.PWM(self.pins['enA'], 50)
         self.pwmB = GPIO.PWM(self.pins['enB'], 50)
-        self.pwmServo = GPIO.PWM(self.pins['servo'], 50)
+        self.pwmServo = GPIO.PWM(self.pins['servo'], 500)
 
         # Set up XBee.
         self.declare_parameter('usb', '/dev/ttyUSB0')
@@ -54,6 +54,12 @@ class RCMotorDriver(Node):
         self.xbee.add_data_received_callback(self.update_motors)
 
     def __del__(self):
+        GPIO.output(self.pins['in1A'], GPIO.LOW)
+        GPIO.output(self.pins['in1B'], GPIO.LOW)
+        GPIO.output(self.pins['in2A'], GPIO.LOW)
+        GPIO.output(self.pins['in2B'], GPIO.LOW)
+        self.pwmA.stop()
+        self.pwmB.stop()
         GPIO.cleanup()
 
     def update_motors(self, message):
@@ -63,29 +69,27 @@ class RCMotorDriver(Node):
         if(parse[0] != 'A'):
             return
 
-        left_motor = float(parse[1])
-        right_motor = float(parse[2])
+        right_motor = float(parse[1])
+        left_motor = float(parse[2])
         servo = float(parse[3])
 
         # Update left motor outs.
         if left_motor >= 0:
-            in1A_out = GPIO.LOW
-            in2A_out = GPIO.HIGH
-            left_motor = 100 * left_motor
-        else:
             in1A_out = GPIO.HIGH
             in2A_out = GPIO.LOW
-            left_motor = -100 * left_motor
+        else:
+            in1A_out = GPIO.LOW
+            in2A_out = GPIO.HIGH
+        left_motor = 100 * (left_motor ** 2)
         
         # Update right motor outs.
         if right_motor >= 0:
-            in1B_out = GPIO.LOW
-            in2B_out = GPIO.HIGH
-            right_motor = 100 * right_motor
-        else:
             in1B_out = GPIO.HIGH
             in2B_out = GPIO.LOW
-            right_motor = -100 * right_motor
+        else:
+            in1B_out = GPIO.LOW
+            in2B_out = GPIO.HIGH
+        right_motor = 100 * (right_motor ** 4)
 
         # Update the pins.
         GPIO.output(self.pins['in1A'], in1A_out)
@@ -93,7 +97,9 @@ class RCMotorDriver(Node):
         GPIO.output(self.pins['in2A'], in2A_out)
         GPIO.output(self.pins['in2B'], in2B_out)
         self.pwmA.start(left_motor)
-        self.pwmB.start(right_motor)
+        self.pwmB.start(0.8 * right_motor)
+        # Currently not using servos.
+        # self.pwmServo.start(13.5 + servo * -2.5)
 
 def main(args=None):
     rclpy.init(args=args)
