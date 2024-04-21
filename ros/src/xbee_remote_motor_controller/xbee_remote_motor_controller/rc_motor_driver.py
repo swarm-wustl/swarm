@@ -29,6 +29,9 @@ class RCMotorDriver(Node):
         self.pwmA = GPIO.PWM(self.pins['enA'], 50)
         self.pwmB = GPIO.PWM(self.pins['enB'], 50)
         self.pwmServo = GPIO.PWM(self.pins['servo'], 500)
+        self.pwmA.start(0)
+        self.pwmB.start(0)
+        self.pwnServo.start(0)
 
         # Set up XBee.
         self.declare_parameter('usb', '/dev/ttyUSB0')
@@ -96,10 +99,9 @@ class RCMotorDriver(Node):
         GPIO.output(self.pins['in1B'], in1B_out)
         GPIO.output(self.pins['in2A'], in2A_out)
         GPIO.output(self.pins['in2B'], in2B_out)
-        self.pwmA.start(left_motor)
-        self.pwmB.start(0.8 * right_motor)
-        # Currently not using servos.
-        # self.pwmServo.start(13.5 + servo * -2.5)
+        self.pwmA.ChangeDutyCycle(left_motor)
+        self.pwmB.ChangeDutyCycle(0.8 * right_motor)
+        self.pwmServo.ChangeDutyCycle(7 + servo * -2.0)
 
 def main(args=None):
     rclpy.init(args=args)
