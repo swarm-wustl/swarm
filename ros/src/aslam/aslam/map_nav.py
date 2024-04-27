@@ -1,9 +1,13 @@
-#!/usr/bin/env python
-
-## DEPRECATED FOR NOW
-
+import numpy as np 
+import os
+import math
+import time
+import random
 
 import rclpy
+import rclpy.exceptions
+import rclpy.exceptions
+import rclpy.executors
 import rclpy.logging
 from rclpy.node import Node 
 from rclpy.action import ActionClient
@@ -17,6 +21,7 @@ from geometry_msgs.msg import *
 from nav_msgs.msg import *
 from nav2_msgs.msg import *
 
+import rclpy.subscription
 from tf2_msgs.msg import TFMessage
 
 from nav_msgs.srv import *
@@ -27,54 +32,60 @@ from rclpy.duration import Duration
 
 from geometry_msgs.msg import PoseStamped
 
-#from tf2_ros.transform_lister import TransformListener
-
-
-import numpy as np
-
-#from robot_navigator import BasicNavigator, NavigationResult
-
-from math import radians, degrees
-
-
-if sys.platform == 'win32':
-    import msvcrt
-else:
-    import termios
-    import tty
-
 class MapNav(Node):
 
     def __init__(self):
         
+        # FIX A SHIT TON OF ERRORS
         #here create the actual node inheriting from the node class
         super().__init__("swarm_aslam")
+
         self.create_subscription(OccupancyGrid, 
                                  "map", 
-                                 self.map_callback)
+                                 self.map_callback,
+                                 10)
         self.create_subscription(Costmap, 
                                  "global_cosmap/costmap",
-                                   self.cost_map_callback )
+                                   self.global_costmap_callback,
+                                    10 )
         self.create_subscription(TFMessage, 
                                  "tf", 
-                                 self.pose_callback )
+                                 self.pose_callback,
+                                  10 )
         #self.rob_pub = self.create_publisher("cmd_vel",Twist,queue_size=10)
         #action server for nav2
         #self.ac = ActionClient(,"move_base"); 
+
+        ## this is to ensure that the map is made first before running the goal planner
+        self.map_made = False
+        self.robot_pos_made = False
+        self.ready = False
         self.navigator = BasicNavigator()
 
         initial_pose = PoseStamped()
         initial_pose.header.frame_id = 'map'
         initial_pose.header.stamp = self.navigator.get_clock().now().to_msg()
-        initial_pose.pose.position.x = 0
-        initial_pose.pose.position.y = 0
-        initial_pose.pose.orientation.z = 0
+        initial_pose.pose.position.x = 0.0
+        initial_pose.pose.position.y = 0.0
+        initial_pose.pose.orientation.z = 0.0
         initial_pose.pose.orientation.w = 1.0
         self.navigator.setInitialPose(initial_pose)
-
-        self.navigator.waitUntilNav2Active()
+        self.fill_call_made = False
+        self.navigator.waitUntilNav2Active(localizer="bt_navigator")
+        
+        
         #dont think I need this
         #self.navigator.setInitialPose(init_pose)
+
+    def create_task(self, task):
+         print("made task")
+         self.init_task = task
+         self.ready = True
+
+    ## ONE THING IS MAKE ASLAM ACCOUNT FOR THE MAP GETTING BIGGER
+    def add_fill_call_back(self, call_back):
+         self.fill_call_made = True
+         self.fill_call_back = call_back
 
     def test_move(self):
         print(TaskResult)
@@ -102,6 +113,13 @@ class MapNav(Node):
         self.map_meta = data.info
         self.map_header = data.header
         self.map_grid_vals = np.array(data.data)
+        if self.fill_call_made:
+             self.fill_call_back()
+        if not self.map_made and not self.robot_pos_made:
+                self.map_made = True
+        elif not self.map_made:
+            self.map_made = True
+            self.init_task.cancel()
 
     def global_costmap_callback(self, data):
         self.global_costmap_meta = MapMetaData()
@@ -111,18 +129,28 @@ class MapNav(Node):
         self.global_costmap_probs = np.array(data.data)
 
     def pose_callback(self, data):
+
+        #print(data)
+        #print(data.transforms[-1].header.frame_id)
         if data.transforms[-1].header.frame_id == "map":
-            if data.transforms[-1].header.frame_id == "odom":
-                self.roboPos = Point()  #figure out this function
-                self.roboPos.optX = data.transforms[-1].transform.translation.optX
-                self.roboPos.optY = data.transforms[-1].transform.translation.optY
+            if data.transforms[-1].child_frame_id == "odom":
+                
+                #print("MEOW MOVE ")
+                self.robo_position = Point()  #figure out this function
+                self.robo_position.x = data.transforms[-1].transform.translation.x
+                self.robo_position.y = data.transforms[-1].transform.translation.y
 
                 self.robo_orient = Quaternion() #figure out this function
                 #check hidden function in explore_planner
-                self.robo_orient.optX = data.transforms[-1].transform.rotation.optX
-                self.robo_orient.optY = data.transforms[-1].transform.rotation.optY
-                self.robo_orient.optZ = data.transforms[-1].transform.rotation.optZ
-                self.robo_orient.optW = data.transforms[-1].transform.rotation.optW
+                self.robo_orient.x = data.transforms[-1].transform.rotation.x
+                self.robo_orient.y = data.transforms[-1].transform.rotation.y
+                self.robo_orient.z = data.transforms[-1].transform.rotation.z
+                self.robo_orient.w = data.transforms[-1].transform.rotation.w
+                if not self.map_made and not self.robot_pos_made:
+                    self.robot_pos_made = True
+                elif not self.robot_pos_made:
+                    self.robot_pos_made = True
+                    self.init_task.cancel()
 
     def track_local(self, path):
             self.prev_init_local_pose = path.poses[0].pose
@@ -158,9 +186,9 @@ class MapNav(Node):
         while not self.navigator.isTaskComplete():
             #if the goToPose takes longer than 600 seconds give up
             feedback = self.navigator.getFeedback()
-            if feedback.navigation_duration > 600:
+            if feedback.navigation_time.sec > 600:
                 self.navigator.cancelTask()
-        self.navigator.lifecycleShutdown()
+        #self.navigator.lifecycleShutdown()
         
         result = self.navigator.getResult()
         
@@ -174,17 +202,3 @@ class MapNav(Node):
             print('Goal failed!')
         return False
 
-def test(args=None):
-
-    rclpy.init(args=args)
-    mapNode = MapNav()
-
-    mapNode.test_move()
-
-def main(args=None):
-    rclpy.init(args=args)
-    mapNode = MapNav()
-
-##technically this should never be called main unless for testing
-if __name__ == "__main__":
-    main()
