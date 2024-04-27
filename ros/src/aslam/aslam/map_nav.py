@@ -114,6 +114,7 @@ class MapNav(Node):
         self.map_header = data.header
         self.map_grid_vals = np.array(data.data)
         if self.fill_call_made:
+             print("updated")
              self.fill_call_back()
         if not self.map_made and not self.robot_pos_made:
                 self.map_made = True

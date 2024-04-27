@@ -53,6 +53,7 @@ class GoalPlanner():
         
         self.prevGoalX = 0
         self.prevGoalY = 0
+        self.stack_size = 0
 
     #this is the q2e_angle helper function --> might need mods
     def q2Ang(self,w, x, y, z):
@@ -173,6 +174,7 @@ class GoalPlanner():
                             self.frontier[index] = True
                 
                     self.stack[index] = True
+                    self.stack_size = self.stack_size + 1
 
         print("Total grid count: %d" %(grid_count))
 
@@ -205,8 +207,8 @@ class GoalPlanner():
             goal.pose.orientation.z = 0.0
             goal.pose.orientation.w = 1.0
 
-
             path = self.nav.navigator.getPath(start, goal)
+            print("WTF")
             fail = False
             if path is None:
                  fail=True
@@ -266,19 +268,22 @@ class GoalPlanner():
                                  p = 0
                             if(p < 0):
                                  p = self.mapH-1
+
+                            #for testing
+                            p = i
                             index = (p)*self.mapW + j 
                             
                             
                                 
                             
                             if self.hidden[index] == True and self.stack[index] == True:
-
+                                
                                 # check if global path to the goal is available	
                                 is_path_avail, poses_len = self.checkPath(i,j)
 
                                 if is_path_avail == False:
                                     continue
-                                
+
                                 if prev_pose == -1:
                                      prev_pose = poses_len
 
@@ -292,21 +297,22 @@ class GoalPlanner():
                                      amt = 0
                                 
                                 prev_pose = poses_len
-                                if (poses_len > lower_poses_len_thresh) and (poses_len < upper_poses_len_thresh):
-                                    self.goali = i
-                                    self.goalj = j
+                                if (poses_len > lower_poses_len_thresh) and (poses_len < upper_poses_len_thresh) and not self.visited[index]:
+                                    
+                                    self.goalX = p
+                                    self.goalY = j
 
-                                    print("hidden goal states: %d,%d" % (self.goali, self.goalj))
+                                    print("hidden goal states not backup: %d,%d" % (self.goalX, self.goalY))
                                     return True
                                 else:
                                     print(poses_len)
-                                    backup_i = i
+                                    backup_i = p
                                     backup_j = j
 
                     self.goalX = backup_i
                     self.goalY = backup_j
 
-                    print("hidden goal states: %d,%d" % (self.goali, self.goalj))
+                    print("hidden goal states backup: %d,%d" % (self.goalX, self.goalY))
                     return True
 
                 # check for frontier gaps
@@ -321,15 +327,15 @@ class GoalPlanner():
                 return False
 
     
-            
+    
     def updateStack(self):
         for i in range(self.mapH):
             for j in range(self.mapW):
                 idx = i*self.mapW+j
-                if(self.nav.map_grid_vals[idx] == 0 or self.nav.map_grid_vals[idx]):
+                if(self.nav.map_grid_vals[idx] == 0 or self.nav.map_grid_vals[idx] == 100) and self.stack[idx] == True :
                         self.removeFromStack(idx)
                 elif self.stack[idx] == True:
-                        if self.hidden(i, j) == True:
+                        if self.isHidden(i, j) == True:
                             self.hidden[idx] == True
                             self.frontier[idx] == False
                         else:
@@ -358,6 +364,7 @@ class GoalPlanner():
         self.hidden[index] = False
         self.frontier[index] = False
         self.stack[index] = False
+        self.stack_size = self.stack_size-1
 
     def rotate_nsec(self):
         self.nav.navigator.spin(spin_dist=1.57)
@@ -387,6 +394,15 @@ class GoalPlanner():
             # goal position reached
             if result == True:
 
+                # if self.visited[goalIndex] == True:
+                #     print("couldnt reach goal for second time; removing from stack: (%d,%d)" %(self.goalX, self.goalY))
+                #     self.removeFromStack(goalIndex)
+                #     self.removeFromStack(goalIndex+1)
+                #     self.removeFromStack(goalIndex-1)
+                #     self.removeFromStack(goalIndex+self.mapW)
+                #     self.removeFromStack(goalIndex-self.mapW)
+                #     self.moveToPrevGoal()			
+                #     return
                 self.prevGoalX = self.goalX
                 self.prevGoalY = self.goalY
 
@@ -394,10 +410,17 @@ class GoalPlanner():
                 if coverage == LOW and self.visited[goalIndex] == False:
                     # keep the goals to be explored in the end
                     print("marking visited since low coverage: (%d,%d)" %(self.goalX, self.goalY))
+                    
+                    ##additional check seeing if this is the last goal, then remove from stack
+                    print(self.stack_size)
+                    
+
+                    
                     self.visited[goalIndex] = True
                     self.hidden[goalIndex] = False
                     self.frontier[goalIndex] = True
                     self.stack[goalIndex] = True
+                    
                     return
                 # goal need not be explored again						
                 else:
